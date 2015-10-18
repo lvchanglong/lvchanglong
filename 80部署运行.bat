@@ -1,1 +1,0 @@
-grails prod -Dserver.port=80 run-war
