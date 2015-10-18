@@ -1,1 +1,0 @@
-grails dev -Dserver.port=80 run-app
