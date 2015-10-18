@@ -1,0 +1,10 @@
+<g:javascript>
+	jQuery("#ajaxForm").ajaxForm({
+		success:function(data,textStatus){
+			success(data,textStatus,'#console');
+		}, 
+		error:function(XMLHttpRequest,textStatus,errorThrown){
+			error(XMLHttpRequest,textStatus,errorThrown,'#console');
+		}
+	});
+</g:javascript>

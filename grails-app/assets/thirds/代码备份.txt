@@ -1,0 +1,33 @@
+<a href="javascript:void(0)" title="A" class="story btn btn-primary" id="Y">我同意</a>
+<a href="javascript:void(0)" title="A" class="story btn btn-primary" id="N">不同意</a>
+
+<div id="YX" class="none">
+	谢谢，谢谢啦...
+</div>
+
+<div id="NX" class="none">
+	讨厌啦...
+</div>
+
+-------------------------------------------------------------------------------------------------------------
+
+<div class="midTitle">
+	<div class="cont leftPointer">
+		Hello World!!!
+	</div>
+</div>
+
+<div class="col-md-12">
+	<div class="row">
+		<g:each in="${kongJianInstanceList}" status="i" var="kongJianInstance">
+			<div class="col-md-3 col-xs-3 mb10">
+				<g:link controller="public" action="showKongJian" id="${ kongJianInstance.id }" class="btn btn-default block colorGray" target="_blank">${ kongJianInstance.biaoTi }</g:link>
+			</div>
+		</g:each>
+	</div>
+</div>
+		
+def dangQianYongHu = null
+if(session.uid) {
+	dangQianYongHu = YongHu.get(session.uid)
+}		

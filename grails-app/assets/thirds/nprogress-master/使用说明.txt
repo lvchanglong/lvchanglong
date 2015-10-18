@@ -1,0 +1,11 @@
+<asset:stylesheet src="YinYong/nprogress-master/nprogress.css"/>
+<asset:javascript src="YinYong/nprogress-master/nprogress.js"/>
+
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		NProgress.start();
+	});
+	jQuery(window).load(function(){
+		NProgress.done();
+	});
+</script>

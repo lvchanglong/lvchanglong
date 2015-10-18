@@ -1,0 +1,129 @@
+---
+grails:
+    profile: web
+    codegen:
+        defaultPackage: lvchanglong
+info:
+    app:
+        name: '@info.app.name@'
+        version: '@info.app.version@'
+        grailsVersion: '@info.app.grailsVersion@'
+spring:
+    groovy:
+        template:
+            check-template-location: false
+
+---
+grails:
+    mime:
+        disable:
+            accept:
+                header:
+                    userAgents:
+                        - Gecko
+                        - WebKit
+                        - Presto
+                        - Trident
+        types:
+            all: '*/*'
+            atom: application/atom+xml
+            css: text/css
+            csv: text/csv
+            form: application/x-www-form-urlencoded
+            html:
+              - text/html
+              - application/xhtml+xml
+            js: text/javascript
+            json:
+              - application/json
+              - text/json
+            multipartForm: multipart/form-data
+            pdf: application/pdf
+            rss: application/rss+xml
+            text: text/plain
+            hal:
+              - application/hal+json
+              - application/hal+xml
+            xml:
+              - text/xml
+              - application/xml
+    urlmapping:
+        cache:
+            maxsize: 1000
+    controllers:
+        defaultScope: singleton
+    converters:
+        encoding: UTF-8
+    views:
+        default:
+            codec: html
+        gsp:
+            encoding: UTF-8
+            htmlcodec: xml
+            codecs:
+                expression: none
+                scriptlets: html
+                taglib: none
+                staticparts: none
+---
+hibernate:
+    cache:
+        queries: false
+        use_second_level_cache: true
+        use_query_cache: false
+        region.factory_class: 'org.hibernate.cache.ehcache.EhCacheRegionFactory'
+
+endpoints:
+    jmx:
+        unique-names: true
+
+dataSource:
+    pooled: true
+    jmxExport: true
+    driverClassName: 'com.mysql.jdbc.Driver'
+    username: 'root'
+    password: '123456'
+
+environments:
+    development:
+        dataSource:
+            dbCreate: update
+            url: 'jdbc:mysql://localhost/database?useUnicode=true&characterEncoding=utf8&autoReconnect=true'
+    test:
+        dataSource:
+            dbCreate: update
+            url: 'jdbc:mysql://localhost/database?useUnicode=true&characterEncoding=utf8&autoReconnect=true'
+    production:
+        dataSource:
+            dbCreate: update
+            url: 'jdbc:mysql://localhost/database?useUnicode=true&characterEncoding=utf8&autoReconnect=true'
+            properties:
+                jmxEnabled: true
+                initialSize: 5
+                maxActive: 50
+                minIdle: 5
+                maxIdle: 25
+                maxWait: 10000
+                maxAge: 600000
+                timeBetweenEvictionRunsMillis: 5000
+                minEvictableIdleTimeMillis: 60000
+                validationQuery: SELECT 1
+                validationQueryTimeout: 3
+                validationInterval: 15000
+                testOnBorrow: true
+                testWhileIdle: true
+                testOnReturn: false
+                jdbcInterceptors: ConnectionState
+                defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
+---
+application:
+    name: '&#x5415;&#x5E38;&#x9F99;'
+    code: '&#x8FBD;ICP&#x5907;14005125&#x53F7;'
+author:
+    name: '&#x5415;&#x5E38;&#x9F99;'
+    qq: '417891235'
+    email: '417891235@qq.com'
+    phone: '13478275273'
+html:
+    title:
+        suffix: '· &#x5415;&#x5E38;&#x9F99;'

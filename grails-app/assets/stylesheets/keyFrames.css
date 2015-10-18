@@ -1,0 +1,96 @@
+.leftToRight, .rightToLeft {
+	display:block;
+	position:absolute;
+}
+.leftToRight:hover {
+	animation:leftToRight 7s ease;
+	-moz-animation:leftToRight 7s ease; /* Firefox */
+	-webkit-animation:leftToRight 7s ease; /* Safari and Chrome */
+	-o-animation:leftToRight 7s ease; /* Opera */
+}
+.rightToLeft:hover {
+	animation:rightToLeft 7s ease;
+	-moz-animation:rightToLeft 7s ease; /* Firefox */
+	-webkit-animation:rightToLeft 7s ease; /* Safari and Chrome */
+	-o-animation:rightToLeft 7s ease; /* Opera */
+}
+
+/* 
+rightToLeft
+*/
+@keyframes rightToLeft
+{
+	0%  {
+		right:0px;
+	}
+	100% {
+		right:100%;
+	}
+}
+@-moz-keyframes rightToLeft /* Firefox */
+{
+	0%  {
+		right:0px;
+	}
+	100% {
+		right:100%;
+	}
+}
+@-webkit-keyframes rightToLeft /* Safari 和 Chrome */
+{
+	0%  {
+		right:0px;
+	}
+	100% {
+		right:100%;
+	}
+}
+@-o-keyframes rightToLeft /* Opera */
+{
+	0%  {
+		right:0px;
+	}
+	100% {
+		right:100%;
+	}
+}
+
+/* 
+leftToRight
+*/
+@keyframes leftToRight
+{
+	0%  {
+		left:0px;
+	}
+	100% {
+		left:100%;
+	}
+}
+@-moz-keyframes leftToRight /* Firefox */
+{
+	0%  {
+		left:0px;
+	}
+	100% {
+		left:100%;
+	}
+}
+@-webkit-keyframes leftToRight /* Safari 和 Chrome */
+{
+	0%  {
+		left:0px;
+	}
+	100% {
+		left:100%;
+	}
+}
+@-o-keyframes leftToRight /* Opera */
+{
+	0%  {
+		left:0px;
+	}
+	100% {
+		left:100%;
+	}
+}

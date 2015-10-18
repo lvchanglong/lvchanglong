@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)https://github.com/malsup/form/ -->
+<html lang="en" class=""><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    
+    
+    <title>malsup/form · GitHub</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="https://github.com/opensearch.xml" title="GitHub">
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://github.com/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://github.com/apple-touch-icon-144.png">
+    <meta property="fb:app_id" content="1401488693436528">
+
+      <meta content="@github" name="twitter:site"><meta content="summary" name="twitter:card"><meta content="malsup/form" name="twitter:title"><meta content="form - jQuery Form Plugin" name="twitter:description"><meta content="https://avatars3.githubusercontent.com/u/28185?v=3&amp;s=400" name="twitter:image:src">
+      <meta content="GitHub" property="og:site_name"><meta content="object" property="og:type"><meta content="https://avatars3.githubusercontent.com/u/28185?v=3&amp;s=400" property="og:image"><meta content="malsup/form" property="og:title"><meta content="https://github.com/malsup/form" property="og:url"><meta content="form - jQuery Form Plugin" property="og:description">
+      <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+    <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+    <link rel="assets" href="https://assets-cdn.github.com/">
+    
+    <meta name="pjax-timeout" content="1000">
+    
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="selected-link" value="repo_source" data-pjax-transient="">
+      <meta name="google-analytics" content="UA-3769691-2">
+
+    <meta content="collector.githubapp.com" name="octolytics-host"><meta content="collector-cdn.github.com" name="octolytics-script-host"><meta content="github" name="octolytics-app-id"><meta content="7777656A:1F57:28680F9:557BDA23" name="octolytics-dimension-request_id">
+    
+    <meta content="Rails, view, files#disambiguate" name="analytics-event">
+    <meta class="js-ga-set" name="dimension1" content="Logged Out">
+    <meta name="is-dotcom" content="true">
+      <meta name="hostname" content="github.com">
+    <meta name="user-login" content="">
+
+      <link rel="icon" sizes="any" mask="" href="https://assets-cdn.github.com/pinned-octocat.svg">
+      <meta name="theme-color" content="#4078c0">
+      <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
+
+    <meta content="authenticity_token" name="csrf-param">
+<meta content="BIQ4aWg2gKxZVgVKCRPfVoJVlHom/YVY8h3I9mbzUEkYLXg6dcAmbqaptpgezugeArWOviUUGdMKdastcLVGcg==" name="csrf-token">
+
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github/index-10789d1d56bfe8c960a6caf2954ab053c3fac748d581415395f986779781b4a7.css" media="all" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github2/index-8b4acc27f06d948d9a73d77849e0fe0b98d8636c85e2fe0e6c4b8762dec9fd3d.css" media="all" rel="stylesheet">
+    
+    
+
+
+    <meta http-equiv="x-pjax-version" content="62b85260d6deaadccdaa2c3c0e0b0c94">
+
+      
+  <meta name="description" content="form - jQuery Form Plugin">
+  <meta name="go-import" content="github.com/malsup/form git https://github.com/malsup/form.git">
+
+  <meta content="28185" name="octolytics-dimension-user_id"><meta content="malsup" name="octolytics-dimension-user_login"><meta content="114732" name="octolytics-dimension-repository_id"><meta content="malsup/form" name="octolytics-dimension-repository_nwo"><meta content="true" name="octolytics-dimension-repository_public"><meta content="false" name="octolytics-dimension-repository_is_fork"><meta content="114732" name="octolytics-dimension-repository_network_root_id"><meta content="malsup/form" name="octolytics-dimension-repository_network_root_nwo">
+  <link href="https://github.com/malsup/form/commits/master.atom" rel="alternate" title="Recent Commits to form:master" type="application/atom+xml">
+
+  <script type="text/javascript" async="" src="./malsup form · GitHub_files/api.js"></script></head>
+
+
+  <body class="logged_out  env-production windows vis-public">
+    <a href="https://github.com/malsup/form/#start-of-content" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
+    <div class="wrapper">
+      
+      
+      
+
+
+        
+        <div class="header header-logged-out" role="banner">
+  <div class="container clearfix">
+
+    <a class="header-logo-wordmark" href="https://github.com/" data-ga-click="(Logged out) Header, go to homepage, icon:logo-wordmark">
+      <span class="mega-octicon octicon-logo-github"></span>
+    </a>
+
+    <div class="header-actions" role="navigation">
+        <a class="btn btn-primary" href="https://github.com/join" data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up">Sign up</a>
+      <a class="btn" href="https://github.com/login?return_to=%2Fmalsup%2Fform" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in">Sign in</a>
+    </div>
+
+    <div class="site-search repo-scope js-site-search" role="search">
+      <form accept-charset="UTF-8" action="https://github.com/malsup/form/search" class="js-site-search-form" data-global-search-url="/search" data-repo-search-url="/malsup/form/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+  <label class="js-chromeless-input-container form-control">
+    <div class="scope-badge">This repository</div>
+    <input type="text" class="js-site-search-focus js-site-search-field is-clearable chromeless-input" data-hotkey="s" name="q" placeholder="Search" data-global-scope-placeholder="Search GitHub" data-repo-scope-placeholder="Search" tabindex="1" autocapitalize="off">
+  </label>
+</form>
+    </div>
+
+      <ul class="header-nav left" role="navigation">
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="https://github.com/explore" data-ga-click="(Logged out) Header, go to explore, text:explore">Explore</a>
+          </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="https://github.com/features" data-ga-click="(Logged out) Header, go to features, text:features">Features</a>
+          </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="https://enterprise.github.com/" data-ga-click="(Logged out) Header, go to enterprise, text:enterprise">Enterprise</a>
+          </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="https://github.com/blog" data-ga-click="(Logged out) Header, go to blog, text:blog">Blog</a>
+          </li>
+      </ul>
+
+  </div>
+</div>
+
+
+
+      <div id="start-of-content" class="accessibility-aid"></div>
+          <div class="site" itemscope="" itemtype="http://schema.org/WebPage">
+    <div id="js-flash-container">
+      
+    </div>
+    <div class="pagehead repohead instapaper_ignore readability-menu">
+      <div class="container">
+
+        
+<ul class="pagehead-actions">
+
+  <li>
+      <a href="https://github.com/login?return_to=%2Fmalsup%2Fform" class="btn btn-sm btn-with-count tooltipped tooltipped-n" aria-label="You must be signed in to watch a repository" rel="nofollow">
+    <span class="octicon octicon-eye"></span>
+    Watch
+  </a>
+  <a class="social-count" href="https://github.com/malsup/form/watchers">
+    225
+  </a>
+
+  </li>
+
+  <li>
+      <a href="https://github.com/login?return_to=%2Fmalsup%2Fform" class="btn btn-sm btn-with-count tooltipped tooltipped-n" aria-label="You must be signed in to star a repository" rel="nofollow">
+    <span class="octicon octicon-star"></span>
+    Star
+  </a>
+
+    <a class="social-count js-social-count" href="https://github.com/malsup/form/stargazers">
+      3,005
+    </a>
+
+  </li>
+
+    <li>
+      <a href="https://github.com/login?return_to=%2Fmalsup%2Fform" class="btn btn-sm btn-with-count tooltipped tooltipped-n" aria-label="You must be signed in to fork a repository" rel="nofollow">
+        <span class="octicon octicon-repo-forked"></span>
+        Fork
+      </a>
+      <a href="https://github.com/malsup/form/network" class="social-count">
+        866
+      </a>
+    </li>
+</ul>
+
+        <h1 itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
+          <span class="mega-octicon octicon-repo"></span>
+          <span class="author"><a href="https://github.com/malsup" class="url fn" itemprop="url" rel="author"><span itemprop="title">malsup</span></a></span><!--
+       --><span class="path-divider">/</span><!--
+       --><strong><a href="https://github.com/malsup/form" data-pjax="#js-repo-pjax-container">form</a></strong>
+
+          <span class="page-context-loader">
+            <img alt="" height="16" src="./malsup form · GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62ed8d05f25e731d02452ab6c.gif" width="16">
+          </span>
+
+        </h1>
+      </div><!-- /.container -->
+    </div><!-- /.repohead -->
+
+    <div class="container">
+      <div class="repository-with-sidebar repo-container new-discussion-timeline with-full-navigation">
+        <div class="repository-sidebar clearfix">
+            
+<nav class="sunken-menu repo-nav js-repo-nav js-sidenav-container-pjax js-octicon-loaders" role="navigation" data-pjax="#js-repo-pjax-container" data-issue-count-url="/malsup/form/issues/counts">
+  <ul class="sunken-menu-group">
+    <li class="tooltipped tooltipped-w" aria-label="Code">
+      <a href="https://github.com/malsup/form" aria-label="Code" class="selected js-selected-navigation-item sunken-menu-item" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /malsup/form">
+        <span class="octicon octicon-code"></span> <span class="full-word">Code</span>
+        <img alt="" class="mini-loader" height="16" src="./malsup form · GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62ed8d05f25e731d02452ab6c.gif" width="16">
+</a>    </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Issues">
+        <a href="https://github.com/malsup/form/issues" aria-label="Issues" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /malsup/form/issues">
+          <span class="octicon octicon-issue-opened"></span> <span class="full-word">Issues</span>
+          <span class="counter">166</span>
+
+          <img alt="" class="mini-loader" height="16" src="./malsup form · GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62ed8d05f25e731d02452ab6c.gif" width="16">
+</a>      </li>
+
+    <li class="tooltipped tooltipped-w" aria-label="Pull requests">
+      <a href="https://github.com/malsup/form/pulls" aria-label="Pull requests" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g p" data-selected-links="repo_pulls /malsup/form/pulls">
+          <span class="octicon octicon-git-pull-request"></span> <span class="full-word">Pull requests</span>
+          <span class="counter">29</span>
+
+          <img alt="" class="mini-loader" height="16" src="./malsup form · GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62ed8d05f25e731d02452ab6c.gif" width="16">
+</a>    </li>
+
+  </ul>
+  <div class="sunken-menu-separator"></div>
+  <ul class="sunken-menu-group">
+
+    <li class="tooltipped tooltipped-w" aria-label="Pulse">
+      <a href="https://github.com/malsup/form/pulse" aria-label="Pulse" class="js-selected-navigation-item sunken-menu-item" data-selected-links="pulse /malsup/form/pulse">
+        <span class="octicon octicon-pulse"></span> <span class="full-word">Pulse</span>
+        <img alt="" class="mini-loader" height="16" src="./malsup form · GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62ed8d05f25e731d02452ab6c.gif" width="16">
+</a>    </li>
+
+    <li class="tooltipped tooltipped-w" aria-label="Graphs">
+      <a href="https://github.com/malsup/form/graphs" aria-label="Graphs" class="js-selected-navigation-item sunken-menu-item" data-selected-links="repo_graphs repo_contributors /malsup/form/graphs">
+        <span class="octicon octicon-graph"></span> <span class="full-word">Graphs</span>
+        <img alt="" class="mini-loader" height="16" src="./malsup form · GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62ed8d05f25e731d02452ab6c.gif" width="16">
+</a>    </li>
+  </ul>
+
+
+</nav>
+
+              <div class="only-with-full-nav">
+                  
+<div class="js-clone-url clone-url open" data-protocol-type="http">
+  <h3><span class="text-emphasized">HTTPS</span> clone URL</h3>
+  <div class="input-group js-zeroclipboard-container">
+    <input type="text" class="input-mini input-monospace js-url-field js-zeroclipboard-target" value="https://github.com/malsup/form.git" readonly="readonly">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard btn btn-sm zeroclipboard-button tooltipped tooltipped-s" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+  
+<div class="js-clone-url clone-url " data-protocol-type="subversion">
+  <h3><span class="text-emphasized">Subversion</span> checkout URL</h3>
+  <div class="input-group js-zeroclipboard-container">
+    <input type="text" class="input-mini input-monospace js-url-field js-zeroclipboard-target" value="https://github.com/malsup/form" readonly="readonly">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard btn btn-sm zeroclipboard-button tooltipped tooltipped-s" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+
+
+<div class="clone-options">You can clone with
+  <form accept-charset="UTF-8" action="https://github.com/users/set_protocol?protocol_selector=http&protocol_type=clone" class="inline-form js-clone-selector-form " data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="0/cNkt8lSZZhGHEfWlOjQeLTo18iOV2DyrNi5HL0kAMgsfdDsvs257MNU3yv3GZI1Z8e/KGjJdg2NLwBUVlogw=="></div><button class="btn-link js-clone-selector" data-protocol="http" type="submit">HTTPS</button></form> or <form accept-charset="UTF-8" action="https://github.com/users/set_protocol?protocol_selector=subversion&protocol_type=clone" class="inline-form js-clone-selector-form " data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="UFsiaIYgLGjBBh+bSC7aR61iMy9JRxHsYmXCM5RPnZ2GVNdpoQUTnJbZnUmo++JqGXiozpfX5mJvbTLumwSzaw=="></div><button class="btn-link js-clone-selector" data-protocol="subversion" type="submit">Subversion</button></form>.
+  <a href="https://help.github.com/articles/which-remote-url-should-i-use" class="help tooltipped tooltipped-n" aria-label="Get help on which URL is right for you.">
+    <span class="octicon octicon-question"></span>
+  </a>
+</div>
+
+
+  <a href="https://windows.github.com/" class="btn btn-sm sidebar-button" title="Save malsup/form to your computer and use it in GitHub Desktop." aria-label="Save malsup/form to your computer and use it in GitHub Desktop.">
+    <span class="octicon octicon-device-desktop"></span>
+    Clone in Desktop
+  </a>
+
+
+                <a href="https://github.com/malsup/form/archive/master.zip" class="btn btn-sm sidebar-button" aria-label="Download the contents of malsup/form as a zip file" title="Download the contents of malsup/form as a zip file" rel="nofollow">
+                  <span class="octicon octicon-cloud-download"></span>
+                  Download ZIP
+                </a>
+              </div>
+        </div><!-- /.repository-sidebar -->
+
+        <div id="js-repo-pjax-container" class="repository-content context-loader-container" data-pjax-container="">
+
+          
+<span id="js-show-full-navigation"></span>
+
+<div class="repository-meta js-details-container ">
+    <div class="repository-description">
+      jQuery Form Plugin
+    </div>
+
+    <div class="repository-website">
+      <p><a href="http://jquery.malsup.com/form/" rel="nofollow">http://jquery.malsup.com/form/</a></p>
+    </div>
+
+
+</div>
+
+<div class="overall-summary overall-summary-bottomless">
+
+  <div class="stats-switcher-viewport js-stats-switcher-viewport">
+    <div class="stats-switcher-wrapper">
+    <ul class="numbers-summary">
+      <li class="commits">
+        <a data-pjax="" href="https://github.com/malsup/form/commits/master">
+            <span class="octicon octicon-history"></span>
+            <span class="num text-emphasized">
+              212
+            </span>
+            commits
+        </a>
+      </li>
+      <li>
+        <a data-pjax="" href="https://github.com/malsup/form/branches">
+          <span class="octicon octicon-git-branch"></span>
+          <span class="num text-emphasized">
+            1
+          </span>
+          branch
+        </a>
+      </li>
+
+      <li>
+        <a data-pjax="" href="https://github.com/malsup/form/releases">
+          <span class="octicon octicon-tag"></span>
+          <span class="num text-emphasized">
+            10
+          </span>
+          releases
+        </a>
+      </li>
+
+      <li>
+        
+  <a href="https://github.com/malsup/form/graphs/contributors">
+    <span class="octicon octicon-organization"></span>
+    <span class="num text-emphasized">
+      23
+    </span>
+    contributors
+  </a>
+      </li>
+    </ul>
+
+      <div class="repository-lang-stats">
+        <ol class="repository-lang-stats-numbers">
+          <li>
+              <a href="https://github.com/malsup/form/search?l=javascript">
+                <span class="color-block language-color" style="background-color:#f1e05a;"></span>
+                <span class="lang">JavaScript</span>
+                <span class="percent">100.0%</span>
+              </a>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+  <div class="repository-lang-stats-graph js-toggle-lang-stats" title="Click for language details">
+    <span class="language-color" aria-label="JavaScript 100.0%" style="width:100.0%; background-color:#f1e05a;" itemprop="keywords">JavaScript</span>
+  </div>
+
+
+
+<div class="file-navigation in-mid-page">
+  <a href="https://github.com/malsup/form/find/master" class="js-show-file-finder btn btn-sm empty-icon tooltipped tooltipped-s right" data-pjax="" data-hotkey="t" aria-label="Quickly jump between files">
+    <span class="octicon octicon-list-unordered"></span>
+  </a>
+    <a href="https://github.com/malsup/form/compare" aria-label="Compare, review, create a pull request" class="btn btn-sm btn-primary tooltipped tooltipped-se left compare-button" data-pjax="" data-ga-click="Repository, go to compare view, location:repo overview; icon:git-compare">
+      <span class="octicon octicon-git-compare"></span>
+    </a>
+
+  
+<div class="select-menu js-menu-container js-select-menu left">
+  <span class="btn btn-sm select-menu-button js-menu-target css-truncate" data-hotkey="w" data-ref="master" title="master" role="button" aria-label="Switch branches or tags" tabindex="0" aria-haspopup="true">
+    <span class="octicon octicon-git-branch"></span>
+    <i>branch:</i>
+    <span class="js-select-button css-truncate-target">master</span>
+  </span>
+
+  <div class="select-menu-modal-holder js-menu-content js-navigation-container" data-pjax="" aria-hidden="true">
+
+    <div class="select-menu-modal">
+      <div class="select-menu-header">
+        <span class="select-menu-title">Switch branches/tags</span>
+        <span class="octicon octicon-x js-menu-close" role="button" aria-label="Close"></span>
+      </div>
+
+      <div class="select-menu-filters">
+        <div class="select-menu-text-filter">
+          <input type="text" aria-label="Filter branches/tags" id="context-commitish-filter-field" class="js-filterable-field js-navigation-enable" placeholder="Filter branches/tags">
+        </div>
+        <div class="select-menu-tabs">
+          <ul>
+            <li class="select-menu-tab">
+              <a href="https://github.com/malsup/form/#" data-tab-filter="branches" data-filter-placeholder="Filter branches/tags" class="js-select-menu-tab">Branches</a>
+            </li>
+            <li class="select-menu-tab">
+              <a href="https://github.com/malsup/form/#" data-tab-filter="tags" data-filter-placeholder="Find a tag…" class="js-select-menu-tab">Tags</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="branches">
+
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+            <a class="select-menu-item js-navigation-item js-navigation-open selected" href="https://github.com/malsup/form/tree/master" data-name="master" data-skip-pjax="true" rel="nofollow">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <span class="select-menu-item-text css-truncate-target" title="master">
+                master
+              </span>
+            </a>
+        </div>
+
+          <div class="select-menu-no-results">Nothing to show</div>
+      </div>
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/malsup/form/tree/v3.19" data-name="v3.19" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="v3.19">v3.19</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/malsup/form/tree/3.51" data-name="3.51" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="3.51">3.51</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/malsup/form/tree/3.50" data-name="3.50" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="3.50">3.50</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/malsup/form/tree/3.49" data-name="3.49" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="3.49">3.49</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/malsup/form/tree/3.46.0" data-name="3.46.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="3.46.0">3.46.0</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/malsup/form/tree/3.45.0" data-name="3.45.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="3.45.0">3.45.0</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/malsup/form/tree/3.37.0" data-name="3.37.0" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="3.37.0">3.37.0</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/malsup/form/tree/3.36" data-name="3.36" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="3.36">3.36</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/malsup/form/tree/3.32.0-2013.04.09" data-name="3.32.0-2013.04.09" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="3.32.0-2013.04.09">3.32.0-2013.04.09</a>
+            </div>
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/malsup/form/tree/3.25.0-2013.01.18" data-name="3.25.0-2013.01.18" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="3.25.0-2013.01.18">3.25.0-2013.01.18</a>
+            </div>
+        </div>
+
+        <div class="select-menu-no-results">Nothing to show</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="breadcrumb"><span class="repo-root js-repo-root"><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="https://github.com/malsup/form" class="" data-branch="master" data-pjax="true" itemscope="url"><span itemprop="title">form</span></a></span></span><span class="separator">/</span>
+    <a class="btn-link disabled tooltipped tooltipped-e" href="https://github.com/malsup/form/#" aria-label="You must be signed in to make or propose changes">
+      <span class="octicon octicon-plus"></span>
+    </a>
+</div>
+</div>
+
+
+
+  
+  <div class="commit commit-tease js-details-container">
+    <p class="commit-title ">
+        <a href="https://github.com/malsup/form/pull/427" class="issue-link" title="Update CDN path to reflect new tag version format">#427</a><a href="https://github.com/malsup/form/commit/6bf24a5f6d8be65f4e5491863180c09356d9dadd" class="message" data-pjax="true" title="#427; update readme">; update readme</a>
+        
+    </p>
+    <div class="commit-meta">
+      <button aria-label="Copy SHA" class="js-zeroclipboard zeroclipboard-link tooltipped tooltipped-s" data-clipboard-text="6bf24a5f6d8be65f4e5491863180c09356d9dadd" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+      <a href="https://github.com/malsup/form/commit/6bf24a5f6d8be65f4e5491863180c09356d9dadd" class="sha-block" data-pjax="">latest commit <span class="sha">6bf24a5f6d</span></a>
+
+      <div class="authorship">
+        <img alt="@malsup" class="avatar" data-user="28185" height="20" src="./malsup form · GitHub_files/28185" width="20">
+        <span class="author-name"><a href="https://github.com/malsup" rel="author">malsup</a></span>
+        authored <time class="updated" datetime="2014-09-03T01:10:13Z" is="relative-time" title="2014年9月3日 上午9:10 中国 (上海)">on 3 Sep 2014</time>
+
+      </div>
+    </div>
+  </div>
+
+  
+<div class="file-wrap">
+  <a href="https://github.com/malsup/form/tree/6bf24a5f6d8be65f4e5491863180c09356d9dadd" class="hidden js-permalink-shortcut" data-hotkey="y">Permalink</a>
+
+  <table class="files" data-pjax="">
+
+
+    <tbody>
+      <tr class="warning include-fragment-error">
+        <td class="icon"><span class="octicon octicon-alert"></span></td>
+        <td class="content" colspan="3">Failed to load latest commit information.</td>
+      </tr>
+
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="./malsup form · GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62ed8d05f25e731d02452ab6c.gif" width="16">
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="https://github.com/malsup/form/blob/master/README.md" class="js-directory-link" id="04c6e90faac2675aa89e2176d2eec7d8-52a6fc924539ab067625d558ccaea08f7743f9a2" title="README.md">README.md</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="https://github.com/malsup/form/commit/351c9397112d74011ee72967768edcc1972777e6" class="message" data-pjax="true" title="Update CDN path to reflect new tag version format
+
+the CDN version directory now seems to be major.minor (without patch level .0)" se_prerender_url="complete">Update CDN path to reflect new tag version format</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2014-07-21T21:12:21Z" is="time-ago" title="2014年7月22日 上午5:12 中国 (上海)">11 months ago</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="./malsup form · GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62ed8d05f25e731d02452ab6c.gif" width="16">
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="https://github.com/malsup/form/blob/master/bower.json" class="js-directory-link" id="0a08a7565aba4405282251491979bb6b-5e487e4cf6fb37a18b7ab12daa17478f775a9e23" title="bower.json">bower.json</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="https://github.com/malsup/form/pull/419" class="issue-link" title="Fix selectors with dotted-path form id&#39;s with jQuery 1.9">#419</a><a href="https://github.com/malsup/form/commit/0f12213f87e4fd53ae4ce14954e0cd346da7d809" class="message" data-pjax="true" title="#419; fix for dotted path form ids (@thet)
+version bump
+whitespace/tab fixes">; fix for dotted path form ids (</a><a href="https://github.com/thet" class="user-mention">@thet</a><a href="https://github.com/malsup/form/commit/0f12213f87e4fd53ae4ce14954e0cd346da7d809" class="message" data-pjax="true" title="#419; fix for dotted path form ids (@thet)
+version bump
+whitespace/tab fixes">)</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2014-06-21T02:49:58Z" is="time-ago" title="2014年6月21日 上午10:49 中国 (上海)">a year ago</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="./malsup form · GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62ed8d05f25e731d02452ab6c.gif" width="16">
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="https://github.com/malsup/form/blob/master/composer.json" class="js-directory-link" id="b5d0ee8c97c7abd7e3fa29b9a27d1780-2137c1bd15bfb37c5ef8bf2dea34a11a2b349166" title="composer.json">composer.json</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="https://github.com/malsup/form/commit/c1a688e0ab318b346e8e02fa096ac04ee17e26e3" class="message" data-pjax="true" title="Add Composer component details">Add Composer component details</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2013-04-05T19:56:31Z" is="time-ago" title="2013年4月6日 上午3:56 中国 (上海)">2 years ago</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="./malsup form · GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62ed8d05f25e731d02452ab6c.gif" width="16">
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="https://github.com/malsup/form/blob/master/form.jquery.json" class="js-directory-link" id="3828e0c9e9afb4d2dfdf0c5e030054a4-daafa1e10ee7b6fd53c5ed2b024aba7519f412b5" title="form.jquery.json">form.jquery.json</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="https://github.com/malsup/form/pull/419" class="issue-link" title="Fix selectors with dotted-path form id&#39;s with jQuery 1.9">#419</a><a href="https://github.com/malsup/form/commit/0f12213f87e4fd53ae4ce14954e0cd346da7d809" class="message" data-pjax="true" title="#419; fix for dotted path form ids (@thet)
+version bump
+whitespace/tab fixes">; fix for dotted path form ids (</a><a href="https://github.com/thet" class="user-mention">@thet</a><a href="https://github.com/malsup/form/commit/0f12213f87e4fd53ae4ce14954e0cd346da7d809" class="message" data-pjax="true" title="#419; fix for dotted path form ids (@thet)
+version bump
+whitespace/tab fixes">)</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2014-06-21T02:49:58Z" is="time-ago" title="2014年6月21日 上午10:49 中国 (上海)">a year ago</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="./malsup form · GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62ed8d05f25e731d02452ab6c.gif" width="16">
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="https://github.com/malsup/form/blob/master/gulpfile.js" class="js-directory-link" id="b9e12334e9eafd8341a6107dd98510c9-863c8d3dd5f8524b8f7dfeea0c1b5d2bd3441062" title="gulpfile.js">gulpfile.js</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="https://github.com/malsup/form/commit/45a0eb93fe2b8ee819a11e5df5cdb4ca64884b2f" class="message" data-pjax="true" title="Switch to gulp build (just for fun).">Switch to gulp build (just for fun).</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2014-02-22T02:01:41Z" is="time-ago" title="2014年2月22日 上午10:01 中国 (上海)">a year ago</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="./malsup form · GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62ed8d05f25e731d02452ab6c.gif" width="16">
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="https://github.com/malsup/form/blob/master/jquery.form.js" class="js-directory-link" id="d4883ec540718940a69b40787716c501-591ad6f1fe7b5a436387870822f7e0189989cab7" title="jquery.form.js">jquery.form.js</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="https://github.com/malsup/form/pull/419" class="issue-link" title="Fix selectors with dotted-path form id&#39;s with jQuery 1.9">#419</a><a href="https://github.com/malsup/form/commit/0f12213f87e4fd53ae4ce14954e0cd346da7d809" class="message" data-pjax="true" title="#419; fix for dotted path form ids (@thet)
+version bump
+whitespace/tab fixes">; fix for dotted path form ids (</a><a href="https://github.com/thet" class="user-mention">@thet</a><a href="https://github.com/malsup/form/commit/0f12213f87e4fd53ae4ce14954e0cd346da7d809" class="message" data-pjax="true" title="#419; fix for dotted path form ids (@thet)
+version bump
+whitespace/tab fixes">)</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2014-06-21T02:49:58Z" is="time-ago" title="2014年6月21日 上午10:49 中国 (上海)">a year ago</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" height="16" src="./malsup form · GitHub_files/octocat-spinner-32-e513294efa576953719e4e2de888dd9cf929b7d62ed8d05f25e731d02452ab6c.gif" width="16">
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="https://github.com/malsup/form/blob/master/package.json" class="js-directory-link" id="b9cfc7f2cdf78a7f4b91a753d10865a2-a7355869519cb2816df5bd8b566a7e4839cceadd" title="package.json">package.json</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="https://github.com/malsup/form/pull/419" class="issue-link" title="Fix selectors with dotted-path form id&#39;s with jQuery 1.9">#419</a><a href="https://github.com/malsup/form/commit/0f12213f87e4fd53ae4ce14954e0cd346da7d809" class="message" data-pjax="true" title="#419; fix for dotted path form ids (@thet)
+version bump
+whitespace/tab fixes">; fix for dotted path form ids (</a><a href="https://github.com/thet" class="user-mention">@thet</a><a href="https://github.com/malsup/form/commit/0f12213f87e4fd53ae4ce14954e0cd346da7d809" class="message" data-pjax="true" title="#419; fix for dotted path form ids (@thet)
+version bump
+whitespace/tab fixes">)</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time datetime="2014-06-21T02:49:58Z" is="time-ago" title="2014年6月21日 上午10:49 中国 (上海)">a year ago</time></span>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+  <div id="readme" class="boxed-group flush clearfix announce instapaper_body md">
+    <h3>
+      <span class="octicon octicon-book"></span>
+      README.md
+    </h3>
+
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1><a id="user-content-jquery-form-plugin" class="anchor" href="https://github.com/malsup/form/#jquery-form-plugin" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="http://jquery.malsup.com/form/" se_prerender_url="complete">jQuery Form Plugin</a></h1>
+
+<h2><a id="user-content-overview" class="anchor" href="https://github.com/malsup/form/#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<p>The jQuery Form Plugin allows you to easily and unobtrusively upgrade HTML forms to use AJAX.  The main methods, ajaxForm and ajaxSubmit, gather information from the form element to determine how to manage the submit process. Both of these methods support numerous options which allows you to have full control over how the data is submitted. </p>
+
+<p>No special markup is needed, just a normal form.  Submitting a form with AJAX doesn't get any easier than this!</p>
+
+<hr>
+
+<h2><a id="user-content-api" class="anchor" href="https://github.com/malsup/form/#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h2>
+
+<h3><a id="user-content-jqxhr" class="anchor" href="https://github.com/malsup/form/#jqxhr" aria-hidden="true"><span class="octicon octicon-link"></span></a>jqXHR</h3>
+
+<p>The jqXHR object is stored in element <em>data</em>-cache with the <code>jqxhr</code> key after each <code>ajaxSubmit</code>
+call.  It can be accessed like this:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> form <span class="pl-k">=</span> $(<span class="pl-s"><span class="pl-pds">'</span>#myForm<span class="pl-pds">'</span></span>).ajaxSubmit({ <span class="pl-c">/* options */</span> });
+<span class="pl-k">var</span> xhr <span class="pl-k">=</span> form.<span class="pl-c1">data</span>(<span class="pl-s"><span class="pl-pds">'</span>jqxhr<span class="pl-pds">'</span></span>);
+
+xhr.done(<span class="pl-k">function</span>() {
+...
+});</pre></div>
+
+<h3><a id="user-content-ajaxform-options-" class="anchor" href="https://github.com/malsup/form/#ajaxform-options-" aria-hidden="true"><span class="octicon octicon-link"></span></a>ajaxForm( options )</h3>
+
+<p>Prepares a form to be submitted via AJAX by adding all of the necessary event listeners. It does <strong>not</strong> submit the form. Use <code>ajaxForm</code> in your document's <code>ready</code> function to prepare existing forms for AJAX submission, or with the <code>delegation</code> option to handle forms not yet added to the DOM.<br>
+Use ajaxForm when you want the plugin to manage all the event binding for you.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// prepare all forms for ajax submission</span>
+$(<span class="pl-s"><span class="pl-pds">'</span>form<span class="pl-pds">'</span></span>).ajaxForm({
+    target<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>#myResultsDiv<span class="pl-pds">'</span></span>
+});</pre></div>
+
+<h3><a id="user-content-ajaxsubmit-options-" class="anchor" href="https://github.com/malsup/form/#ajaxsubmit-options-" aria-hidden="true"><span class="octicon octicon-link"></span></a>ajaxSubmit( options )</h3>
+
+<p>Immediately submits the form via AJAX. In the most common use case this is invoked in response to the user clicking a submit button on the form. 
+Use ajaxSubmit if you want to bind your own submit handler to the form.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// bind submit handler to form</span>
+$(<span class="pl-s"><span class="pl-pds">'</span>form<span class="pl-pds">'</span></span>).on(<span class="pl-s"><span class="pl-pds">'</span>submit<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">e</span>) {
+    e.preventDefault(); <span class="pl-c">// prevent native submit</span>
+    $(<span class="pl-v">this</span>).ajaxSubmit({
+        target<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>myResultsDiv<span class="pl-pds">'</span></span>
+    })
+});</pre></div>
+
+<hr>
+
+<h2><a id="user-content-options" class="anchor" href="https://github.com/malsup/form/#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h2>
+
+<p>Note: all standard <a href="http://api.jquery.com/jQuery.ajax">$.ajax</a> options can be used.</p>
+
+<h3><a id="user-content-beforeserialize" class="anchor" href="https://github.com/malsup/form/#beforeserialize" aria-hidden="true"><span class="octicon octicon-link"></span></a>beforeSerialize</h3>
+
+<p>Callback function invoked prior to form serialization.  Provides an opportunity to manipulate the form before its values are retrieved.  Returning <code>false</code> from the callback will prevent the form from being submitted.  The callback is invoked with two arguments: the jQuery wrapped form object and the options object.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-en">beforeSerialize</span>: <span class="pl-k">function</span>(<span class="pl-smi">$form</span>, <span class="pl-smi">options</span>) { 
+    <span class="pl-c">// return false to cancel submit                  </span>
+}</pre></div>
+
+<h3><a id="user-content-beforesubmit" class="anchor" href="https://github.com/malsup/form/#beforesubmit" aria-hidden="true"><span class="octicon octicon-link"></span></a>beforeSubmit</h3>
+
+<p>Callback function invoked prior to form submission.  This provides an opportunity to manipulate the form before it's values are retrieved.  Returning <code>false</code> from the callback will prevent the form from being submitted.  The callback is invoked with three arguments: the form data in array format, the jQuery wrapped form object, and the options Oobject.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-en">beforeSubmit</span>: <span class="pl-k">function</span>(<span class="pl-smi">arr</span>, <span class="pl-smi">$form</span>, <span class="pl-smi">options</span>) { 
+    <span class="pl-c">// form data array is an array of objects with name and value properties</span>
+    <span class="pl-c">// [ { name: 'username', value: 'jresig' }, { name: 'password', value: 'secret' } ] </span>
+    <span class="pl-c">// return false to cancel submit                  </span>
+}</pre></div>
+
+<h3><a id="user-content-clearform" class="anchor" href="https://github.com/malsup/form/#clearform" aria-hidden="true"><span class="octicon octicon-link"></span></a>clearForm</h3>
+
+<p>Boolean flag indicating whether the form should be cleared if the submit is successful</p>
+
+<h3><a id="user-content-data" class="anchor" href="https://github.com/malsup/form/#data" aria-hidden="true"><span class="octicon octicon-link"></span></a>data</h3>
+
+<p>An object containing extra data that should be submitted along with the form.</p>
+
+<div class="highlight highlight-javascript"><pre>data<span class="pl-k">:</span> { key1<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>value1<span class="pl-pds">'</span></span>, key2<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>value2<span class="pl-pds">'</span></span> }</pre></div>
+
+<h3><a id="user-content-datatype" class="anchor" href="https://github.com/malsup/form/#datatype" aria-hidden="true"><span class="octicon octicon-link"></span></a>dataType</h3>
+
+<p>Expected data type of the response. One of: null, 'xml', 'script', or 'json'. The dataType option provides a means for specifying how the server response should be handled. This maps directly to jQuery's dataType method. The following values are supported:</p>
+
+<ul>
+<li>'xml': server response is treated as XML and the 'success' callback method, if specified, will be passed the responseXML value</li>
+<li>'json': server response will be evaluted and passed to the 'success' callback, if specified</li>
+<li>'script': server response is evaluated in the global context</li>
+</ul>
+
+<h3><a id="user-content-delegation" class="anchor" href="https://github.com/malsup/form/#delegation" aria-hidden="true"><span class="octicon octicon-link"></span></a>delegation</h3>
+
+<p>true to enable support for event delegation
+<em>requires jQuery v1.7+</em></p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// prepare all existing and future forms for ajax submission</span>
+$(<span class="pl-s"><span class="pl-pds">'</span>form<span class="pl-pds">'</span></span>).ajaxForm({
+    delegation<span class="pl-k">:</span> <span class="pl-c1">true</span>
+});</pre></div>
+
+<h3><a id="user-content-error" class="anchor" href="https://github.com/malsup/form/#error" aria-hidden="true"><span class="octicon octicon-link"></span></a>error</h3>
+
+<p>Callback function to be invoked upon error.</p>
+
+<h3><a id="user-content-forcesync" class="anchor" href="https://github.com/malsup/form/#forcesync" aria-hidden="true"><span class="octicon octicon-link"></span></a>forceSync</h3>
+
+<p>Only applicable when explicity using the iframe option or when uploading files on browses that don't support XHR2.
+Set to <code>true</code> to remove the short delay before posting form when uploading files. The delay is used to allow the browser to render DOM updates prior to performing a native form submit. This improves usability when displaying notifications to the user, such as "Please Wait..." </p>
+
+<h3><a id="user-content-iframe" class="anchor" href="https://github.com/malsup/form/#iframe" aria-hidden="true"><span class="octicon octicon-link"></span></a>iframe</h3>
+
+<p>Boolean flag indicating whether the form should <em>always</em> target the server response to an iframe instead of leveraging XHR when possible.</p>
+
+<h3><a id="user-content-iframesrc" class="anchor" href="https://github.com/malsup/form/#iframesrc" aria-hidden="true"><span class="octicon octicon-link"></span></a>iframeSrc</h3>
+
+<p>String value that should be used for the iframe's src attribute when/if an iframe is used.</p>
+
+<h3><a id="user-content-iframetarget" class="anchor" href="https://github.com/malsup/form/#iframetarget" aria-hidden="true"><span class="octicon octicon-link"></span></a>iframeTarget</h3>
+
+<p>Identifies the iframe element to be used as the response target for file uploads. By default, the plugin will create a temporary iframe element to capture the response when uploading files. This options allows you to use an existing iframe if you wish. When using this option the plugin will make no attempt at handling the response from the server.</p>
+
+<h3><a id="user-content-replacetarget" class="anchor" href="https://github.com/malsup/form/#replacetarget" aria-hidden="true"><span class="octicon octicon-link"></span></a>replaceTarget</h3>
+
+<p>Optionally used along with the the target option. Set to true if the target should be replaced or false if only the target contents should be replaced. </p>
+
+<h3><a id="user-content-resetform" class="anchor" href="https://github.com/malsup/form/#resetform" aria-hidden="true"><span class="octicon octicon-link"></span></a>resetForm</h3>
+
+<p>Boolean flag indicating whether the form should be reset if the submit is successful</p>
+
+<h3><a id="user-content-semantic" class="anchor" href="https://github.com/malsup/form/#semantic" aria-hidden="true"><span class="octicon octicon-link"></span></a>semantic</h3>
+
+<p>Boolean flag indicating whether data must be submitted in strict semantic order (slower). Note that the normal form serialization is done in semantic order with the exception of input elements of <code>type="image"</code>. You should only set the semantic option to true if your server has strict semantic requirements and your form contains an input element of <code>type="image"</code>.</p>
+
+<h3><a id="user-content-success" class="anchor" href="https://github.com/malsup/form/#success" aria-hidden="true"><span class="octicon octicon-link"></span></a>success</h3>
+
+<p>Callback function to be invoked after the form has been submitted. If a <code>success</code> callback function is provided it is invoked after the response has been returned from the server.  It is passed the following arguments:</p>
+
+<ol>
+<li>responseText or responseXML value (depending on the value of the dataType option).</li>
+<li>statusText</li>
+<li>xhr (or the jQuery-wrapped form element if using jQuery &lt; 1.4)</li>
+<li>jQuery-wrapped form element (or undefined if using jQuery &lt; 1.4)</li>
+</ol>
+
+<h3><a id="user-content-target" class="anchor" href="https://github.com/malsup/form/#target" aria-hidden="true"><span class="octicon octicon-link"></span></a>target</h3>
+
+<p>Identifies the element(s) in the page to be updated with the server response. This value may be specified as a jQuery selection string, a jQuery object, or a DOM element.</p>
+
+<h3><a id="user-content-type" class="anchor" href="https://github.com/malsup/form/#type" aria-hidden="true"><span class="octicon octicon-link"></span></a>type</h3>
+
+<p>The method in which the form data should be submitted, 'GET' or 'POST'.</p>
+
+<h3><a id="user-content-uploadprogress" class="anchor" href="https://github.com/malsup/form/#uploadprogress" aria-hidden="true"><span class="octicon octicon-link"></span></a>uploadProgress</h3>
+
+<p>Callback function to be invoked with upload progress information (if supported by the browser). The callback is passed the following arguments:</p>
+
+<ol>
+<li>event; the browser event</li>
+<li>position (integer)</li>
+<li>total (integer)</li>
+<li>percentComplete (integer)</li>
+</ol>
+
+<h3><a id="user-content-url" class="anchor" href="https://github.com/malsup/form/#url" aria-hidden="true"><span class="octicon octicon-link"></span></a>url</h3>
+
+<p>URL to which the form data will be submitted.</p>
+
+<hr>
+
+<h2><a id="user-content-utility-methods" class="anchor" href="https://github.com/malsup/form/#utility-methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Utility Methods</h2>
+
+<h3><a id="user-content-formserialize" class="anchor" href="https://github.com/malsup/form/#formserialize" aria-hidden="true"><span class="octicon octicon-link"></span></a>formSerialize</h3>
+
+<p>Serializes the form into a query string. This method will return a string in the format: <code>name1=value1&amp;name2=value2</code></p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> queryString <span class="pl-k">=</span> $(<span class="pl-s"><span class="pl-pds">'</span>#myFormId<span class="pl-pds">'</span></span>).formSerialize();</pre></div>
+
+<h3><a id="user-content-fieldserialize" class="anchor" href="https://github.com/malsup/form/#fieldserialize" aria-hidden="true"><span class="octicon octicon-link"></span></a>fieldSerialize</h3>
+
+<p>Serializes field elements into a query string. This is handy when you need to serialize only part of a form. This method will return a string in the format: <code>name1=value1&amp;name2=value2</code></p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> queryString <span class="pl-k">=</span> $(<span class="pl-s"><span class="pl-pds">'</span>#myFormId .specialFields<span class="pl-pds">'</span></span>).fieldSerialize();</pre></div>
+
+<h3><a id="user-content-fieldvalue" class="anchor" href="https://github.com/malsup/form/#fieldvalue" aria-hidden="true"><span class="octicon octicon-link"></span></a>fieldValue</h3>
+
+<p>Returns the value(s) of the element(s) in the matched set in an array.  This method always returns an array.  If no valid value can be determined the array will be empty, otherwise it will contain one or more values.</p>
+
+<h3><a id="user-content-resetform-1" class="anchor" href="https://github.com/malsup/form/#resetform-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>resetForm</h3>
+
+<p>Resets the form to its original state by invoking the form element's native DOM method.</p>
+
+<h3><a id="user-content-clearform-1" class="anchor" href="https://github.com/malsup/form/#clearform-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>clearForm</h3>
+
+<p>Clears the form elements. This method emptys all of the text inputs, password inputs and textarea elements, clears the selection in any select elements, and unchecks all radio and checkbox inputs.  It does <em>not</em> clear hidden field values.</p>
+
+<h3><a id="user-content-clearfields" class="anchor" href="https://github.com/malsup/form/#clearfields" aria-hidden="true"><span class="octicon octicon-link"></span></a>clearFields</h3>
+
+<p>Clears selected field elements. This is handy when you need to clear only a part of the form.</p>
+
+<hr>
+
+<h2><a id="user-content-file-uploads" class="anchor" href="https://github.com/malsup/form/#file-uploads" aria-hidden="true"><span class="octicon octicon-link"></span></a>File Uploads</h2>
+
+<p>The Form Plugin supports use of XMLHttpRequest Level 2 and <a href="https://developer.mozilla.org/en/XMLHttpRequest/FormData">FormData</a> objects on browsers that support these features.  As of today (March 2012) that includes Chrome, Safari, and Firefox.  On these browsers (and future Opera and IE10) files uploads will occur seamlessly through the XHR object and progress updates are available as the upload proceeds.  For older browsers, a fallback technology is used which involves iframes.  <a href="http://malsup.com/jquery/form/#file-upload">More Info</a></p>
+
+<hr>
+
+<h2><a id="user-content-cdn-support" class="anchor" href="https://github.com/malsup/form/#cdn-support" aria-hidden="true"><span class="octicon octicon-link"></span></a>CDN Support</h2>
+
+<p><code>&lt;script src="//oss.maxcdn.com/jquery.form/3.50/jquery.form.min.js"&gt;&lt;/script&gt;</code></p>
+
+<h2><a id="user-content-copyright-and-license" class="anchor" href="https://github.com/malsup/form/#copyright-and-license" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright and License</h2>
+
+<p>Copyright 2006-2013 (c) M. Alsup</p>
+
+<p>All versions, present and past, of the jQuery Form plugin are dual licensed under the MIT and GPL licenses:</p>
+
+<ul>
+<li><a href="http://malsup.github.com/mit-license.txt">MIT</a></li>
+<li><a href="http://malsup.github.com/gpl-license-v2.txt">GPL</a></li>
+</ul>
+
+<p>You may use either license.  The MIT License is recommended for most projects because it is simple and easy to understand and it places almost no restrictions on what you can do with the plugin.</p>
+
+<p>If the GPL suits your project better you are also free to use the plugin under that license.</p>
+
+<p>You don't have to do anything special to choose one license or the other and you don't have to notify anyone which license you are using. You are free to use the jQuery Form Plugin in commercial projects as long as the copyright header is left intact.</p>
+
+<hr>
+
+<p>Additional documentation and examples at: <a href="http://malsup.com/jquery/form/">http://malsup.com/jquery/form/</a></p>
+</article>
+  </div>
+
+
+        </div>
+
+      </div><!-- /.repo-container -->
+      <div class="modal-backdrop"></div>
+    </div><!-- /.container -->
+  </div><!-- /.site -->
+
+
+    </div><!-- /.wrapper -->
+
+      <div class="container">
+  <div class="site-footer" role="contentinfo">
+    <ul class="site-footer-links right">
+        <li><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+      <li><a href="https://developer.github.com/" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li><a href="https://training.github.com/" data-ga-click="Footer, go to training, text:training">Training</a></li>
+      <li><a href="https://shop.github.com/" data-ga-click="Footer, go to shop, text:shop">Shop</a></li>
+        <li><a href="https://github.com/blog" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a href="https://github.com/about" data-ga-click="Footer, go to about, text:about">About</a></li>
+      <li><a href="https://help.github.com/" data-ga-click="Footer, go to help, text:help">Help</a></li>
+
+    </ul>
+
+    <a href="https://github.com/" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+</a>
+    <ul class="site-footer-links">
+      <li>© 2015 <span title="0.04035s from github-fe142-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+        <li><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
+        <li><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
+        <li><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
+        <li><a href="https://github.com/contact" data-ga-click="Footer, go to contact, text:contact">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+
+    <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+  <div class="fullscreen-container js-suggester-container">
+    <div class="textarea-wrap">
+      <textarea name="fullscreen-contents" id="fullscreen-contents" class="fullscreen-contents js-fullscreen-contents" placeholder=""></textarea>
+      <div class="suggester-container">
+        <div class="suggester fullscreen-suggester js-suggester js-navigation-container"></div>
+      </div>
+    </div>
+  </div>
+  <div class="fullscreen-sidebar">
+    <a href="https://github.com/malsup/form/#" class="exit-fullscreen js-exit-fullscreen tooltipped tooltipped-w" aria-label="Exit Zen Mode">
+      <span class="mega-octicon octicon-screen-normal"></span>
+    </a>
+    <a href="https://github.com/malsup/form/#" class="theme-switcher js-theme-switcher tooltipped tooltipped-w" aria-label="Switch themes">
+      <span class="octicon octicon-color-mode"></span>
+    </a>
+  </div>
+</div>
+
+
+
+    
+    
+
+    <div id="ajax-error-message" class="flash flash-error">
+      <span class="octicon octicon-alert"></span>
+      <a href="https://github.com/malsup/form/#" class="octicon octicon-x flash-close js-ajax-error-dismiss" aria-label="Dismiss error"></a>
+      Something went wrong with that request. Please try again.
+    </div>
+
+
+      <script crossorigin="anonymous" src="./malsup form · GitHub_files/frameworks-dea2e78f4b34a1f3429ade94f98bd25fad6bbe8d28635a93d9caeb68e3c2d258.js"></script>
+      <script async="async" crossorigin="anonymous" src="./malsup form · GitHub_files/index-f2bb67dd64e6f69f40f179e8bdddd466056de1bf6e2e88b013c8367c41ad703d.js"></script>
+      
+      
+  
+
+
+<div id="global-zeroclipboard-html-bridge" class="global-zeroclipboard-container" style="position: absolute; left: 0px; top: -9999px; width: 1px; height: 1px; z-index: 999999999;"><object id="global-zeroclipboard-flash-bridge" name="global-zeroclipboard-flash-bridge" width="100%" height="100%" type="application/x-shockwave-flash" data="https://assets-cdn.github.com/flash/ZeroClipboard.v2.1.6.swf"><param name="allowScriptAccess" value="always"><param name="allowNetworking" value="all"><param name="menu" value="false"><param name="wmode" value="transparent"><param name="flashvars" value="trustedOrigins=github.com%2C%2F%2Fgithub.com%2Chttps%3A%2F%2Fgithub.com&amp;swfObjectId=global-zeroclipboard-flash-bridge"></object></div></body></html>

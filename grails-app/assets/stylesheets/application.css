@@ -1,0 +1,536 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS file within this directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the top of the
+* compiled file, but it's generally better to create a new file per style scope.
+*
+*= encoding UTF-8
+*= require mobile
+*= require_self
+*/
+
+* {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	        margin:0;
+	white-space:normal;
+	word-wrap:break-word;
+	word-break:break-all;
+}
+html {
+	height: 100%;
+	width: 100%;
+}
+body {
+	position:relative;
+	min-height:100%;
+	font-family:"Hiragino Sans GB",Helvetica,"Microsoft Yahei",Arial !important;
+	line-height:1.5em;
+}
+.h1,h1{font-size:30px}
+.h2,h2{font-size:26px}
+.h3,h3{font-size:18px}
+.h4,h4{font-size:16px}
+.h5,h5{font-size:14px}
+.h6,h6{font-size:12px}
+.main {
+	padding-top:35px;
+	padding-bottom:30px;
+}
+a {
+	color:inherit;
+	display:inline-block;
+}
+.borderRadius {
+	border-radius:5px;
+	-moz-border-radius:5px; /* 老的 Firefox */
+}
+.toCenter {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+.verticalAlignBottom {
+	vertical-align:bottom;
+}
+.relative {
+	position:relative;
+}
+.separator {
+	padding:0 11px;
+}
+.shortSeparator {
+	padding:0 5px;
+}
+.bold {
+	font-weight:bold;
+}
+.block {
+	display:block !important;
+}
+.inlineBlock {
+	display:inline-block !important;
+}
+.none {
+	display:none;
+}
+.clearfix:after {
+	content:"";
+	display:block; 
+	height:0; 
+	visibility:hidden; 
+	clear:both;
+}
+.fa {
+	padding-right:8px;
+	vertical-align: inherit;
+}
+.fa-1_5 {
+  font-size: 1.5em;
+}
+.fa-2 {
+  font-size: 2em;
+}
+.fa-3 {
+  font-size: 4em;
+}
+.fa-4 {
+  font-size: 7em;
+}
+.fa-5 {
+  font-size: 12em;
+}
+.fa-6 {
+  font-size: 20em;
+}
+.shengXiao {
+	background-image: url("SuCai/十二生肖.png");
+	width:150px;
+	height:150px;
+}
+.shengXiao.shu {
+	background-position:0 0;
+}
+.shengXiao.niu {
+	background-position:-150px 0;
+}
+.shengXiao.hu {
+	background-position:-300px 0;
+}
+.shengXiao.tu {
+	background-position:-450px 0;
+}
+.shengXiao.long {
+	background-position:0 -150px;
+}
+.shengXiao.she {
+	background-position:-150px -150px;
+}
+.shengXiao.ma {
+	background-position:-300px -150px;
+}
+.shengXiao.yang {
+	background-position:-450px -150px;
+}
+.shengXiao.hou {
+	background-position:0 -300px;
+}
+.shengXiao.ji {
+	background-position:-150px -300px;
+}
+.shengXiao.gou {
+	background-position:-300px -300px;
+}
+.shengXiao.zhu {
+	background-position:-450px -300px;
+}
+.pagination {
+	border-top: 0;
+	margin: 0;
+	padding: 0.3em 0.2em;
+	text-align: center;
+	width:100%;
+}
+.pagination a,
+.pagination .currentStep {
+	color: black;
+	display: inline-block;
+	margin: 0 0.1em;
+	padding: 0.25em 0.7em;
+	text-decoration: none;
+	   -moz-border-radius: 0.3em;
+	-webkit-border-radius: 0.3em;
+	        border-radius: 0.3em;
+	text-decoration: underline;
+}
+
+.pagination a:hover, .pagination a:focus,
+.pagination .currentStep {
+	color: black;
+	outline: none;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+.pagination .currentStep {
+	font-weight:bold;
+	font-size:22px;
+}
+.no-borderradius .pagination a:hover, .no-borderradius .pagination a:focus,
+.no-borderradius .pagination .currentStep {
+	background-color: transparent;
+	color: #444444;
+	text-decoration: underline;
+}
+.footer {
+	width: 100%;
+	text-align: center;
+}
+.footer .logo {
+	background-color:#E8041B;
+	margin:20px 0 10px 0;
+}
+.footer li {
+	float:left;
+	height:30px;
+	line-height:30px;
+	margin:0;
+	padding:0 10px;
+}
+.footer a:hover {
+	color:#e11d03;
+}
+/*-----------------------------------------------------------------------------------------------*/
+.midTitle {
+	width: auto;
+	height: 34px;
+	background: url("/assets/SuCai/dian.gif") 0 18px repeat-x;
+}
+.midTitle .cont {
+	float: left;
+	padding: 0 10px 0 23px;
+	width: auto;
+	height: 34px;
+	line-height: 34px;
+	font-size: 24px;
+	font-weight: bold;
+	background-color:#fff;
+}
+.midTitle .leftBorder {
+	border-left: 5px solid #dd3603;
+}
+.midTitle .leftPointer {
+	background: #fff url("/assets/SuCai/pointerDown.gif") no-repeat;
+}
+.mb30, .mb20, .mb10, .mb5 {
+	display:inline-block;
+} 
+.mb30 {
+	margin-bottom:30px;
+}
+.mb20 {
+	margin-bottom:20px;
+}
+.mb10 {
+	margin-bottom:10px;
+}
+.mb0 {
+	margin-bottom:0;
+}
+.mb5 {
+	margin-bottom:5px;
+}
+.mt15 {
+	margin-top:15px;
+}
+.mt10 {
+	margin-top:10px;
+}
+.mt5 {
+	margin-top:5px;
+}
+.xuanZeWenJian {
+	position:relative;width:180px;margin:0 auto;
+}
+.xuanZeWenJian [type=file] {
+	position:absolute;
+	left:0;
+	top:0;
+	width:180px;
+	height:100%;
+	padding:0;
+	margin:0;
+	opacity:0.0;
+	filter:Alpha(opacity=0);
+	cursor:pointer;
+}
+.messageBox {
+	float:left;
+	margin: 5px 0;
+	line-height: 37px;
+	height: 37px;
+	color:black;
+}
+#spinner {
+    position: fixed;
+	top: 0;
+	left:0;
+	bottom:0;
+	right: 0;
+	width:180px;
+	height:180px;
+	margin:auto;
+	z-index:9999;
+	display:none;
+}
+#spinner .tiShi{
+	position:absolute;
+	right:0;
+	bottom:30px;
+}
+#spinner img {
+	width:180px;
+	height:180px;
+}
+.cke_textarea_inline {
+	padding: 10px;
+	min-height: 300px;
+	overflow: auto;
+	border: 1px solid gray;
+	-webkit-appearance: textfield;
+}
+.zIndexMax{
+	z-index:9999 !important;
+}
+.paddingWrapper {
+	padding: 30px 40px 70px 40px !important;
+}
+.form-control {
+	margin-bottom:9px;
+}
+textarea {
+	min-height:130px;
+}
+ul {
+	list-style-type:none;
+	padding-left:0;
+}
+img {
+	max-width:100%;
+}
+.alert {
+	margin-top:3px;
+}
+.largeBox {
+	position:relative;
+	box-shadow: 3px 3px 7px #333;
+	padding:15px;
+	min-height:350px;
+	overflow: auto;
+	margin-bottom:25px;
+}
+.borderBox {
+	position:relative;
+	border-bottom: 1px dotted #c8c8c8;
+	padding: 30px 0;
+}
+.paddingTB {
+	padding:15px 0 30px 0;
+}
+.preview {
+	height: 530px;
+	overflow: auto;
+	margin: 10px 20px 30px 20px;
+	font-weight: normal;
+	color: gray;
+	clear: both;
+}
+.link {
+	font-weight:bold;
+	text-decoration:none !important;
+	outline:none !important;
+}
+.link:hover {
+	color: #e11d03;
+}
+.content {
+	padding-top:20px;
+	padding-bottom:5px;
+}
+.neiRong {
+	padding-bottom:5px;
+}
+.lineHeight30 {
+	line-height:30px;
+}
+.homeLink {
+	color:inherit;
+}
+.homeLink:hover {
+	color:inherit;
+}
+.overflowHidden {
+	overflow:hidden;
+}
+.anchor {
+	position:relative;
+	top:-50px;
+	left:0;
+	height:1px;
+	visibility:hidden;
+}
+.mh150 {
+	position:relative;
+	min-height:150px;	
+}
+.colorGray {
+	color:gray;
+}
+.colorLight {
+	color:#8d9096;
+}
+/*-----------------------------------------------------------------------------------------------*/
+#nprogress .bar {
+	z-index:9999;
+	background: url("/assets/SuCai/loading.gif") #FF6100 repeat-y right;
+	height: 6px;
+}
+#nprogress .peg {
+	box-shadow:none;
+}
+.topLines {
+	width: 100%;
+}
+.topLines .line1{
+	height:6px;
+	width:100%;
+	background:#c22f24;
+}
+.topLines .line2{
+	height:6px;
+	width:100%;
+	background:#d73d31;
+}
+.header {
+	font-weight:bold;
+}
+.header .logo {
+	background-color:#E8041B;
+	margin-bottom:15px;
+}
+.header .hNav {
+	padding-top:10px;
+}
+.hNav li {
+	display:inline-block;
+	padding:0 10px;
+}
+.uname {
+	font-size:22px;
+}
+.colorWhite {
+	color:white;
+}
+.slider {
+	background-color:#26B1C4;
+	color:white;
+	margin-bottom: 10px;
+}
+.sliderImg p {
+	margin:0;
+}
+.sliderImg {
+	min-height:370px;
+}
+.sliderText {
+	min-height:170px;
+}
+.rightTopBox {
+	height:260px;
+	margin-bottom:20px;
+}
+.rightBottomBox {
+	height:260px;
+}
+.bkGreen {
+	background-color:#359F6F;
+}
+.bkLightGreen {
+	background-color:#3EA578;
+}
+.bkYellow {
+	background-color:#F7A901;
+}
+.bkLightYellow {
+	background-color:#F9AF00;
+}
+.bkGray {
+	background-color:#695A45;
+}
+.bkLightGray {
+	background-color:#6D5E49;
+}
+.bkBlue {
+	background-color:#1EABBF;
+}
+.bkLightBlue {
+	background-color:#26B1C4;
+}
+.bkLowGray {
+	background-color:#eee;
+}
+.listBox {
+	padding:30px;
+	margin-top:30px;
+	color:#fff;
+	min-height:277px;
+}
+.listHeader {
+	font-size:22px;
+	font-weight:bold;
+}
+.listBox h3 {
+	font-size:16px;
+	margin-top:5px;
+}
+.mb15w {
+	margin-bottom:15px;
+	width:100%;
+}
+.minWidth25 {
+	min-width:25px;
+}
+.minWidth30 {
+	min-width:30px;
+}
+.share {
+	float: right;
+	display: inline-block;
+	width: 220px;
+	margin-top: 0;
+	margin-right: 11px;
+	text-align: right;
+}
+.share a {
+	width: 23px;
+	height: 19px;
+	display: inline-block;
+	cursor: pointer;
+	background: url('/assets/SuCai/icons_top.png') no-repeat;
+}
+.share a:hover {
+	background-position: 0 -19px;
+}
+.share .weibo {
+	background-position: 0 0;
+}
+.clearBoth {
+	clear:both;
+}
+@media screen and (max-width: 992px) {
+	.autoHide {
+		display:none;
+	}
+}
