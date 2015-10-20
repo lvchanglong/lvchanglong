@@ -39,8 +39,10 @@
 			
 			<h1 class="bold">网站理念</h1>
 			<ul style="line-height:30px;">
-				<li>我们应该想的，是“未来的样子”</li>
-				<li>我们应该做的，是“适应未来”</li>
+				<li>未来的样子</li>
+				<li>适应未来</li>
+				<li>开放自我</li>
+				<li>以人为本</li>
 			</ul>
 		</div>
 		
