@@ -3,7 +3,7 @@ package lvchanglong
 import java.util.Date
 
 /**
- * 反馈
+ * 反馈（免登录）
  * @author lvchanglong
  */
 class FanKui {

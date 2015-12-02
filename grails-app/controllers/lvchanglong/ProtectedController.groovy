@@ -16,17 +16,17 @@ class ProtectedController {
 	def listShiTi() {
 		try {
 			def dangQianYongHu = YongHu.get(session.uid)
-		
-			def criteria = ShiTi.where {
-				if(dangQianYongHu) {
-					yongHu {
-						id == dangQianYongHu.id
+			
+				def criteria = ShiTi.where {
+					if(dangQianYongHu) {
+						yongHu {
+							id == dangQianYongHu.id
+						}
 					}
 				}
-			}
-			params.max = 1
-			params.sort = 'id'
-			params.order = 'desc'
+				params.max = 1
+				params.sort = 'id'
+				params.order = 'desc'
 
 			return [shiTiList:criteria.list(params), shiTiCount:criteria.count(), dangQianYongHu:dangQianYongHu]
 		} catch(Exception e) {
@@ -46,39 +46,6 @@ class ProtectedController {
 			return
 		}
 		respond shiTi, model:[dangQianYongHu:dangQianYongHu]
-	}
-	
-	/**
-	 * 空间列表(页面)
-	 */
-	def listKongJian() {
-		def dangQianYongHu = YongHu.get(session.uid)
-		
-		def criteria = KongJian.where {
-			if(dangQianYongHu) {
-				yongHu {
-					id == dangQianYongHu.id
-				}
-			}
-		}
-		params.max = 1
-		params.sort = "id"
-		params.order = "desc"
-		[kongJianList:criteria.list(params), kongJianCount:criteria.count(), dangQianYongHu:dangQianYongHu]
-	}
-	
-	/**
-	 * 空间修改(页面)
-	 * @param kongJian
-	 */
-	def editKongJian(KongJian kongJian) {
-		def dangQianYongHu = YongHu.get(session.uid)
-		
-		if (kongJian == null) {
-			render status: NOT_FOUND
-			return
-		}
-		respond kongJian, model:[dangQianYongHu:dangQianYongHu]
 	}
 	
 	/**

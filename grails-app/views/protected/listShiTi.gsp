@@ -8,10 +8,8 @@
 		<g:if test="${ session.uid || dangQianYongHu?.shiFouGuanLiYuan() }">
 			<g:form name="shiTi-save-form" url="[controller:'shiTi', action:'save']" class="clearfix">
 				<g:textField name="biaoTi" value="" placeholder="标题" required="" autofocus="" class="form-control mb15w"/>
-				<g:textArea name="miaoShu" required="" value="" class="form-control mb15w" placeholder="描述"/>
-				<g:textArea id="shiTiFuJianSave" name="fuJian" value="附件图片【100，100】" placeholder="附件" class="ckeditor"/>
 				<br/>
-				<g:textArea id="shiTiNeiRongSave" name="neiRong" value="内容" placeholder="内容" class="ckeditor"/>
+				<g:textArea id="shiTiNeiRongSave" name="neiRong" value="" placeholder="内容" class="ckeditor"/>
 				
 				<g:hiddenField name="yongHu.id" value="${ session.uid }"/>
 				<g:submitButton name="faBu" value="发布" class="btn btn-primary pull-right" style="margin-top:8px;margin-right:10px;"/>
@@ -22,9 +20,6 @@
 					beforeSerialize: function($form, options) { 
 					    var neiRongHtml = CKEDITOR.instances.shiTiNeiRongSave.getData();
 					    jQuery("#shiTiNeiRongSave").val(neiRongHtml);
-					    
-					    var fuJianHtml = CKEDITOR.instances.shiTiFuJianSave.getData();
-					    jQuery("#shiTiFuJianSave").val(fuJianHtml);
 					},
 					success:function(data,textStatus){
 						success(data,textStatus,'#shiTi-message-save');
@@ -46,14 +41,6 @@
 						<g:each in="${shiTiList}" status="i" var="shiTi">
 							<li>
 								<g:render template="/public/shiTi" model="[shiTi:shiTi]"/>
-								
-								<hr/>
-								
-								<div class="fuJian">
-									${shiTi?.fuJian}
-								</div>
-								
-								${shiTi.miaoShu}
 							</li>
 						</g:each>
 					</ul>

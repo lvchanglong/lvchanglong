@@ -10,8 +10,6 @@
 				<g:hiddenField name="version" value="${shiTi?.version}" />
 
 				<g:textField name="biaoTi" required="" value="${shiTi?.biaoTi}" autofocus="" class="form-control mb15w"/>
-				<g:textArea name="miaoShu" required="" value="${shiTi?.miaoShu}" class="form-control mb15w" placeholder="描述"/>
-				<g:textArea id="shiTiFuJianUpdate" name="fuJian" required="" value="${shiTi?.fuJian}" class="ckeditor"/>
 				<br/>
 				<g:textArea id="shiTiNeiRongUpdate" name="neiRong" required="" value="${shiTi?.neiRong}" class="ckeditor"/>
 				
@@ -22,9 +20,6 @@
 					beforeSerialize: function($form, options) { 
 					    var neiRongHtml = CKEDITOR.instances.shiTiNeiRongUpdate.getData();
 					    jQuery("#shiTiNeiRongUpdate").val(neiRongHtml);
-					    
-					    var fuJianHtml = CKEDITOR.instances.shiTiFuJianUpdate.getData();
-					    jQuery("#shiTiFuJianUpdate").val(fuJianHtml);
 					},
 					success:function(data,textStatus){
 						success(data,textStatus,'#shiTi-message-console');

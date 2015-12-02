@@ -176,9 +176,6 @@
 					<li>
 						<g:link controller="protected" action="listShiTi" class="btn btn-default">实体</g:link>
 					</li>
-					<li>
-						<g:link controller="protected" action="listKongJian" class="btn btn-default">空间</g:link>
-					</li>
 				</ul>
 			</g:if>
 		</div>

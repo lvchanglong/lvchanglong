@@ -7,7 +7,7 @@ package lvchanglong
  */
 class YongHu {
 
-	static hasMany = [shiTis: ShiTi, kongJians: KongJian]
+	static hasMany = [shiTis: ShiTi]
 	
 	String xingMing //姓名
 	String miMa //密码
@@ -48,7 +48,6 @@ class YongHu {
 		lastUpdated column: 'GENG_XIN_SHI_JIAN'
 		
 		shiLis sort: "id", order: "desc"
-		kongJians sort: "id", order: "desc"
 	}
 	
 	String toString() {

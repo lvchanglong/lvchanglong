@@ -51,14 +51,6 @@ class PublicController {
 	}
 	
 	/**
-	 * 查看历史(页面)
-	 */
-	def chaKanLiShi() {
-		params.max = 99
-		[shiTiList:ShiTi.list(params), shiTiCount:ShiTi.count()]
-	}
-	
-	/**
 	 * 实体详情(页面)
 	 * @param shiTi
 	 */
@@ -71,24 +63,11 @@ class PublicController {
 	}
 	
 	/**
-	 * 空间详情(页面)
-	 * @param kongJian
-	 */
-	def showKongJian(KongJian kongJian) {
-		if (kongJian == null) {
-			render status: NOT_FOUND
-			return
-		}
-		respond kongJian
-	}
-	
-	/**
 	 * 网站首页(页面)
 	 */
     def index() {
-		def kongJianList = KongJian.list([sort:'id', order:'asc'])
-		def kongJianCount = kongJianList.size()
-		[kongJianList:kongJianList, kongJianCount:kongJianCount]
+		params.max = 9
+		[shiTiList:ShiTi.list(params), shiTiCount:ShiTi.count()]
 	}
 	
 	/**
@@ -207,7 +186,7 @@ class PublicController {
 	 * 近期公告，HTML5 EventSource，服务器实时推送(服务)
 	 */
 	def jinQiGongGao() {
-		def array = ["I want to play a game with you", "我就是吕常龙", "我是这的站长", "我要不断的成长", "这是赔钱的网站，但我似乎并不在意"]
+		def array = ["I want to play a game with you", "我就是吕常龙", "我是这的站长", "我要不断的成长"]
 		
 		Integer i = Math.floor(Math.random() * array.size())
 		

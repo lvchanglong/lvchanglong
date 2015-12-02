@@ -39,11 +39,7 @@
 			
 			<h1 class="bold">奇奇怪怪的东西</h1>
 			<ul style="line-height:30px;">
-				<li>未来的样子</li>
-				<li>适应未来</li>
-				<li>开放自我</li>
-				<li>以人为本</li>
-				<li>不要说这个难以模仿，只能说你本事不够</li>
+				<li>毛泽东</li>
 			</ul>
 		</div>
 		
