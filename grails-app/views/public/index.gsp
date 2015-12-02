@@ -11,34 +11,6 @@
 	<body>
 			<div class="row">
 			
-				<div class="col-md-4">
-					<div class="listBox" style="background-color:#FF9BAB;">
-						<div style="padding-top:0;">
-							<g:img uri="${ createLink(controller:'public', action:'loadTouXiang', id:session.uid) }" width="180px" height="180px" alt="头像" class="img-rounded toCenter"/>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="listBox" style="background-color:darkgreen;">
-						<div style="padding:0 30px 0 30px;font-weight:bold;font-size:20px;line-height:26px;color:#fff;">
-							我叫<strong style="font-size:26px;">${ session.uname }</strong>，${ session.uinfo }
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="listBox" style="background-color:#9790F3;">
-						<div style="padding-top:0;">
-							<g:link controller="public" action="woDeChuanShuo" target="_self" class="toCenter" style="font-size:24px;">
-								<span class="glyphicon glyphicon-chevron-right"></span>奇怪的地方
-							</g:link>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-12">
-					<hr/>
-				</div>
-				
 				<g:if test="${shiTiList}">
 					<g:each in="${shiTiList}" status="j" var="shiTi">
 						<g:if test="${ shiTi }">
@@ -85,6 +57,34 @@
 						<g:paginate total="${shiTiCount}"/>
 					</div>
 				</g:if>
+				
+				<div class="col-md-12">
+					<hr/>
+				</div>
+				
+				<div class="col-md-4">
+					<div class="listBox" style="background-color:#FF9BAB;">
+						<div style="padding-top:0;">
+							<g:img uri="${ createLink(controller:'public', action:'loadTouXiang', id:session.uid) }" width="180px" height="180px" alt="头像" class="img-rounded toCenter"/>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="listBox" style="background-color:darkgreen;">
+						<div style="padding:0 30px 0 30px;font-weight:bold;font-size:20px;line-height:26px;color:#fff;">
+							我叫<strong style="font-size:26px;">${ session.uname }</strong>，${ session.uinfo }
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="listBox" style="background-color:#9790F3;">
+						<div style="padding-top:0;">
+							<g:link controller="public" action="woDeChuanShuo" target="_self" class="toCenter" style="font-size:24px;">
+								<span class="glyphicon glyphicon-chevron-right"></span>奇怪的地方
+							</g:link>
+						</div>
+					</div>
+				</div>
 				
 			</div>
 	</body>
