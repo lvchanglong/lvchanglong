@@ -1,5 +1,5 @@
 package lvchanglong
-
+import static org.springframework.http.HttpStatus.*
 
 class PrivateInterceptor {
 
