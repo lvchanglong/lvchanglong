@@ -350,8 +350,8 @@ function paginate(wrapperSelector, loadSelector) {
 
 /**
  * 刷新确认框
- * @param htmlTitle
- * @param htmlContent
+ * @param htmlTitle 温馨提示
+ * @param htmlContent 操作已结束？！！！
  * @param callFunction
  */
 function reloadConfirm(htmlTitle, htmlContent, callFunction) {
@@ -376,17 +376,5 @@ function reloadConfirm(htmlTitle, htmlContent, callFunction) {
 	    		callFunction();
 	      	}
 	    }
-	});
-}
-
-/**
- * 情节选择，选择响应（用选择决定故事的结局）
- */
-function xuanZeXiangYing() {
-	jQuery(document).on('click', ".story", function(){
-		var titleName = jQuery(this).attr("title");//分组名称
-		jQuery("[title=" + titleName + "]").hide();
-		var id = jQuery(this).attr("id");
-		jQuery("#" + id + "X").show();//展示内容
 	});
 }

@@ -9,7 +9,7 @@
 			<g:form name="shiTi-save-form" url="[controller:'shiTi', action:'save']" class="clearfix">
 				<g:textField name="biaoTi" value="" placeholder="标题" required="" autofocus="" class="form-control mb15w"/>
 				<br/>
-				<g:textArea id="shiTiNeiRongSave" name="neiRong" value="" placeholder="内容" class="ckeditor"/>
+				<g:textArea id="shiTiNeiRongSave" name="neiRong" value="100%，500px" placeholder="内容" class="ckeditor"/>
 				
 				<g:hiddenField name="yongHu.id" value="${ session.uid }"/>
 				<g:submitButton name="faBu" value="发布" class="btn btn-primary pull-right" style="margin-top:8px;margin-right:10px;"/>

@@ -43,6 +43,6 @@
 			</ul>
 		</div>
 		
-		<asset:image src="SuCai/公众号.jpg" style="float:right;bottom:0;width:250px;" title="联系站长"/>
+		<asset:image src="SuCai/公众号.jpg" style="float:right;bottom:0;width:250px;" title="公众号"/>
 	</body>
 </html>

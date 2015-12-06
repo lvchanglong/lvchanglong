@@ -56,19 +56,6 @@
 					<g:render template="/layouts/plugins/feiTeng"/>
 				</div>
             </div>
-            
-            <div class="col-md-6">
-            	<div class="largeBox" style="min-height:540px;">
-					<h4>幻灯片A</h4>
-					<g:render template="/layouts/plugins/huanDengPian" model="[instanceList: slideList, width:'100%', height:'372px']"/>
-				</div>
-            </div>
-            <div class="col-md-6">
-            	<div class="largeBox" style="min-height:540px;">
-					<h4>幻灯片B</h4>
-					<g:render template="/layouts/plugins/sliderEvolution" model="[instanceList: slideList, width:'100%', height:'372px']"/>
-				</div>
-            </div>
         </div>
 	</body>
 </html>

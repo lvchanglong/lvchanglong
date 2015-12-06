@@ -17,7 +17,7 @@
 			</div>
 			
 			<div class="col-md-4">
-				<div style="padding-top:40px;background-color:#2489C5;min-height:500px;">
+				<div style="padding-top:40px;background-color:#26B1C4;min-height:500px;">
 					<g:img uri="${ createLink(controller:'public', action:'loadTouXiang', id:session.uid) }" width="180px" height="180px" alt="头像" class="img-rounded toCenter"/>
 				</div>
 			</div>
