@@ -323,14 +323,6 @@ img {
 .alert {
 	margin-top:3px;
 }
-.largeBox {
-	position:relative;
-	box-shadow: 3px 3px 7px #333;
-	padding:15px;
-	min-height:350px;
-	overflow: auto;
-	margin-bottom:25px;
-}
 .borderBox {
 	position:relative;
 	border-bottom: 1px dotted #c8c8c8;

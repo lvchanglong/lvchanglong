@@ -25,11 +25,6 @@
 				<g:link controller="public" action="yongQianBiDu">用前必读</g:link>
 			</li>
 			<li>
-				<g:link controller="public" action="zuJian">
-					组件
-				</g:link>
-			</li>
-			<li>
 				<g:link controller="public" action="fanKui">
 					反馈
 				</g:link>

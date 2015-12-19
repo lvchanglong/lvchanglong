@@ -8,10 +8,9 @@
 		<meta name="renderer" content="webkit">
 		
 		<meta name="Keywords" content="吕常龙"/>
-		<meta name="Description" content="没有调查就没有发言权"/>
-		<meta name="Author" content="吕常龙">
+		<meta name="Description" content="个人网站"/>
 
-		<title><g:layoutTitle default="不断成长${ grailsApplication.config.html.title.suffix }"/></title>
+		<title><g:layoutTitle default="知己知彼${ grailsApplication.config.html.title.suffix }"/></title>
 		
 		<link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
 		<link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">
