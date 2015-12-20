@@ -11,9 +11,6 @@
 	<div class="row" style="border-bottom: 3px solid #000000;">
 		<div class="col-md-4">
 			<ul class="hNav text-left">
-				<li class="block"  style="margin-bottom:5px;">
-					<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp;<g:link controller="public" action="qiQiGuaiGuai" target="_blank"  class="link" style="font-size:22px;line-height:30px;" >奇怪的地方</g:link>
-				</li>
 				<li>
 					<span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>&nbsp;<g:link controller="public" action="xiaZai" params="[filePath:'grails-app/assets/androids/lvchanglong.apk']" class="link" style="font-size:22px;line-height:30px;" >点此下载安卓版</g:link>
 				</li>

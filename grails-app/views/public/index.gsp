@@ -10,7 +10,7 @@
 	</head>
 	<body>
 			<div class="row">
-			
+				
 				<g:if test="${shiTiList}">
 					<g:each in="${shiTiList}" status="j" var="shiTi">
 						<g:if test="${ shiTi }">

@@ -1,3 +1,5 @@
+<%@ page import="lvchanglong.BkColor" %>
+<%@ page import="lvchanglong.GuShi" %>
 <!doctype html>
 <html>
     <head>
@@ -23,9 +25,26 @@
             </g:else>
         </g:if>
         <g:else>
-            <ul class="errors">
-                <li>An error has occurred</li>
-            </ul>
+            <div class="row">
+				<div class="col-md-12 autoHide">
+					<g:render template="/layouts/plugins/3D" />
+				</div>
+				<div class="col-md-4">
+					<ul class="listBox" style="background-color:${BkColor.getInst()};">
+                		<li>An error has occurred</li>
+			        </ul>
+				</div>
+				<div class="col-md-8">
+					<ul class="listBox" style="background-color:${BkColor.getInst()};">
+						<li>
+							我叫<strong style="font-size:26px;">${ session.uname }</strong>，${ session.uinfo }
+						</li>
+						<li style="margin-top:10px;">
+							${ GuShi.getInst() }
+						</li>
+					</ul>
+				</div>
+			</div>
         </g:else>
     </body>
 </html>

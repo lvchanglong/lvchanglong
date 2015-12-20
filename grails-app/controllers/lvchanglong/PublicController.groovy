@@ -53,13 +53,6 @@ class PublicController {
 		[shiTiList:ShiTi.list(params), shiTiCount:ShiTi.count()]
 	}
 	
-	/**
-	 * 奇奇怪怪
-	 */
-	def qiQiGuaiGuai() {
-		
-	}
-	
 	//---------------------------------------------------------------------------------------------------
 	
 	/**

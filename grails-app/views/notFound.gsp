@@ -1,3 +1,5 @@
+<%@ page import="lvchanglong.BkColor" %>
+<%@ page import="lvchanglong.GuShi" %>
 <!doctype html>
 <html>
     <head>
@@ -6,9 +8,26 @@
         <g:if env="development"><asset:stylesheet src="errors.css"/></g:if>
     </head>
     <body>
-        <ul class="errors">
-            <li>Error: Page Not Found (404)</li>
-            <li>Path: ${request.forwardURI}</li>
-        </ul>
+    	<div class="row">
+			<div class="col-md-12 autoHide">
+				<g:render template="/layouts/plugins/3D" />
+			</div>
+			<div class="col-md-4">
+				<ul class="listBox" style="background-color:${BkColor.getInst()};">
+		            <li>Error: Page Not Found (404)</li>
+		            <li>Path: ${request.forwardURI}</li>
+		        </ul>
+			</div>
+			<div class="col-md-8">
+				<ul class="listBox" style="background-color:${BkColor.getInst()};">
+					<li>
+						我叫<strong style="font-size:26px;">${ session.uname }</strong>，${ session.uinfo }
+					</li>
+					<li style="margin-top:10px;">
+						${ GuShi.getInst() }
+					</li>
+				</ul>
+			</div>
+		</div>
     </body>
 </html>

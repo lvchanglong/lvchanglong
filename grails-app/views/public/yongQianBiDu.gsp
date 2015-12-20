@@ -36,11 +36,6 @@
 				<li>阿里云服务器：75元/月</li>
 				<li>网站域名：55元/年</li>
 			</ul>
-			
-			<h1 class="bold">奇奇怪怪的东西</h1>
-			<ul style="line-height:30px;">
-				<li>毛泽东</li>
-			</ul>
 		</div>
 		
 		<asset:image src="SuCai/公众号.jpg" style="float:right;bottom:0;width:250px;" title="公众号"/>
