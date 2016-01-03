@@ -19,7 +19,7 @@
 		
 		<ul class="clearfix inlineBlock">
 			<li>
-				<i class="fa fa-copyright"></i>2014.10-${ Helper.getNian() }<span style="padding:0 3px;">${ grailsApplication.config.author.name }</span>版权所有
+				<i class="fa fa-copyright"></i>2014.10-${ Helper.getNian() }-?，${ grailsApplication.config.author.name }，版权所有
 			</li>
 			<li>
 				<g:link controller="public" action="yongQianBiDu">用前必读</g:link>
