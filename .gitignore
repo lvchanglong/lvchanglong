@@ -11,3 +11,5 @@ build/
 .classpath
 bin/
 .asscache
+*.log
+*.pid
