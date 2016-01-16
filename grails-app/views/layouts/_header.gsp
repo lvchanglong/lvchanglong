@@ -168,7 +168,20 @@
 			</div>
 			
 			<div class="relative text-right pull-right" style="font-size:14px;font-weight:normal;">
-				<g:render template="/layouts/plugins/baiDuZhanNei"/>
+				<div style="padding:5px 0 5px 0;">
+					<div class="row">
+						<div class="col-md-10 col-md-offset-2">
+							<g:form name="gongGongJianSuo" url="[controller:'public', action:'index']" method="GET">
+						    	<div class="input-group">
+						      		<input type="text" name="text" class="form-control" placeholder="请输入关键词" value="${ params.text  }">
+						      		<span class="input-group-btn">
+						        		<button class="btn btn-primary" type="submit">搜索</button>
+						      		</span>
+						    	</div>
+					    	</g:form>
+					  	</div>
+					</div><!-- /.row -->
+				</div>
 			</div>
 			
 			<g:if test="${ dangQianYongHu && dangQianYongHu.shiFouGuanLiYuan() }">

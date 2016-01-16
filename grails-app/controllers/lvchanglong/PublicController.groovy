@@ -3,6 +3,7 @@ package lvchanglong
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.converters.JSON
+import grails.gorm.DetachedCriteria
 
 /**
  * 公有方法，所有人
@@ -48,8 +49,17 @@ class PublicController {
 	/**
 	 * 网站首页(页面)
 	 */
-    def index() {
+    def index(String text) {
 		params.max = 9
+		
+		if(text) {
+			def trimText = text.trim()
+			def criteria = ShiTi.where {
+				(biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%")
+			}
+			return [shiTiList:criteria.list(params), shiTiCount:criteria.count()]
+		}
+		
 		[shiTiList:ShiTi.list(params), shiTiCount:ShiTi.count()]
 	}
 	

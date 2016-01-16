@@ -26,9 +26,6 @@
         </g:if>
         <g:else>
             <div class="row">
-				<div class="col-md-12 autoHide">
-					<g:render template="/layouts/plugins/3D" />
-				</div>
 				<div class="col-md-4">
 					<ul class="listBox" style="background-color:${BkColor.getInst()};">
                 		<li>An error has occurred</li>
@@ -43,6 +40,9 @@
 							${ GuShi.getInst() }
 						</li>
 					</ul>
+				</div>
+				<div class="col-md-12 autoHide mt15">
+					<g:render template="/layouts/plugins/3D" />
 				</div>
 			</div>
         </g:else>
