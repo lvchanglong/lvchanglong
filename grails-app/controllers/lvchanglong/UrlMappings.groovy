@@ -1,3 +1,5 @@
+package lvchanglong
+
 class UrlMappings {
 
     static mappings = {
@@ -8,6 +10,7 @@ class UrlMappings {
         }
 
 		"/"(controller:"public", action:"index")
+		
         "500"(view:'/error')
         "404"(view:'/notFound')
     }
