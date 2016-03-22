@@ -11,7 +11,7 @@ class TermController {
 	}
 	
 	def test() {
-		render "好好好" + "晕晕晕111"
+		render "好好好" + "晕晕晕" + "啊啊啊"
 	}
 	
 	def conn1() {

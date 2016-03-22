@@ -82,9 +82,9 @@ class YongHu {
 	}
 	
 	/**
-	 * 设置管理员
+	 * 用户初始化
 	 */
-	static boolean sheZhiGuanLiYuan() {
+	static boolean init() {
 		def strXingMing = "吕常龙"
 		def strMiMa = "54Mt"
 		

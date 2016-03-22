@@ -11,14 +11,7 @@ import grails.gorm.DetachedCriteria
 class PublicController {
 
 	static defaultAction = "index"
-	
-	/**
-	 * 管理员初始化
-	 */
-	def initAdmin() {
-		YongHu.sheZhiGuanLiYuan()
-	}
-	
+
 	/**
 	 * 反馈(页面)
 	 */
