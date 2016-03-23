@@ -1,0 +1,1 @@
+html.title.suffix = ' | &#x5415;&#x5E38;&#x9F99;'

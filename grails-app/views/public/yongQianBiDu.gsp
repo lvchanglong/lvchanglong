@@ -27,8 +27,8 @@
 		<div style="float:left;padding-bottom:30px;">
 			<h1 class="bold">联系站长</h1>
 			<ul style="line-height:30px;">
-				<li>姓名：${ grailsApplication.config.author.name }</li>
-				<li>ＱＱ：${ grailsApplication.config.author.qq }</li>
+				<li>姓名：吕常龙</li>
+				<li>ＱＱ：417891235</li>
 			</ul>
 			
 			<h1 class="bold">网站维持</h1>

@@ -120,16 +120,3 @@ grails:
 endpoints:
     jmx:
         unique-names: true
----
----
-application:
-    name: '吕常龙'
-    code: '辽ICP备14005125号'
-author:
-    name: '吕常龙'
-    qq: '417891235'
-    email: '417891235@qq.com'
-    phone: '15002435273'
-html:
-    title:
-        suffix: ' · 吕常龙'

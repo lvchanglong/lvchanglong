@@ -19,7 +19,7 @@
 		
 		<ul class="clearfix inlineBlock">
 			<li>
-				<i class="fa fa-copyright"></i>2014-${ Helper.getNian() }，${ grailsApplication.config.author.name }，版权所有
+				<i class="fa fa-copyright"></i>2014-${ Helper.getNian() }，吕常龙，版权所有
 			</li>
 			<li>
 				<g:link controller="public" action="yongQianBiDu">用前必读</g:link>
@@ -31,7 +31,7 @@
 			</li>
 			<li>
 				<a href="http://www.miitbeian.gov.cn" target="_blank" rel="nofollow">
-					${ grailsApplication.config.application.code }
+					辽ICP备14005125号
 				</a>
 			</li>
 			<li>
