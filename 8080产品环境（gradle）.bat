@@ -1,0 +1,1 @@
+gradle -Dgrails.env=prod bootRun
