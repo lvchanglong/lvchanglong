@@ -11,7 +11,7 @@
 	<meta name="renderer" content="webkit">
 	<meta name="Keywords" content="吕常龙"/>
 	<meta name="Description" content="个人网站"/>
-	
+
 	<link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
 	<link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">
 	<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
