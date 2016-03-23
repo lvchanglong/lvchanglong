@@ -12,6 +12,10 @@
 	<meta name="Keywords" content="吕常龙"/>
 	<meta name="Description" content="个人网站"/>
 	
+	<link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
+	<link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">
+	<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
+	
 	<g:javascript>
 		var _hmt = _hmt || [];
 		(function() {
@@ -41,7 +45,7 @@
 	--%>
 	<asset:stylesheet src="application.css"/>
 	
-	<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+	<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
 	<script src="//cdn.bootcss.com/jquery.form/3.51/jquery.form.min.js"></script>
 	<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src="//cdn.bootcss.com/ckeditor/4.4.5/ckeditor.js"></script>
@@ -54,7 +58,7 @@
 	<![endif]-->
 	
 	<%--
-	<asset:javascript src="jquery/jquery-2.1.3.js"/>
+	<asset:javascript src="jquery/jquery-2.2.0.min.js"/>
 	<asset:javascript src="form-master/jquery.form.js"/>
 	<asset:javascript src="bootstrap-3.3.5-dist/js/bootstrap.min.js"/>
 	<asset:javascript src="ckeditor/ckeditor.js"/>
