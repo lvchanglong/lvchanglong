@@ -1,37 +1,54 @@
 package lvchanglong
 
+import grails.converters.JSON
+
 import static org.springframework.http.HttpStatus.*
 
 class TermController {
 
 	static defaultAction = "index"
-	
+
+	/**
+	 * 检索入口
+	 */
 	def index() {
-		render Term.list()
+
 	}
-	
-	def test() {
-		render "好好好" + "晕晕晕" + "啊啊啊"
+
+	/**
+	 * 术语检索
+	 * @param term 术语
+     */
+	def searchTerm(String term) {
+		if(term) {
+			def tList = Term.search(term)
+			if(tList) {
+				render tList.name as JSON
+				return
+			}
+			render status:NOT_FOUND, text:"未知术语"
+			return
+		}
+		render status:BAD_REQUEST, text:"非法请求"
 	}
-	
-	def conn1() {
-		def lan = Lan.get(103)
-		lan.addToTerms(new Term(["name":"汞"]))
-		lan.addToTerms(new Term(["name":"水银"]))
-		render lan.save(flush: true)
+
+	/**
+	 * 条目检索
+	 * @param term 术语
+	 * @return
+     */
+	def searchEntry(String term) {
+		if(term) {
+			Entry entry = Entry.find(term)
+			if(entry) {
+				def terms = Term.getAll(entry.getIdsAsHS())
+				render(template: '/term/entry', model: ['termInstanceList': terms])
+				return
+			}
+			render status:NOT_FOUND, text:"未知术语"
+			return
+		}
+		render status:BAD_REQUEST, text:"非法请求"
 	}
-	
-	def conn2() {
-		def lanC = Lan.get(103)
-		lanC.addToTerms(new Term(["name":"监狱"]))
-		lanC.save(flush: true)
-		
-		def lanE = Lan.get(100)
-		lanE.addToTerms(new Term(["name":"prison"]))
-		lanE.addToTerms(new Term(["name":"jail"]))
-		lanE.save(flush: true)
-		
-		render "conn2"
-	}
-	
+
 }

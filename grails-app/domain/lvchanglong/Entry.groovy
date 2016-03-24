@@ -7,26 +7,26 @@ package lvchanglong
  */
 class Entry {
 
-	String code //编码序列(JSON)
-	String idx //索引序列(JSON)
+	String nms //术语集(JSON)
+	String ids //索引集(JSON)
 	
 	static constraints = {
-		code(unique: true, nullable: false, blank: false)
-		idx(unique: true, nullable: false, blank: false)
+		nms(unique: true, nullable: false, blank: false)
+		ids(unique: true, nullable: false, blank: false)
 	}
 	
 	static mapping = {
 		table 'ENTRY'
 		
-		code column: 'CODE'
-		idx column: 'IDX'
+		nms column: 'NMS'
+		ids column: 'IDS'
 		
 		id column:'ID'
 		version false
 	}
 	
 	String toString() {
-		return this.code
+		return this.nms
 	}
 	
 	/**
@@ -37,30 +37,29 @@ class Entry {
 	 */
 	static def link(Term a, Term z) {
 		def dc = Entry.where {
-			(code ==~ "%#${a.name}#%") || (code ==~ "%#${z.name}#%")
+			(nms ==~ "%\"${a.name}\"%") || (nms ==~ "%\"${z.name}\"%")
 		}
 		def entry = dc.find()
 		if(entry) {
-			HashSet setCode = JsonHelper.decode(entry.code)
-			setCode.add("#" + a.name + "#")
-			setCode.add("#" + z.name + "#")
-			String strCode = JsonHelper.encode(setCode)
+			HashSet setNms = JsonHelper.decode(entry.nms)
+			setNms.add(a.name)
+			setNms.add(z.name)
+			String strNms = setNms.encodeAsJSON()
 			
-			HashSet<String> setIdx = JsonHelper.decode(entry.idx)
-			setIdx.add(a.id.toString())
-			setIdx.add(z.id.toString())
-			String strIdx = JsonHelper.encode(setIdx)
+			HashSet setIds = JsonHelper.decode(entry.ids)
+			setIds.add(a.id.toString())
+			setIds.add(z.id.toString())
+			String strIds = setIds.encodeAsJSON()
 			
-			entry.code = strCode
-			entry.idx = strIdx
+			entry.nms = strNms
+			entry.ids = strIds
 			entry.save(flush: true)
 			return entry
 		} else {
-			String strCode = JsonHelper.encode(new HashSet(["#${a.name}#", "#${z.name}#"]))
+			String strNms = [a.name, z.name].encodeAsJSON()
+			String strIds = [a.id.toString(), z.id.toString()].encodeAsJSON()
 			
-			String strIdx = JsonHelper.encode(new HashSet(["${a.id}", "${z.id}"]))
-			
-			entry = new Entry(['code':strCode, 'idx':strIdx])
+			entry = new Entry([nms:strNms, ids:strIds])
 			entry.save(flush: true)
 			return entry
 		}
@@ -71,11 +70,19 @@ class Entry {
 	 * @param q 询问
 	 * @return
 	 */
-	static def search(String q) {
+	static def find(String q) {
 		def dc = Entry.where {
-			(code ==~ "%#" + q + "#%")
+			(nms ==~ "%\"" + q + "\"%")
 		}
 		return dc.find()
+	}
+	
+	HashSet getIdsAsHS() {
+		return JsonHelper.decode(this.ids)
+	}
+	
+	HashSet getNmsAsHS() {
+		return JsonHelper.decode(this.nms)
 	}
 	
 }

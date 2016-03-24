@@ -12,7 +12,10 @@
 		<div class="col-md-4">
 			<ul class="hNav text-left">
 				<li>
-					<span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span>&nbsp;<g:link controller="public" action="xiaZai" params="[filePath:'grails-app/assets/androids/lvchanglong.apk']" class="link" style="font-size:22px;line-height:30px;" >点此下载安卓版</g:link>
+					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;<g:link controller="term" action="index" class="link" style="font-size:20px;line-height:30px;" >检索术语</g:link>
+				</li>
+				<li>
+					<span class="glyphicon glyphicon-download" aria-hidden="true"></span>&nbsp;<g:link controller="public" action="xiaZai" params="[filePath:'grails-app/assets/androids/lvchanglong.apk']" class="link" style="font-size:20px;line-height:30px;" >下载安卓版</g:link>
 				</li>
 			</ul>
 		</div>
