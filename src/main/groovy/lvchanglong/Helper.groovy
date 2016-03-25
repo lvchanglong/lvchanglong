@@ -66,7 +66,8 @@ class Helper {
 	 * @param fileName 文件名
 	 */
 	static String getFileType(String fileName) {
-		return fileName.find(/(?<=\.).*$/)
+        def splits = fileName.split(/\./)
+		return splits[splits.length - 1]
 	}
 	
 	/**
