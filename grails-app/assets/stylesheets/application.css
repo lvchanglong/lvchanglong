@@ -49,6 +49,9 @@ a {
 	border-radius:5px;
 	-moz-border-radius:5px; /* 老的 Firefox */
 }
+.colorInherit {
+    color:inherit !important;
+}
 .toCenter {
 	display:block;
 	margin-left:auto;
