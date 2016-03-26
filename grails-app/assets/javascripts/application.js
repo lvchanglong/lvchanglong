@@ -378,3 +378,12 @@ function reloadConfirm(htmlTitle, htmlContent, callFunction) {
 	    }
 	});
 }
+
+/**
+ * 删除表单（约定）
+ */
+jQuery(".deleteForm").ajaxForm({
+	success:function(){
+		window.location.reload();
+	}
+});

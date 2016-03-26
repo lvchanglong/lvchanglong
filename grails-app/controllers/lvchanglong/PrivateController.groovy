@@ -1,5 +1,6 @@
 package lvchanglong
 
+import grails.transaction.Transactional
 import static org.springframework.http.HttpStatus.*
 
 /**
@@ -42,5 +43,18 @@ class PrivateController {
     def index() {
 		render "私有的"
 	}
-	
+
+	/**
+	 * 删除反馈
+     */
+	@Transactional
+	def deleteFanKui(FanKui fanKui) {
+		if (fanKui == null) {
+			render status: NOT_FOUND
+			return
+		}
+
+		fanKui.delete flush:true
+		render status: NO_CONTENT
+	}
 }

@@ -10,9 +10,9 @@ class Term {
 	static belongsTo = [lan: Lan, discipline: Discipline] //语种，学科
 	
 	String name //术语名称
-	String area //地域
+	String area = '无关'//地域
 	String dy //定义
-	String ly //来源
+	String ly = '日常生活'//来源
 	
 	static constraints = {
 		name(nullable: false, blank: false)

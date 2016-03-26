@@ -19,6 +19,26 @@ class PublicController {
 		params.max = Math.min(max ?: 10, 100)
 		respond FanKui.list(params), model:[fanKuiCount: FanKui.count()]
 	}
+
+	/**
+	 * 发布反馈
+     */
+	@Transactional
+	def saveFanKui(FanKui fanKui) {
+		if (fanKui == null) {
+			render status: NOT_FOUND
+			return
+		}
+
+		fanKui.validate()
+		if (fanKui.hasErrors()) {
+			render status: NOT_ACCEPTABLE
+			return
+		}
+
+		fanKui.save flush:true
+		respond fanKui, [status: CREATED, formats:['json', 'xml']]
+	}
 	
 	/**
 	 * 用前必读(页面)
