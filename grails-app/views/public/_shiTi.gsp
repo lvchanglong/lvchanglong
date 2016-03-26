@@ -20,15 +20,15 @@
 </div>
 
 <div class="text-right lineHeight30">
+	<g:render template="/layouts/plugins/zhuanZai"/>
+	<span class="separator">|</span>
+	<span class="dateCreated">
+		<g:formatDate date="${shiTi.dateCreated}" format="yyyy.MM.dd" />
+	</span>
+	<span class="separator">|</span>
 	<span class="yongHu">
 		${shiTi.getYongHuAsString()}
 	</span>
-	<span class="separator">|</span>
-	<span class="dateCreated">
-		<g:formatDate date="${shiTi.dateCreated}" format="yyyy年MM月dd HH:mm:ss" />
-	</span>
-	<span class="separator">|</span>
-	<g:render template="/layouts/plugins/zhuanZai"/>
 </div>
 
 <div style="clear:both;"></div>

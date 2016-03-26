@@ -89,7 +89,6 @@ class PublicController {
 			if (yonghu) {
 				session.uid = yonghu.id
 				session.uname = yonghu.xingMing //姓名
-				session.uinfo = yonghu.jianJie //简介
 				
 				session.setMaxInactiveInterval(10800) //失效时间3小时
 				render status: OK, text: '操作成功，初始化...'
@@ -114,7 +113,7 @@ class PublicController {
 	 * 用户注册(服务)
 	 */
 	@Transactional
-	def yongHuZhuCe(String xingMing, String miMa, String queRenMiMa, String jianJie) {
+	def yongHuZhuCe(String xingMing, String miMa, String queRenMiMa) {
 		if (xingMing && miMa) {
 			if (miMa == queRenMiMa) {//确认密码一致性
 				def yongHu = YongHu.findInstance(xingMing, miMa)
@@ -122,7 +121,7 @@ class PublicController {
 					render status: CONFLICT, text: '已存在'
 					return
 				}
-				def yonghu = new YongHu([xingMing: xingMing, miMa: miMa, jianJie: jianJie])//注册用户
+				def yonghu = new YongHu([xingMing: xingMing, miMa: miMa])//注册用户
 				if (!yonghu.hasErrors()) {
 					yonghu.save flush: true
 					render status: OK, text: '注册成功'

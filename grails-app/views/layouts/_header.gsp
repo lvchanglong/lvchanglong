@@ -144,8 +144,7 @@
 									        <g:textField name="xingMing" value="${ session.uname }" required="" autofocus="" class="form-control" placeholder="姓名"/>
 									        <g:passwordField name="miMa" value="" class="form-control" placeholder="密码"/>
 											<g:passwordField name="queRenMiMa" value="" class="form-control" placeholder="确认"/>
-											
-											<g:hiddenField name="jianJie" value="${ session.uinfo }"/>
+
 									        <g:submitButton name="zhuCe" value="注册" class="btn btn-lg btn-primary btn-block"/>
 									    </g:form>
 									    <g:javascript>
@@ -176,9 +175,9 @@
 						<div class="col-md-10 col-md-offset-2">
 							<g:form name="gongGongJianSuo" url="[controller:'public', action:'index']" method="GET">
 						    	<div class="input-group">
-						      		<input type="text" name="text" class="form-control" placeholder="请输入关键词" value="${ params.text  }">
+						      		<input type="text" name="text" class="form-control" placeholder="请输入关键词（标题 | 内容）" value="${ params.text  }">
 						      		<span class="input-group-btn">
-						        		<button class="btn btn-primary" type="submit">搜索</button>
+						        		<button class="btn btn-primary" type="submit">检索</button>
 						      		</span>
 						    	</div>
 					    	</g:form>
@@ -192,6 +191,11 @@
 					<li style="padding-right:0;">
 						<g:link controller="protected" action="listShiTi" class="btn btn-default">实体</g:link>
 					</li>
+					<g:if test="${ dangQianYongHu.isAdmin() }">
+						<li style="padding-right:0;">
+							<g:link controller="private" action="users" class="btn btn-default">用户</g:link>
+						</li>
+					</g:if>
 				</ul>
 			</g:if>
 		</div>

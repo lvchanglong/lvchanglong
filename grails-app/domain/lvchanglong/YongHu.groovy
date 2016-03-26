@@ -11,11 +11,7 @@ class YongHu {
 	
 	String xingMing //姓名
 	String miMa //密码
-	
-	String jianJie = "暂无" //简介
-	
 	byte[] touXiang //头像
-	
 	String quanXian = "普通用户" //权限
 	
 	Date dateCreated //创建时间
@@ -28,7 +24,6 @@ class YongHu {
 	static constraints = {
 		xingMing(nullable: false, blank: false)
 		miMa(nullable: false, blank: false, unique: true)
-		jianJie(nullable: false, blank: false)
 		touXiang(nullable: true, blank: true)
 		quanXian(nullable: false, blank: false, inList: ["管理员", "普通用户"])
 	}
@@ -38,7 +33,6 @@ class YongHu {
 		
 		miMa column: 'MI_MA'
 		xingMing column: 'XING_MING'
-		jianJie column: 'JIAN_JIE'
 		touXiang column: 'TOU_XIANG', sqlType: "MediumBlob"
 		quanXian column: 'QUAN_XIAN'
 
@@ -51,7 +45,7 @@ class YongHu {
 	}
 	
 	String toString() {
-		return this.xingMing
+		return "#${this.id} " + this.xingMing
 	}
 	
 	def beforeInsert() {
@@ -114,7 +108,6 @@ class YongHu {
 		Map map = [
 			xingMing: strXingMing,
 			miMa: strMiMa,
-			jianJie:"我是这里的站长...",
 			quanXian: "管理员"
 		]
 		yonghu = new YongHu(map)

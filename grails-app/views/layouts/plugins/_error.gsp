@@ -1,5 +1,6 @@
 <%@ page import="lvchanglong.BkColor" %>
 <%@ page import="lvchanglong.GuShi" %>
+<%@ page import="lvchanglong.JianJie" %>
 
 <div class="row">
 	<div class="col-md-4">
@@ -11,7 +12,7 @@
 	<div class="col-md-8">
 		<ul class="listBox" style="background-color:${BkColor.getInst()};">
 			<li>
-				我叫<strong style="font-size:26px;">${ session.uname }</strong>，${ session.uinfo }
+				我叫<strong style="font-size:26px;">${ session.uname }</strong>，${ JianJie.getInst() }
 			</li>
 			<li style="margin-top:10px;">
 				${ GuShi.getInst() }

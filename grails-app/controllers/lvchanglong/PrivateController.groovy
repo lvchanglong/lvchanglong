@@ -63,4 +63,35 @@ class PrivateController {
 		render status: NO_CONTENT
 	}
 
+	/**
+	 * 用户列表（页面）
+	 */
+	def users(String q) {
+		params.max = 9
+
+		if(q) {
+			def trimText = q.trim()
+			def criteria = YongHu.where {
+				(xingMing ==~ "%" + trimText + "%") || (xingMing ==~ "%" + trimText + "%")
+			}
+			return [yongHuList:criteria.list(params), yongHuCount:criteria.count()]
+		}
+
+		[yongHuList:YongHu.list(params), yongHuCount:YongHu.count()]
+	}
+
+	/**
+	 * 删除用户
+	 */
+	@Transactional
+	def deleteYongHu(YongHu yongHu) {
+		if (yongHu == null) {
+			render status: NOT_FOUND
+			return
+		}
+
+		yongHu.delete flush:true
+		render status: NO_CONTENT
+	}
+
 }

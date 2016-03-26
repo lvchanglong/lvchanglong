@@ -1,7 +1,6 @@
 <%@ page import="lvchanglong.YongHu" %>
 <%@ page import="lvchanglong.ShiTi" %>
 <%@ page import="lvchanglong.BkColor" %>
-<%@ page import="lvchanglong.GuShi" %>
 
 <!DOCTYPE html>
 <html>
@@ -40,15 +39,15 @@
 									</div>
 									
 									<div class="text-text lineHeight30 block">
+										<g:render template="/layouts/plugins/zhuanZai"/>
+										<span class="separator">|</span>
+										<span class="dateCreated">
+											<g:formatDate date="${shiTi.dateCreated}" format="yyyy.MM.dd" />
+										</span>
+										<span class="separator">|</span>
 										<span class="yongHu">
 											${shiTi.getYongHuAsString()}
 										</span>
-										<span class="shortSeparator">|</span>
-										<span class="dateCreated">
-											<g:formatDate date="${shiTi.dateCreated}" format="yyyy年MM月dd日" />
-										</span>
-										<span class="shortSeparator">|</span>
-										<g:render template="/layouts/plugins/zhuanZai"/>
 									</div>
 								</div>
 							</div>
@@ -62,7 +61,7 @@
 					</div>
 				</g:if>
 				<g:else>
-					<g:render template="/layouts/plugins/error" model="[message:'（O _ O）：糟了，数据被妖怪抓走了！！！']"/>
+					<g:render template="/layouts/plugins/error" model="[message:'没有数据呀（O _ O）']"/>
 				</g:else>
 				
 			</div>

@@ -64,10 +64,7 @@ a {
 	position:relative;
 }
 .separator {
-	padding:0 11px;
-}
-.shortSeparator {
-	padding:0 4px;
+	padding:0 3px;
 }
 .bold {
 	font-weight:bold;
