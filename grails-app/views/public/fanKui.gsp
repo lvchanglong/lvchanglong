@@ -24,7 +24,7 @@
 								<g:formatDate date="${fanKui.dateCreated}" format="yyyy-MM-dd HH:mm:ss"/>
 							</div>
 
-							<g:if test="${dangQianYongHu?.shiFouGuanLiYuan()}">
+							<g:if test="${dangQianYongHu?.isAdmin()}">
 								<div style="position:absolute;right:0;bottom:0;margin-bottom:3px;">
 									<g:form name="fanKui-delete-form" url="[controller:'private', action:'deleteFanKui']" method="DELETE" class="deleteForm">
 										<g:hiddenField name="id" value="${fanKui.id}" />

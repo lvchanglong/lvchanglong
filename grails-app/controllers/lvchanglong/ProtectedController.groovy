@@ -9,45 +9,7 @@ import grails.transaction.Transactional;
 class ProtectedController {
 	
 	static defaultAction = "index"
-	
-	/**
-	 * 实体列表(页面)
-	 */
-	def listShiTi() {
-		try {
-			def dangQianYongHu = YongHu.get(session.uid)
-			
-				def criteria = ShiTi.where {
-					if(dangQianYongHu) {
-						yongHu {
-							id == dangQianYongHu.id
-						}
-					}
-				}
-				params.max = 1
-				params.sort = 'id'
-				params.order = 'desc'
 
-			return [shiTiList:criteria.list(params), shiTiCount:criteria.count(), dangQianYongHu:dangQianYongHu]
-		} catch(Exception e) {
-			
-		}
-	}
-	
-	/**
-	 * 实体修改(页面)
-	 * @param shiTi
-	 */
-	def editShiTi(ShiTi shiTi) {
-		def dangQianYongHu = YongHu.get(session.uid)
-		
-		if (shiTi == null) {
-			render status: NOT_FOUND
-			return
-		}
-		respond shiTi, model:[dangQianYongHu:dangQianYongHu]
-	}
-	
 	/**
 	 * 酱油
 	 */
@@ -56,7 +18,99 @@ class ProtectedController {
 	}
 
 	//---------------------------------------------------------------------------------------------------
-	
+
+	/**
+	 * 实体列表(页面)
+	 */
+	def listShiTi() {
+		try {
+			def dangQianYongHu = YongHu.get(session.uid)
+
+			def criteria = ShiTi.where {
+				if(dangQianYongHu) {
+					yongHu {
+						id == dangQianYongHu.id
+					}
+				}
+			}
+			params.max = 1
+			params.sort = 'id'
+			params.order = 'desc'
+
+			return [shiTiList:criteria.list(params), shiTiCount:criteria.count(), dangQianYongHu:dangQianYongHu]
+		} catch(Exception e) {
+
+		}
+	}
+
+	/**
+	 * 发布实体
+	 */
+	@Transactional
+	def saveShiTi(ShiTi shiTi) {
+		if (shiTi == null) {
+			render status: NOT_FOUND
+			return
+		}
+
+		shiTi.validate()
+		if (shiTi.hasErrors()) {
+			render status: NOT_ACCEPTABLE
+			return
+		}
+
+		shiTi.save flush:true
+		respond shiTi, [status: CREATED, formats:['json', 'xml']]
+	}
+
+	/**
+	 * 实体修改(页面)
+	 * @param shiTi
+	 */
+	def editShiTi(ShiTi shiTi) {
+		def dangQianYongHu = YongHu.get(session.uid)
+
+		if (shiTi == null) {
+			render status: NOT_FOUND
+			return
+		}
+		respond shiTi, model:[dangQianYongHu:dangQianYongHu]
+	}
+
+	/**
+	 * 修改实体
+	 */
+	@Transactional
+	def updateShiTi(ShiTi shiTi) {
+		if (shiTi == null) {
+			render status: NOT_FOUND
+			return
+		}
+
+		shiTi.validate()
+		if (shiTi.hasErrors()) {
+			render status: NOT_ACCEPTABLE
+			return
+		}
+
+		shiTi.save flush:true
+		respond shiTi, [status: OK, formats:['json', 'xml']]
+	}
+
+	/**
+	 * 删除实体
+	 */
+	@Transactional
+	def deleteShiTi(ShiTi shiTi) {
+		if (shiTi == null) {
+			render status: NOT_FOUND
+			return
+		}
+
+		shiTi.delete flush:true
+		render status: NO_CONTENT
+	}
+
 	/**
 	 * 修改密码(服务)
 	 */

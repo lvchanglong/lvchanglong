@@ -3,7 +3,7 @@
 <!doctype html>
 <html>
     <head>
-        <title><g:if env="development">Grails Runtime Exception</g:if><g:else>Error</g:else></title>
+        <title><g:if env="development">500</g:if><g:else>Error</g:else></title>
         <meta name="layout" content="main">
         <g:if env="development"><asset:stylesheet src="errors.css"/></g:if>
     </head>
@@ -25,26 +25,7 @@
             </g:else>
         </g:if>
         <g:else>
-            <div class="row">
-				<div class="col-md-4">
-					<ul class="listBox" style="background-color:${BkColor.getInst()};">
-                		<li>An error has occurred</li>
-			        </ul>
-				</div>
-				<div class="col-md-8">
-					<ul class="listBox" style="background-color:${BkColor.getInst()};">
-						<li>
-							我叫<strong style="font-size:26px;">${ session.uname }</strong>，${ session.uinfo }
-						</li>
-						<li style="margin-top:10px;">
-							${ GuShi.getInst() }
-						</li>
-					</ul>
-				</div>
-				<div class="col-md-12 autoHide mt15">
-					<g:render template="/layouts/plugins/3D" />
-				</div>
-			</div>
+            <g:render template="/layouts/plugins/error" model="[message:'An error has occurred (500)']"/>
         </g:else>
     </body>
 </html>

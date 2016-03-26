@@ -5,8 +5,8 @@
 		<title>实体管理${ grailsApplication.config.html.title.suffix }</title>
 	</head>
 	<body>
-		<g:if test="${ session.uid || dangQianYongHu?.shiFouGuanLiYuan() }">
-			<g:form name="shiTi-save-form" url="[controller:'shiTi', action:'save']" class="clearfix">
+		<g:if test="${ session.uid }">
+			<g:form name="shiTi-save-form" url="[controller:'protected', action:'saveShiTi']" class="clearfix">
 				<g:textField name="biaoTi" value="" placeholder="标题" required="" autofocus="" class="form-control mb15w"/>
 				<br/>
 				<g:textArea id="shiTiNeiRongSave" name="neiRong" value="100%，500px" placeholder="内容" class="ckeditor"/>

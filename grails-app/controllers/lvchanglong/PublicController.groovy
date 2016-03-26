@@ -11,9 +11,28 @@ import grails.gorm.DetachedCriteria
 class PublicController {
 
 	static defaultAction = "index"
+	
+	//---------------------------------------------------------------------------------------------------
 
 	/**
-	 * 反馈(页面)
+	 * 网站首页(页面)
+	 */
+	def index(String text) {
+		params.max = 9
+
+		if(text) {
+			def trimText = text.trim()
+			def criteria = ShiTi.where {
+				(biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%")
+			}
+			return [shiTiList:criteria.list(params), shiTiCount:criteria.count()]
+		}
+
+		[shiTiList:ShiTi.list(params), shiTiCount:ShiTi.count()]
+	}
+
+	/**
+	 * 反馈列表(页面)
 	 */
 	def fanKui(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
@@ -22,7 +41,7 @@ class PublicController {
 
 	/**
 	 * 发布反馈
-     */
+	 */
 	@Transactional
 	def saveFanKui(FanKui fanKui) {
 		if (fanKui == null) {
@@ -39,14 +58,14 @@ class PublicController {
 		fanKui.save flush:true
 		respond fanKui, [status: CREATED, formats:['json', 'xml']]
 	}
-	
+
 	/**
 	 * 用前必读(页面)
 	 */
 	def yongQianBiDu() {
-		
+
 	}
-	
+
 	/**
 	 * 实体详情(页面)
 	 * @param shiTi
@@ -58,26 +77,7 @@ class PublicController {
 		}
 		respond shiTi
 	}
-	
-	/**
-	 * 网站首页(页面)
-	 */
-    def index(String text) {
-		params.max = 9
-		
-		if(text) {
-			def trimText = text.trim()
-			def criteria = ShiTi.where {
-				(biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%")
-			}
-			return [shiTiList:criteria.list(params), shiTiCount:criteria.count()]
-		}
-		
-		[shiTiList:ShiTi.list(params), shiTiCount:ShiTi.count()]
-	}
-	
-	//---------------------------------------------------------------------------------------------------
-	
+
 	/**
 	 * 用户登录(服务)
 	 * @param xingMing 姓名

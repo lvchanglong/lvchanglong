@@ -39,10 +39,15 @@ class PrivateController {
 
 		render "conn"
 	}
-		
+
+	/**
+	 * 酱油
+	 */
     def index() {
 		render "私有的"
 	}
+
+	//---------------------------------------------------------------------------------------------------
 
 	/**
 	 * 删除反馈
@@ -57,4 +62,5 @@ class PrivateController {
 		fanKui.delete flush:true
 		render status: NO_CONTENT
 	}
+
 }

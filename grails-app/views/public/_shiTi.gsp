@@ -3,7 +3,7 @@
 <g:set var="dangQianYongHu" value="${ YongHu.get(session.uid) }" />
 
 <div class="mb10 h1 text-center block">
-	<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
+	<g:if test="${ dangQianYongHu?.isMyShiTi(shiTi.id) }">
 		<g:link controller="protected" action="editShiTi" id="${ shiTi.id }" target="_blank" onclick="reloadConfirm();" class="link"><span class="glyphicon glyphicon-edit"></span></g:link>
 	</g:if>
 	

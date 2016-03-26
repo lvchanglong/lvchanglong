@@ -17,7 +17,7 @@
 						<g:if test="${ shiTi }">
 							<div class="col-md-4">
 								<div class="listBox" style="background-color:${BkColor.getInst()};">
-									<g:if test="${ dangQianYongHu?.shiFouGuanLiYuan() }">
+									<g:if test="${ dangQianYongHu?.isMyShiTi(shiTi.id) }">
 										<g:link controller="protected" action="editShiTi" id="${ shiTi.id }" target="_blank" onclick="reloadConfirm();" class="link">
 											<span class="glyphicon glyphicon-edit"></span>
 										</g:link>
@@ -62,26 +62,7 @@
 					</div>
 				</g:if>
 				<g:else>
-					<div class="row">
-						<div class="col-md-4">
-							<ul class="listBox" style="background-color:${BkColor.getInst()};">
-					            <li>（O _ O）：糟了，数据被妖怪抓走了！！！</li>
-					        </ul>
-						</div>
-						<div class="col-md-8">
-							<ul class="listBox" style="background-color:${BkColor.getInst()};">
-								<li>
-									我叫<strong style="font-size:26px;">${ session.uname }</strong>，${ session.uinfo }
-								</li>
-								<li style="margin-top:10px;">
-									${ GuShi.getInst() }
-								</li>
-							</ul>
-						</div>
-						<div class="col-md-12 autoHide mt15">
-							<g:render template="/layouts/plugins/3D" />
-						</div>
-					</div>
+					<g:render template="/layouts/plugins/error" model="[message:'（O _ O）：糟了，数据被妖怪抓走了！！！']"/>
 				</g:else>
 				
 			</div>

@@ -67,8 +67,26 @@ class YongHu {
 	 * 是管理员么？
 	 * @return
 	 */
-	boolean shiFouGuanLiYuan() {
+	boolean isAdmin() {
 		return (this.quanXian == "管理员")
+	}
+
+	/**
+	 * 是否是我的实体
+	 * @param stid
+	 * @return
+     */
+	boolean isMyShiTi(def stid) {
+		if(this.isAdmin()) {
+			return true
+		}
+		def shiTi = ShiTi.where {
+			id == stid
+			yongHu {
+				id == this.id
+			}
+		}
+		return shiTi.count()
 	}
 	
 	/**
