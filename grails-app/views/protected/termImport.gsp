@@ -92,6 +92,7 @@
 		</g:form>
 		<g:javascript>
 			jQuery("#termImportForm").ajaxForm({
+				timeout: 10800000, //3h
 				beforeSubmit:function () {
 					jQuery("#termImportSubmitButton").attr("disabled","disabled");
 					return true;
@@ -100,7 +101,7 @@
 					alert(data);
 				},
 				error:function(XMLHttpRequest,textStatus,errorThrown){
-					alert(XMLHttpRequest.responseText);
+					//alert(XMLHttpRequest.responseText);
 				}
 			});
 		</g:javascript>
