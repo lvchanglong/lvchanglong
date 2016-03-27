@@ -94,7 +94,7 @@
 			jQuery("#termImportForm").ajaxForm({
 				timeout: 43200000, //12h
 				beforeSubmit:function () {
-					jQuery("#termImportSubmitButton").attr("disabled","disabled").val("后台服务器自动处理中~温馨提示，您的任何操作都不会影响到导入结果");
+					jQuery("#termImportSubmitButton").attr("disabled","disabled").val("后台服务器自动处理中~温馨提示，您的任何操作都不会影响到本次结果");
 					return true;
 				},
 				success:function(data,textStatus){
