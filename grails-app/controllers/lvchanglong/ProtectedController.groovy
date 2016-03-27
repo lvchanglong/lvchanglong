@@ -56,9 +56,9 @@ class ProtectedController {
 			def sid = source.split("#")[1]
 			def tid = target.split("#")[1]
 
-			def disciplineInstance = Discipline.get(did)
-			def sourceInstance = Lan.get(sid)
-			def targetInstance = Lan.get(tid)
+			def disciplineInstance = Discipline.get(did.trim())
+			def sourceInstance = Lan.get(sid.trim())
+			def targetInstance = Lan.get(tid.trim())
 			return [disciplineInstance:disciplineInstance, sourceInstance:sourceInstance, targetInstance:targetInstance, ly:ly]
 		}
 		render status: BAD_REQUEST
@@ -73,9 +73,9 @@ class ProtectedController {
 	def termImporting(String did, String sid, String tid, String ly) {
 		withForm {
 			if(did && sid && tid) {
-				def discipline = Discipline.get(did) //学科
-				def source = Lan.get(sid) //源语言
-				def target = Lan.get(tid) //目标语言
+				def discipline = Discipline.get(did.trim()) //学科
+				def source = Lan.get(sid.trim()) //源语言
+				def target = Lan.get(tid.trim()) //目标语言
 
 				String realPath = servletContext.getRealPath("/")
 				def dirPath = realPath + "userData/${session.uid}"
@@ -97,16 +97,19 @@ class ProtectedController {
 								def termTo = row.getCell(1).getStringCellValue()
 
 								if(termFrom && termTo){
-									def sTerm = Term.findByName(termFrom)
+									def trimFrom = termFrom.trim()
+									def trimTo = termTo.trim()
+
+									def sTerm = Term.findByName(trimFrom)
 									if(!sTerm) {
-										sTerm = new Term(["name":termFrom, "yongHu":session.uid, "discipline":discipline, "ly":ly])
+										sTerm = new Term(["name":trimFrom, "yongHu":session.uid, "discipline":discipline, "ly":ly])
 										source.addToTerms(sTerm)
 										source.save(flush: true)
 									}
 
-									def tTerm = Term.findByName(termTo)
+									def tTerm = Term.findByName(trimTo)
 									if(!tTerm) {
-										tTerm = new Term(["name":termTo, "yongHu":session.uid, "discipline":discipline, "ly":ly])
+										tTerm = new Term(["name":trimTo, "yongHu":session.uid, "discipline":discipline, "ly":ly])
 										target.addToTerms(tTerm)
 										target.save(flush: true)
 									}
@@ -165,7 +168,7 @@ class ProtectedController {
 	 */
 	def deleteFile(String fileName) {
 		String realPath = servletContext.getRealPath("/")
-		def filePath = realPath + "userData/${session.uid}/${fileName}"
+		def filePath = realPath + "userData/${session.uid}/${fileName.trim()}"
 		def file = Helper.getFile(filePath)
 		file.delete()
 		def dir = file.getParentFile()
@@ -178,7 +181,7 @@ class ProtectedController {
 	 */
 	def previewFile(String fileName) {
 		String realPath = servletContext.getRealPath("/")
-		String filePath = realPath + "userData/${session.uid}/${fileName}"
+		String filePath = realPath + "userData/${session.uid}/${fileName.trim()}"
 		File file = Helper.getFile(filePath)
 		String fileType = Helper.getFileType(fileName)
 
@@ -195,7 +198,7 @@ class ProtectedController {
 					def row = sheet.getRow(i)
 					def termFrom = row.getCell(0).getStringCellValue()
 					def termTo = row.getCell(1).getStringCellValue()
-					arrayHM.add(new HashMap(["from":termFrom, "to":termTo]))
+					arrayHM.add(new HashMap(["from":termFrom.trim(), "to":termTo.trim()]))
 				}
 				render(template:"/protected/previewFile", model:['arrayHM': arrayHM])
 				return
@@ -329,7 +332,7 @@ class ProtectedController {
 			def dangQianYongHu = YongHu.get(session.uid)
 			if (dangQianYongHu) {
 				String realPath = servletContext.getRealPath("/")
-				def imagePath = realPath + "userData/${dangQianYongHu.id}/${fileName}"
+				def imagePath = realPath + "userData/${dangQianYongHu.id}/${fileName.trim()}"
 				File file = Helper.getFile(imagePath)
 				
 				BufferedInputStream fileIn = new BufferedInputStream(request.getInputStream())

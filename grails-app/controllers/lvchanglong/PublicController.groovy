@@ -152,7 +152,7 @@ class PublicController {
 	 */
 	def ipXiangQing(String ip) {
 		try {
-			def url = new URL("http://wap.ip138.com/ip138.asp?ip=" + ip)
+			def url = new URL("http://wap.ip138.com/ip138.asp?ip=" + ip.trim())
 			def text = url.getText()
 			render text.find(/(?<=<b>).*?(?=<\/b>)/)
 		} catch(Exception e) {
@@ -166,7 +166,7 @@ class PublicController {
 	 */
 	def xiaZai(String filePath) {
 		try {
-			File file = new File(filePath)
+			File file = new File(filePath.trim())
 			def fileName = file.getName()
 			def fileType = Helper.getFileType(fileName)
 			response.contentType = grailsApplication.config.grails.mime.types[fileType]

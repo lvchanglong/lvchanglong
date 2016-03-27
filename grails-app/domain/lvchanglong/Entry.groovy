@@ -72,7 +72,7 @@ class Entry {
 	 */
 	static def find(String q) {
 		def dc = Entry.where {
-			(nms ==~ "%\"" + q + "\"%")
+			(nms ==~ "%\"" + q.trim() + "\"%")
 		}
 		return dc.find()
 	}

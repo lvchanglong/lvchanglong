@@ -52,7 +52,7 @@ class Lan {
 	 */
 	static def search(String q) {
 		def dc = Lan.where {
-			(ysc == false) && (name ==~ "%" + q + "%")
+			(ysc == false) && (name ==~ "%" + q.trim() + "%")
 		}
 		return dc.list([max: 10])
 	}

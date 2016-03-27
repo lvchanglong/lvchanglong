@@ -63,7 +63,7 @@ class Discipline {
 	 */
 	static def search(String q) {
 		def dc = Discipline.where {
-			(ysc == false) && (name ==~ "%" + q + "%")
+			(ysc == false) && (name ==~ "%" + q.trim() + "%")
 		}
 		return dc.list([max: 10])
 	}

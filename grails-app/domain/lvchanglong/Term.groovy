@@ -56,7 +56,7 @@ class Term {
 	 */
 	static def search(String q) {
 		def dc = Term.where {
-			name ==~ "%" + q + "%"
+			name ==~ "%" + q.trim() + "%"
 		}
 		return dc.list([max: 10])
 	}
