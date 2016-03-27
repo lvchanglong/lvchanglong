@@ -110,8 +110,10 @@ class ProtectedController {
 										target.addToTerms(tTerm)
 										target.save(flush: true)
 									}
-
-									Entry.link(sTerm, tTerm) //建立关联
+									
+									if(sTerm && tTerm) {
+										Entry.link(sTerm, tTerm) //建立关联
+									}
 								}
 							}
 					}
