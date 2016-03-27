@@ -38,7 +38,7 @@
 						<td class="widthValue">
 							<div class="row">
 								<div class="col-md-6">
-									<g:textField id="disciplineAutoComplete" name="autoDiscipline" autofocus="" value="" class="form-control" placeholder="经济、心理、未知..."/>
+									<g:textField id="disciplineAutoComplete" name="autoDiscipline" autofocus="autofocus" value="" class="form-control" placeholder="经济、心理、未知..."/>
 									<g:hiddenField name="discipline" value=""/>
 									<script type="text/javascript">
 										jQuery("#disciplineAutoComplete").autocomplete({
