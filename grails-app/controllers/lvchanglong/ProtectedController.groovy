@@ -97,13 +97,19 @@ class ProtectedController {
 								def termTo = row.getCell(1).getStringCellValue()
 
 								if(termFrom && termTo){
-									def sTerm = new Term(["name":termFrom, "yongHu":session.uid, "discipline":discipline, "ly":ly])
-									source.addToTerms(sTerm)
-									source.save(flush: true)
+									def sTerm = Term.findByName(termFrom)
+									if(!sTerm) {
+										sTerm = new Term(["name":termFrom, "yongHu":session.uid, "discipline":discipline, "ly":ly])
+										source.addToTerms(sTerm)
+										source.save(flush: true)
+									}
 
-									def tTerm = new Term(["name":termTo, "yongHu":session.uid, "discipline":discipline, "ly":ly])
-									target.addToTerms(tTerm)
-									target.save(flush: true)
+									def tTerm = Term.findByName(termTo)
+									if(!tTerm) {
+										tTerm = new Term(["name":termTo, "yongHu":session.uid, "discipline":discipline, "ly":ly])
+										target.addToTerms(tTerm)
+										target.save(flush: true)
+									}
 
 									Entry.link(sTerm, tTerm) //建立关联
 								}

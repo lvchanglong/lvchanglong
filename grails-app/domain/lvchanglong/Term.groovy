@@ -19,7 +19,7 @@ class Term {
 	//特有：地域(ly)
 	
 	static constraints = {
-		name(nullable: false, blank: false)
+		name(nullable: false, blank: false, unique: true)
 		area(nullable: true, blank: true)
 		dy(nullable: true, blank: true)
 		ly(nullable: true, blank: true)
