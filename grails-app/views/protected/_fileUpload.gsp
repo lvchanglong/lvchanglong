@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-2">
-		<div class="btn btn-success fileinput-button" style="width:100%;height:34px;">
+		<div class="btn btn-success fileinput-button" style="width:100%;height:34px;margin-bottom:3px;">
 			<i class="glyphicon glyphicon-plus"></i>
 			<span>选择文件...</span>
 			<input id="fileupload" type="file" name="file" multiple accept="${grailsApplication.config.grails.mime.types.xls}, ${grailsApplication.config.grails.mime.types.xlsx}">

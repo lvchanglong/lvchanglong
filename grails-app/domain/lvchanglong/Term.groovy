@@ -11,7 +11,7 @@ class Term {
 	
 	String name //名称->导入
 	String area = '无关'//地域
-	String dy = '暂无定义'//定义->导入
+	String dy = '无定义'//定义->导入
 	String ly //来源
 
 	//共有：语种(lan)、学科(discipline)、用户(yongHu)、来源(ly)

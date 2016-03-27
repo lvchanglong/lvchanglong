@@ -129,7 +129,7 @@
 						<td class="widthValue">
 							<div class="row">
 								<div class="col-md-6 textAlignCenter">
-									<g:submitButton name="submit" value="导入" class="btn btn-primary"/>
+									<g:submitButton name="submit" value="导入" class="btn btn-primary" style="margin-bottom:3px;"/>
 								</div>
 								<div class="col-md-6 textAlignCenter">
 									<a href="#" class="btn btn-primary" disabled="disabled">添加</a>
