@@ -90,7 +90,7 @@ class PublicController {
 				session.uid = yonghu.id
 				session.uname = yonghu.xingMing //姓名
 				
-				session.setMaxInactiveInterval(10800) //失效时间3小时
+				session.setMaxInactiveInterval(21600) //失效时间6小时
 				render status: OK, text: '操作成功，初始化...'
 				return
 			} else {

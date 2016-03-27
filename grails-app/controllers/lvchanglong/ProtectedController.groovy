@@ -124,7 +124,7 @@ class ProtectedController {
 			render status: BAD_REQUEST, text:"无效请求"
 			return
 		}.invalidToken {
-			render status: BAD_REQUEST, text:"导入已开始，请不要多次提交"
+			render status: BAD_REQUEST, text:"导入进行中，请不要多次提交"
 			return
 		}
 	}
