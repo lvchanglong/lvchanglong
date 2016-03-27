@@ -7,12 +7,16 @@ package lvchanglong
  */
 class Term {
 
-	static belongsTo = [lan: Lan, discipline: Discipline] //语种，学科
+	static belongsTo = [lan: Lan, discipline: Discipline, yongHu: YongHu] //语种，学科，用户
 	
-	String name //术语名称
+	String name //名称->导入
 	String area = '无关'//地域
-	String dy //定义
+	String dy = '暂无定义'//定义->导入
 	String ly //来源
+
+	//共有：语种(lan)、学科(discipline)、用户(yongHu)、来源(ly)
+	//导入：名称(name)、定义(dy)
+	//特有：地域(ly)
 	
 	static constraints = {
 		name(nullable: false, blank: false)
@@ -22,19 +26,21 @@ class Term {
 		
 		lan(nullable: false, blank: false)
 		discipline(nullable: true, blank: true)
+		yongHu(nullable: false, blank: false)
 	}
 	
 	static mapping = {
 		table 'TERM'
-		
+
 		name column: 'NAME'
 		area column: 'AREA'
 		dy column: 'DY'
 		ly column: 'LY'
-		
+
 		lan column: 'LAN_ID'
 		discipline column: 'DISCIPLINE_ID'
-		
+		yongHu column: 'YONG_HU_ID'
+
 		id column:'ID'
 		version false
 	}

@@ -12,7 +12,7 @@
 		<div class="col-md-4">
 			<ul class="hNav text-left">
 				<li>
-					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;<g:link controller="term" action="index" class="link" style="font-size:20px;line-height:30px;" >检索术语</g:link>
+					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;<g:link controller="term" action="index" class="link" style="font-size:20px;line-height:30px;" >术语检索</g:link>
 				</li>
 				<li>
 					<span class="glyphicon glyphicon-download" aria-hidden="true"></span>&nbsp;<g:link controller="public" action="xiaZai" params="[filePath:'grails-app/assets/androids/lvchanglong.apk']" class="link" style="font-size:20px;line-height:30px;" >下安卓版</g:link>
@@ -43,8 +43,6 @@
 										        	<div id="miMaXiuGaiTiShi" class="alert alert-info" role="alert">
 										        		<strong>原密、新密、确认</strong>
 												    </div>
-											        
-													<g:hiddenField name="version" value="${dangQianYongHu?.version}"/>
 													
 													<g:passwordField name="yuanMiMa" value="" required="" autofocus="" class="form-control" placeholder="原始密码"/>
 									        		<g:passwordField name="xinMiMa" value="" class="form-control" placeholder="新的密码"/>
@@ -190,6 +188,9 @@
 				<ul class="hNav text-right clearBoth">
 					<li style="padding-right:0;">
 						<g:link controller="protected" action="listShiTi" class="btn btn-default">实体</g:link>
+					</li>
+					<li style="padding-right:0;">
+						<g:link controller="protected" action="termCommon" class="btn btn-default">术语</g:link>
 					</li>
 					<g:if test="${ dangQianYongHu.isAdmin() }">
 						<li style="padding-right:0;">

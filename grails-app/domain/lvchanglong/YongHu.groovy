@@ -7,7 +7,7 @@ package lvchanglong
  */
 class YongHu {
 
-	static hasMany = [shiTis: ShiTi]
+	static hasMany = [shiTis: ShiTi, terms: Term]
 	
 	String xingMing //姓名
 	String miMa //密码
@@ -37,11 +37,12 @@ class YongHu {
 		quanXian column: 'QUAN_XIAN'
 
 		id column:'ID'
-		version column:'BAN_BEN'
 		dateCreated column: 'CHUANG_JIAN_SHI_JIAN'
 		lastUpdated column: 'GENG_XIN_SHI_JIAN'
-		
-		shiLis sort: "id", order: "desc"
+
+		shiTis sort: "id", order: "desc"
+		terms sort: "id", order: "desc"
+		version false
 	}
 	
 	String toString() {
@@ -75,8 +76,7 @@ class YongHu {
 			return true
 		}
 		def shiTi = ShiTi.where {
-			id == stid
-			yongHu {
+			(id == stid) && yongHu {
 				id == this.id
 			}
 		}

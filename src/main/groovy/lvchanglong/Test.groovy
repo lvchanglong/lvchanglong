@@ -13,7 +13,7 @@ class Test {
             def termTo = row.getCell(1).getStringCellValue()
             println "From:" + termFrom + ",To:" + termTo
         }
-//        xlsx.delete()
+        xlsx.delete()
 	}
 	
 	def a() {

@@ -1,4 +1,4 @@
-<table id="entryTable" class="table table-bordered mt15 bold">
+<table id="entryTable" class="table table-bordered mt15" style="background-color: transparent;">
 	<tr>
 		<td>术语</td>
 		<td>学科</td>

@@ -36,6 +36,7 @@
 	<link href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
 	<link href="//cdn.bootcss.com/jqueryui/1.11.4/jquery-ui.min.css" rel="stylesheet">
+	<link href="//cdn.bootcss.com/blueimp-file-upload/9.5.7/css/jquery.fileupload.min.css" rel="stylesheet">
 	
 	<%--
 	<asset:stylesheet src="bootstrap-3.3.5-dist/css/bootstrap.min.css"/>
@@ -51,6 +52,8 @@
 	<script src="//cdn.bootcss.com/ckeditor/4.4.5/ckeditor.js"></script>
 	<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
 	<script src="//cdn.bootcss.com/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script src="//cdn.bootcss.com/blueimp-file-upload/9.5.7/jquery.fileupload.min.js"></script>
+	<script src="//cdn.bootcss.com/blueimp-file-upload/9.5.7/jquery.iframe-transport.min.js"></script>
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 		<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>

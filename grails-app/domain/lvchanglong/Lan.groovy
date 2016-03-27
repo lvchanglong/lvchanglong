@@ -24,6 +24,7 @@ class Lan {
 		ysc column: 'YSC'
 		
 		id column:'ID'
+		terms sort: "id", order: "desc"
 		version false
 	}
 	

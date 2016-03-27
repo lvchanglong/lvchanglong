@@ -52,13 +52,22 @@ a {
 .colorInherit {
     color:inherit !important;
 }
+.bkColorInherit {
+	background-color: transparent !important;
+}
 .toCenter {
 	display:block;
 	margin-left:auto;
 	margin-right:auto;
 }
+.textAlignCenter {
+	text-align:center;
+}
 .verticalAlignBottom {
 	vertical-align:bottom;
+}
+.toMiddle {
+	vertical-align:middle !important;
 }
 .relative {
 	position:relative;
@@ -306,6 +315,9 @@ a {
 }
 .paddingWrapper {
 	padding: 30px 40px 70px 40px !important;
+}
+.paddingNormal {
+	padding: 30px;
 }
 .form-control {
 	margin-bottom:9px;
