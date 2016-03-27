@@ -74,11 +74,12 @@ class ProtectedController {
 		withForm {
 			if(did && sid && tid) {
 				def discipline = Discipline.get(did.trim()) //学科
-				def source = Lan.get(sid.trim()) //源语言
-				def target = Lan.get(tid.trim()) //目标语言
+				def sourceLan = Lan.get(sid.trim()) //源语言
+				def targetLan = Lan.get(tid.trim()) //目标语言
+				def yongHu = YongHu.get(session.uid) //当前用户
 
 				String realPath = servletContext.getRealPath("/")
-				def dirPath = realPath + "userData/${session.uid}"
+				def dirPath = realPath + "userData/${yongHu.id}"
 				def dir = Helper.getFolder(dirPath)
 				dir.listFiles().each {file->
 					String fileType = Helper.getFileType(file.getName())
@@ -102,16 +103,16 @@ class ProtectedController {
 
 									def sTerm = Term.findByName(trimFrom)
 									if(!sTerm) {
-										sTerm = new Term(["name":trimFrom, "yongHu":session.uid, "discipline":discipline, "ly":ly])
-										source.addToTerms(sTerm)
-										source.save(flush: true)
+										sTerm = new Term(["name":trimFrom, "yongHu":yongHu, "discipline":discipline, "ly":ly])
+										sourceLan.addToTerms(sTerm)
+										sourceLan.save(flush: true)
 									}
 
 									def tTerm = Term.findByName(trimTo)
 									if(!tTerm) {
-										tTerm = new Term(["name":trimTo, "yongHu":session.uid, "discipline":discipline, "ly":ly])
-										target.addToTerms(tTerm)
-										target.save(flush: true)
+										tTerm = new Term(["name":trimTo, "yongHu":yongHu, "discipline":discipline, "ly":ly])
+										targetLan.addToTerms(tTerm)
+										targetLan.save(flush: true)
 									}
 									
 									if(sTerm && tTerm) {
