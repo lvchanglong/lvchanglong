@@ -61,7 +61,7 @@
 					</div>
 				</g:if>
 				<g:else>
-					<g:render template="/layouts/plugins/error" model="[message:'没有数据呀（O _ O）']"/>
+					<g:render template="/layouts/plugins/errorInfo" model="[message:'没有数据呀（O _ O）']"/>
 				</g:else>
 				
 			</div>

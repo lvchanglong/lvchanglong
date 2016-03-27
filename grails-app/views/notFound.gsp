@@ -6,6 +6,6 @@
         <g:if env="development"><asset:stylesheet src="errors.css"/></g:if>
     </head>
     <body>
-		<g:render template="/layouts/plugins/error" model="[message:'Page Not Found (404)']"/>
+		<g:render template="/layouts/plugins/errorInfo" model="[message:'Page Not Found (404)']"/>
     </body>
 </html>

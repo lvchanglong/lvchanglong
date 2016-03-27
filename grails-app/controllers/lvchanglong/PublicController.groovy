@@ -36,7 +36,7 @@ class PublicController {
 	 */
 	def fanKui(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
-		respond FanKui.list(params), model:[fanKuiCount: FanKui.count()]
+		[fanKuiList: FanKui.list(params), fanKuiCount: FanKui.count()]
 	}
 
 	/**
@@ -75,7 +75,7 @@ class PublicController {
 			render status: NOT_FOUND
 			return
 		}
-		respond shiTi
+		[shiTi: shiTi]
 	}
 
 	/**

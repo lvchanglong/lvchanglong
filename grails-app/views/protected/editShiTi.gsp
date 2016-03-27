@@ -18,19 +18,19 @@
 			</g:form>
 			<g:javascript>
 				jQuery("#shiTi-update-form").ajaxForm({
-					beforeSerialize: function($form, options) { 
+					beforeSerialize: function($form, options) {
 					    var neiRongHtml = CKEDITOR.instances.shiTiNeiRongUpdate.getData();
 					    jQuery("#shiTiNeiRongUpdate").val(neiRongHtml);
 					},
 					success:function(data,textStatus){
 						success(data,textStatus,'#shiTi-message-console');
-					}, 
+					},
 					error:function(XMLHttpRequest,textStatus,errorThrown){
 						error(XMLHttpRequest,textStatus,errorThrown,'#shiTi-message-console');
 					}
 				});
 			</g:javascript>
-			
+
 			<g:form name="shiTi-delete-form" url="[controller:'protected', action:'deleteShiTi']" method="DELETE">
 				<g:hiddenField name="id" value="${shiTi.id}" />
 				<g:submitButton name="submit" class="btn btn-danger pull-right" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" style="margin-top:8px;"/>
@@ -39,17 +39,17 @@
 				jQuery("#shiTi-delete-form").ajaxForm({
 					success:function(data,textStatus){
 						success(data,textStatus,'#shiTi-message-console');
-					}, 
+					},
 					error:function(XMLHttpRequest,textStatus,errorThrown){
 						error(XMLHttpRequest,textStatus,errorThrown,'#shiTi-message-console');
 					}
 				});
 			</g:javascript>
-			
+
 			<div id="shiTi-message-console" class="alert alert-info" role="alert">没吃药，萌萌哒...</div>
 		</g:if>
 		<g:else>
-			<g:render template="/layouts/plugins/error" model="[message:'没有权限']"/>
+			<g:render template="/layouts/plugins/errorInfo" model="[message:'没有权限']"/>
 		</g:else>
 	</body>
 </html>

@@ -25,7 +25,7 @@
             </g:else>
         </g:if>
         <g:else>
-            <g:render template="/layouts/plugins/error" model="[message:'An error has occurred (500)']"/>
+            <g:render template="/layouts/plugins/errorInfo" model="[message:'An error has occurred (500)']"/>
         </g:else>
     </body>
 </html>

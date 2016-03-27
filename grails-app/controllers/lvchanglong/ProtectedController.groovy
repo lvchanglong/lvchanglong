@@ -257,7 +257,7 @@ class ProtectedController {
 			render status: NOT_FOUND
 			return
 		}
-		respond shiTi, model:[dangQianYongHu:dangQianYongHu]
+		[shiTi:shiTi, dangQianYongHu:dangQianYongHu]
 	}
 
 	/**
