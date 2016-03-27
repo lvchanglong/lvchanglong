@@ -50,6 +50,9 @@ class Discipline {
 					discipline.save(flush: true)
 				}
 			}
+			
+			def pElse = new Discipline(['name':'其他'])
+			pElse.save(flush:true)
 		}
 	}
 	
