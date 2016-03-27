@@ -51,7 +51,7 @@ class Discipline {
 				}
 			}
 			
-			def pElse = new Discipline(['name':'其他'])
+			def pElse = new Discipline(['name':'未知'])
 			pElse.save(flush:true)
 		}
 	}
