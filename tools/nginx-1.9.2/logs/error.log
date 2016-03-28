@@ -1,2 +1,0 @@
-2015/06/26 06:45:14 [error] 21332#149704: *1 CreateFile() "E:\grails\workspace\mt\tools\nginx-1.9.2/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost"
-2015/06/26 07:48:27 [error] 21332#149704: *6 CreateFile() "E:\grails\workspace\mt\tools\nginx-1.9.2/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "127.0.0.1"

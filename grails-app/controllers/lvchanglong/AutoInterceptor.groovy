@@ -7,10 +7,7 @@ class AutoInterceptor {
 		matchAll()
 	}
 	
-    boolean before() { 
-		if(!session.uname) { //姓名
-			session.uname = ChineseName.getInst()
-		}
+    boolean before() {
 		return true
 	}
 

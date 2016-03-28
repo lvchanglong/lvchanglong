@@ -25,10 +25,10 @@ class FanKui {
 		neiRong column: 'NEI_RONG', sqlType:"text"
 
 		id column:'ID'
-		version column:'BAN_BEN'
 		dateCreated column: 'CHUANG_JIAN_SHI_JIAN'
 		
 		sort id: "desc"
+		version false
 	}
 	
 	String toString() {

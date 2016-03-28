@@ -88,7 +88,6 @@ class PublicController {
 			def yonghu = YongHu.findInstance(xingMing, miMa)
 			if (yonghu) {
 				session.uid = yonghu.id
-				session.uname = yonghu.xingMing //姓名
 				
 				session.setMaxInactiveInterval(43200) //失效时间12小时
 				render status: OK, text: '操作成功，初始化...'

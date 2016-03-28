@@ -1,6 +1,8 @@
 <%@ page import="lvchanglong.YongHu" %>
+<%@ page import="lvchanglong.ChineseName" %>
 
 <g:set var="dangQianYongHu" value="${ YongHu.get(session.uid) }" />
+<g:set var="autoName" value="${ ChineseName.getInst() }" />
 
 <div class="topLines">
 	<div class="line1"></div>
@@ -87,7 +89,7 @@
 				</g:if>
 				<g:else>
 					<li>
-						<a href="#" data-toggle="modal" data-target="#hoverDengLu" class="link"><strong class="uname"><i class="fa fa-user"></i>${ session.uname }</strong></a>
+						<a href="#" data-toggle="modal" data-target="#hoverDengLu" class="link"><strong class="uname"><i class="fa fa-user"></i>${ autoName }</strong></a>
 						<div class="modal fade text-left" id="hoverDengLu" tabindex="-1" role="dialog" aria-labelledby="hoverDengLuTitle">
 							<div class="modal-dialog" role="document" aria-hidden="true">
 								<div class="modal-content">
@@ -102,7 +104,7 @@
 										    </div>
 									        
 									        <label for="inputXingMing" class="sr-only">姓名</label>
-									        <g:textField id="inputXingMing" name="xingMing" value="${ session.uname }" required="" autofocus="" class="form-control" placeholder="姓名"/>
+									        <g:textField id="inputXingMing" name="xingMing" value="${ autoName }" required="" autofocus="" class="form-control" placeholder="姓名"/>
 									        
 									        <label for="inputPassword" class="sr-only">密码</label>
 									        <g:passwordField id="inputPassword" name="miMa" value="" class="form-control" placeholder="密码"/>
@@ -139,7 +141,7 @@
 								        	<div id="zhuCeTiShi" class="alert alert-info" role="alert">
 								        		姓名、密码、确认
 										    </div>
-									        <g:textField name="xingMing" value="${ session.uname }" required="" autofocus="" class="form-control" placeholder="姓名"/>
+									        <g:textField name="xingMing" value="${ autoName }" required="" autofocus="" class="form-control" placeholder="姓名"/>
 									        <g:passwordField name="miMa" value="" class="form-control" placeholder="密码"/>
 											<g:passwordField name="queRenMiMa" value="" class="form-control" placeholder="确认"/>
 

@@ -3,8 +3,8 @@
 </h3>
 
 <g:form name="fanKui-save-form" controller="public" action="saveFanKui" class="clearfix">
-	<g:hiddenField name="xingMing" value="${ session.uname }"/>
-	
+	<g:hiddenField name="xingMing" value="${ dangQianYongHu?:"匿名" }"/>
+
 	<g:textArea id="fanKui-save-neiRong" name="neiRong" required="" autofocus="" class="form-control borderRadius" style="width:100%;" placeholder="你想写多长就写多长"/>
 
 	<div id="fanKui-save-status" class="messageBox">没吃药，萌萌哒...</div>

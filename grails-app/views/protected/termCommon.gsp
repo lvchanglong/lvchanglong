@@ -12,7 +12,6 @@
 			}
 			.widthValue {
 				vertical-align: middle !important;
-				1width:400px;
 			}
 			.widthValue .form-control {
 				margin-bottom:0;
@@ -38,7 +37,7 @@
 						<td class="widthValue">
 							<div class="row">
 								<div class="col-md-6">
-									<g:textField id="disciplineAutoComplete" name="autoDiscipline" autofocus="autofocus" value="" class="form-control" placeholder="经济、心理、未知..."/>
+									<g:textField id="disciplineAutoComplete" name="autoDiscipline" autofocus="autofocus" value="" class="form-control" placeholder="必填"/>
 									<g:hiddenField name="discipline" value=""/>
 									<script type="text/javascript">
 										jQuery("#disciplineAutoComplete").autocomplete({
@@ -54,7 +53,7 @@
 								</div>
 								<div class="col-md-6">
 									<div id="disciplinePreview" class="widthPreview">
-										<span class="glyphicon glyphicon-question-sign"></span>
+										<span class="glyphicon glyphicon-question-sign"></span>&nbsp;例：经济、冶金、未知...
 									</div>
 								</div>
 							</div>
@@ -65,7 +64,7 @@
 						<td class="widthValue">
 							<div class="row">
 								<div class="col-md-6">
-									<g:textField id="sourceAutoComplete" name="autoSource" value="" class="form-control" placeholder="中、英、韩..."/>
+									<g:textField id="sourceAutoComplete" name="autoSource" value="" class="form-control" placeholder="必填"/>
 									<g:hiddenField name="source" value=""/>
 									<script type="text/javascript">
 										jQuery("#sourceAutoComplete").autocomplete({
@@ -81,7 +80,7 @@
 								</div>
 								<div class="col-md-6">
 									<div id="sourcePreview" class="widthPreview">
-										<span class="glyphicon glyphicon-question-sign"></span>
+										<span class="glyphicon glyphicon-question-sign"></span>&nbsp;例：中、英、德、俄、日、韩、法...
 									</div>
 								</div>
 							</div>
@@ -92,7 +91,7 @@
 						<td class="widthValue">
 							<div class="row">
 								<div class="col-md-6">
-									<g:textField id="targetAutoComplete" name="autoTarget" value="" class="form-control" placeholder="中、英、韩..."/>
+									<g:textField id="targetAutoComplete" name="autoTarget" value="" class="form-control" placeholder="必填"/>
 									<g:hiddenField name="target" value=""/>
 									<script type="text/javascript">
 										jQuery("#targetAutoComplete").autocomplete({
@@ -108,7 +107,7 @@
 								</div>
 								<div class="col-md-6">
 									<div id="targetPreview" class="widthPreview">
-										<span class="glyphicon glyphicon-question-sign"></span>
+										<span class="glyphicon glyphicon-question-sign"></span>&nbsp;例：中、英、德、俄、日、韩、法...
 									</div>
 								</div>
 							</div>
@@ -119,7 +118,7 @@
 						<td class="widthValue">
 							<div class="row">
 								<div class="col-md-12">
-									<g:textField name="ly" value="" class="form-control" placeholder="考拉翻译、互联网、日常生活..."/>
+									<g:textField name="ly" value="" class="form-control" placeholder="世纪英汉科技大词典、网络、日常生活..."/>
 								</div>
 							</div>
 						</td>

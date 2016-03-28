@@ -8,7 +8,7 @@
 		<g:set var="dangQianYongHu" value="${ YongHu.get(session.uid) }" />
 	</head>
 	<body>
-		<g:render template="/layouts/plugins/faBuFanKui" />
+		<g:render template="/layouts/plugins/faBuFanKui" model="[dangQianYongHu:dangQianYongHu]"/>
 		
 		<hr/>
 
