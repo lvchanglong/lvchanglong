@@ -1,6 +1,7 @@
 package lvchanglong
 
 import grails.converters.JSON
+import org.apache.poi.ss.usermodel.Cell
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional;
@@ -94,8 +95,17 @@ class ProtectedController {
 
 							for(int i=firstRowNum; i<=lastRowNum; i++) {
 								def row = sheet.getRow(i)
-								def termFrom = row.getCell(0).getStringCellValue()
-								def termTo = row.getCell(1).getStringCellValue()
+								def cellFrom = row.getCell(0)
+								if(cellFrom.getCellType() != Cell.CELL_TYPE_STRING) {
+									cellFrom.setCellType(Cell.CELL_TYPE_STRING)
+								}
+								def termFrom = cellFrom.getStringCellValue()
+
+								def cellTo = row.getCell(1)
+								if(cellTo.getCellType() != Cell.CELL_TYPE_STRING) {
+									cellTo.setCellType(Cell.CELL_TYPE_STRING)
+								}
+								def termTo = cellTo.getStringCellValue()
 
 								if(termFrom && termTo){
 									def trimFrom = termFrom.trim()

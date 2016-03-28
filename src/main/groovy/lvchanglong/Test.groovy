@@ -1,5 +1,7 @@
 package lvchanglong
 
+import org.apache.poi.ss.usermodel.Cell
+
 class Test {
 
 	static main(args) {
@@ -9,11 +11,26 @@ class Test {
         def sheet = wb.getSheetAt(0)
         for(int i=sheet.getFirstRowNum(); i<=sheet.getLastRowNum(); i++) {
             def row = sheet.getRow(i)
-            def termFrom = row.getCell(0).getStringCellValue()
-            def termTo = row.getCell(1).getStringCellValue()
-            println "From:" + termFrom + ",To:" + termTo
+			def cell = row.getCell(0)
+			switch (cell.getCellType()) {
+				case Cell.CELL_TYPE_BOOLEAN:
+					println cell.getBooleanCellValue()
+					break
+				case Cell.CELL_TYPE_NUMERIC:
+					println cell.getNumericCellValue()
+					break
+				case Cell.CELL_TYPE_STRING:
+					println cell.getStringCellValue()
+					break
+				case Cell.CELL_TYPE_BLANK:
+					break
+				case Cell.CELL_TYPE_ERROR:
+					break
+				case Cell.CELL_TYPE_FORMULA:// CELL_TYPE_FORMULA will never happen
+					break
+			}
         }
-        xlsx.delete()
+//        xlsx.delete()
 	}
 	
 	def a() {
