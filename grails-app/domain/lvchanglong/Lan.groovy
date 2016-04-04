@@ -10,18 +10,15 @@ class Lan {
 	static hasMany = [terms: Term]
 	
 	String name //语种名称
-	Boolean ysc = false //已删除
 	
 	static constraints = {
 		name(unique: true, nullable: false, blank: false)
-		ysc(nullable: false, blank: false)
 	}
 	
 	static mapping = {
 		table 'LAN'
 		
-		name column: 'NAME'
-		ysc column: 'YSC'
+		name column: 'NAME', sqlType: 'varchar(15)'
 		
 		id column:'ID'
 		terms sort: "id", order: "desc"
@@ -52,7 +49,7 @@ class Lan {
 	 */
 	static def search(String q) {
 		def dc = Lan.where {
-			(ysc == false) && (name ==~ "%" + q.trim() + "%")
+			name ==~ "%${q.trim()}%"
 		}
 		return dc.list([max: 10])
 	}

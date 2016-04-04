@@ -13,7 +13,7 @@ class YongHu {
 	String miMa //密码
 	byte[] touXiang //头像
 	String quanXian = "普通用户" //权限
-	
+
 	Date dateCreated //创建时间
 	Date lastUpdated //更新时间
 

@@ -50,6 +50,9 @@ class ProtectedController {
 
 	/**
 	 * 术语导入（页面）
+	 * @param discipline 经济学#48
+	 * @param source 中文#103
+	 * @param target 英语#100
 	 */
 	def termImport(String discipline, String source, String target, String ly) {
 		if(discipline && source && target) {
@@ -57,7 +60,7 @@ class ProtectedController {
 			def sid = source.split("#")[1]
 			def tid = target.split("#")[1]
 
-			def disciplineInstance = Discipline.get(did.trim())
+			def disciplineInstance = DisciplineP.get(did.trim())
 			def sourceInstance = Lan.get(sid.trim())
 			def targetInstance = Lan.get(tid.trim())
 			return [disciplineInstance:disciplineInstance, sourceInstance:sourceInstance, targetInstance:targetInstance, ly:ly]
@@ -74,7 +77,7 @@ class ProtectedController {
 	def termImporting(String did, String sid, String tid, String ly) {
 		withForm {
 			if(did && sid && tid) {
-				def discipline = Discipline.get(did.trim()) //学科
+				def discipline = DisciplineP.get(did.trim()) //学科
 				def sourceLan = Lan.get(sid.trim()) //源语言
 				def targetLan = Lan.get(tid.trim()) //目标语言
 				def yongHu = YongHu.get(session.uid) //当前用户

@@ -37,9 +37,6 @@
 						<td class="widthValue">
 							<div class="row">
 								<div class="col-md-12">
-									<g:if test="${disciplineInstance.parent}">
-										${disciplineInstance.parent.name}&nbsp;>&nbsp;
-									</g:if>
 									${disciplineInstance.name}
 								</div>
 							</div>

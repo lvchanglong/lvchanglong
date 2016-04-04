@@ -1,24 +1,23 @@
 package lvchanglong
 
 /**
- * 条目(概念分组)
+ * 条目(概念分组，后台辅助，作为术语相关信息)
  * @author lvchanglong
  *
  */
 class Entry {
 
-	String nms //术语集(JSON)
+	static hasMany = [terms: Term]
+
 	String ids //索引集(JSON)
-	
+
 	static constraints = {
-		nms(unique: true, nullable: false, blank: false)
 		ids(unique: true, nullable: false, blank: false)
 	}
 	
 	static mapping = {
 		table 'ENTRY'
-		
-		nms column: 'NMS'
+
 		ids column: 'IDS'
 		
 		id column:'ID'
@@ -26,9 +25,9 @@ class Entry {
 	}
 	
 	String toString() {
-		return this.nms
+		return this.ids
 	}
-	
+
 	/**
 	 * 建立关联
 	 * @param a 术语A
@@ -36,53 +35,38 @@ class Entry {
 	 * @return
 	 */
 	static def link(Term a, Term z) {
-		def dc = Entry.where {
-			(nms ==~ "%\"${a.name}\"%") || (nms ==~ "%\"${z.name}\"%")
-		}
-		def entry = dc.find()
-		if(entry) {
-			HashSet setNms = JsonHelper.decode(entry.nms)
-			setNms.add(a.name)
-			setNms.add(z.name)
-			String strNms = setNms.encodeAsJSON()
-			
+		if(a.entry || z.entry) { //更新
+			def entry = null
+			def aEntry = a.entry
+			def zEntry = z.entry
+			if(aEntry && zEntry) { //关联已存在
+
+			} else if(aEntry) { //A关联存在
+				entry = aEntry
+				entry.addToTerms(z)
+			} else { //Z关联存在
+				entry = zEntry
+				entry.addToTerms(a)
+			}
 			HashSet setIds = JsonHelper.decode(entry.ids)
 			setIds.add(a.id.toString())
 			setIds.add(z.id.toString())
 			String strIds = setIds.encodeAsJSON()
-			
-			entry.nms = strNms
 			entry.ids = strIds
 			entry.save(flush: true)
 			return entry
-		} else {
-			String strNms = [a.name, z.name].encodeAsJSON()
+		} else { //新建
 			String strIds = [a.id.toString(), z.id.toString()].encodeAsJSON()
-			
-			entry = new Entry([nms:strNms, ids:strIds])
+			def entry = new Entry([ids:strIds])
+			entry.addToTerms(a)
+			entry.addToTerms(z)
 			entry.save(flush: true)
 			return entry
 		}
 	}
-	
-	/**
-	 * 条目检索
-	 * @param q 询问
-	 * @return
-	 */
-	static def find(String q) {
-		def dc = Entry.where {
-			(nms ==~ "%\"" + q.trim() + "\"%")
-		}
-		return dc.find()
-	}
-	
+
 	HashSet getIdsAsHS() {
 		return JsonHelper.decode(this.ids)
-	}
-	
-	HashSet getNmsAsHS() {
-		return JsonHelper.decode(this.nms)
 	}
 	
 }
