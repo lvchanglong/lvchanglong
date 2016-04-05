@@ -39,22 +39,22 @@ class Entry {
 			def entry = null
 			def aEntry = a.entry
 			def zEntry = z.entry
-			if(aEntry && zEntry) { //关联已存在
-
-			} else if(aEntry) { //A关联存在
-				entry = aEntry
-				entry.addToTerms(z)
-			} else { //Z关联存在
-				entry = zEntry
-				entry.addToTerms(a)
+			if(!(aEntry && zEntry)) { //忽略已经存在关联
+				if(aEntry) { //A关联存在
+					entry = aEntry
+					entry.addToTerms(z)
+				} else { //Z关联存在
+					entry = zEntry
+					entry.addToTerms(a)
+				}
+				HashSet setIds = JsonHelper.decode(entry.ids)
+				setIds.add(a.id.toString())
+				setIds.add(z.id.toString())
+				String strIds = setIds.encodeAsJSON()
+				entry.ids = strIds
+				entry.save(flush: true)
+				return entry
 			}
-			HashSet setIds = JsonHelper.decode(entry.ids)
-			setIds.add(a.id.toString())
-			setIds.add(z.id.toString())
-			String strIds = setIds.encodeAsJSON()
-			entry.ids = strIds
-			entry.save(flush: true)
-			return entry
 		} else { //新建
 			String strIds = [a.id.toString(), z.id.toString()].encodeAsJSON()
 			def entry = new Entry([ids:strIds])

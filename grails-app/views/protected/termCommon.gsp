@@ -16,16 +16,20 @@
 			.widthValue .form-control {
 				margin-bottom:0;
 			}
+			.widthValue .glyphicon-question-sign {
+				vertical-align: middle;
+				font-size:18px;
+			}
 			.widthPreview {
 				vertical-align: middle !important;
 				text-align: left;
-				font-size:20px;
+				line-height: 34px;
 			}
 		</style>
 	</head>
 	<body>
 		<g:form controller="protected" action="termImport">
-			<div class="listBox" style="background-color:${BkColor.getInst()};">
+			<div class="listBox mt0" style="background-color:#563d7c;">
 				<table class="table table-bordered mt15">
 					<tr>
 						<td colspan="2" class="textAlignCenter">
@@ -37,7 +41,7 @@
 						<td class="widthValue">
 							<div class="row">
 								<div class="col-md-6">
-									<g:textField id="disciplineAutoComplete" name="autoDiscipline" autofocus="autofocus" value="" class="form-control" placeholder="必填"/>
+									<g:textField id="disciplineAutoComplete" name="autoDiscipline" required="required" autofocus="autofocus" value="" class="form-control" placeholder="必填"/>
 									<g:hiddenField name="discipline" value=""/>
 									<script type="text/javascript">
 										jQuery("#disciplineAutoComplete").autocomplete({
@@ -64,7 +68,7 @@
 						<td class="widthValue">
 							<div class="row">
 								<div class="col-md-6">
-									<g:textField id="sourceAutoComplete" name="autoSource" value="" class="form-control" placeholder="必填"/>
+									<g:textField id="sourceAutoComplete" name="autoSource" value="" required="required" class="form-control" placeholder="必填"/>
 									<g:hiddenField name="source" value=""/>
 									<script type="text/javascript">
 										jQuery("#sourceAutoComplete").autocomplete({
@@ -91,7 +95,7 @@
 						<td class="widthValue">
 							<div class="row">
 								<div class="col-md-6">
-									<g:textField id="targetAutoComplete" name="autoTarget" value="" class="form-control" placeholder="必填"/>
+									<g:textField id="targetAutoComplete" name="autoTarget" value="" required="required" class="form-control" placeholder="必填"/>
 									<g:hiddenField name="target" value=""/>
 									<script type="text/javascript">
 										jQuery("#targetAutoComplete").autocomplete({
@@ -117,8 +121,13 @@
 						<td class="widthKey">来源</td>
 						<td class="widthValue">
 							<div class="row">
-								<div class="col-md-12">
-									<g:textField name="ly" value="" class="form-control" placeholder="世纪英汉科技大词典、网络、日常生活..."/>
+								<div class="col-md-6">
+									<g:textField name="ly" value="" class="form-control" required="required" placeholder="必填" onkeyup="jQuery('#lyPreview').html(this.value);"/>
+								</div>
+								<div class="col-md-6">
+									<div id="lyPreview" class="widthPreview">
+										<span class="glyphicon glyphicon-question-sign"></span>&nbsp;例：世纪英汉科技大词典、网络、日常生活...
+									</div>
 								</div>
 							</div>
 						</td>

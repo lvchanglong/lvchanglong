@@ -39,7 +39,7 @@ body {
 .h6,h6{font-size:12px}
 .main {
 	padding-top:35px;
-	padding-bottom:30px;
+	padding-bottom:35px;
 }
 a {
 	color:inherit;
@@ -54,6 +54,9 @@ a {
 }
 .bkColorInherit {
 	background-color: transparent !important;
+}
+.mt0 {
+	margin-top:0 !important;
 }
 .toCenter {
 	display:block;

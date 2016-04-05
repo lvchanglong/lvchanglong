@@ -25,7 +25,7 @@
 	</head>
 	<body>
 		<g:form name="termImportForm" controller="protected" action="termImporting" useToken="true">
-			<div class="listBox" style="background-color:${BkColor.getInst()};">
+			<div class="listBox mt0" style="background-color:#563d7c;">
 				<table class="table table-bordered mt15">
 					<tr>
 						<td colspan="2" class="textAlignCenter">

@@ -43,6 +43,7 @@
 	<asset:stylesheet src="font-awesome-4.3.0/css/font-awesome.min.css"/>
 	<asset:stylesheet src="nprogress-master/nprogress.css"/>
 	<asset:stylesheet src="jquery-ui-1.11.4/jquery-ui.min.css"/>
+	<asset:stylesheet src="jQuery-File-Upload-9.12.1/css/jquery.fileupload.css"/>
 	--%>
 	<asset:stylesheet src="application.css"/>
 	
@@ -67,6 +68,8 @@
 	<asset:javascript src="ckeditor/ckeditor.js"/>
 	<asset:javascript src="nprogress-master/nprogress.js"/>
 	<asset:javascript src="jquery-ui-1.11.4/jquery-ui.min.js"/>
+	<asset:javascript src="jQuery-File-Upload-9.12.1/js/jquery.fileupload.js"/>
+	<asset:javascript src="jQuery-File-Upload-9.12.1/js/jquery.iframe-transport.js"/>
 	--%>
     <asset:javascript src="application.js"/>
 	
@@ -93,8 +96,15 @@
 			});
 			NProgress.start();
 		});
+
 		jQuery(window).load(function(){
 			NProgress.done();
+		});
+
+		jQuery(document).tooltip({
+			content: function () {
+				return jQuery(this).attr('title');
+			}
 		});
 	</g:javascript>
 </body>

@@ -1,6 +1,6 @@
 <%@ page import="lvchanglong.BkColor" %>
 
-<div class="listBox" style="background-color:${BkColor.getInst()};">
+<div class="listBox mt0" style="background-color:#563d7c;">
 	<table class="table table-bordered mt15">
 		<tr>
 			<td class="textAlignCenter">
@@ -41,7 +41,7 @@
 									});
 								</script>
 							</li>
-							<li style="padding:30px 30px 0 30px;">
+							<li style="padding:0 30px 0 30px;">
 								<div id="termWrapper" class="paddingNormal">
 
 								</div>

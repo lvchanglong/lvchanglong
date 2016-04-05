@@ -116,16 +116,14 @@ class ProtectedController {
 
 									def sTerm = Term.findByName(trimFrom)
 									if(!sTerm) {
-										sTerm = new Term(["name":trimFrom, "yongHu":yongHu, "discipline":discipline, "ly":ly])
-										sourceLan.addToTerms(sTerm)
-										sourceLan.save(flush: true)
+										sTerm = new Term(["name":trimFrom, "yongHu":yongHu, "discipline":discipline, "lan":sourceLan, "termInfo":new TermInfo(["ly":ly])])
+										sTerm.save(flush: true)
 									}
 
 									def tTerm = Term.findByName(trimTo)
 									if(!tTerm) {
-										tTerm = new Term(["name":trimTo, "yongHu":yongHu, "discipline":discipline, "ly":ly])
-										targetLan.addToTerms(tTerm)
-										targetLan.save(flush: true)
+										tTerm = new Term(["name":trimTo, "yongHu":yongHu, "discipline":discipline, "lan":targetLan, "termInfo":new TermInfo(["ly":ly])])
+										tTerm.save(flush: true)
 									}
 									
 									if(sTerm && tTerm) {
