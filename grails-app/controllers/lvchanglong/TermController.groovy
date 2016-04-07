@@ -105,4 +105,8 @@ class TermController {
 		render status:BAD_REQUEST, text:"非法请求"
 	}
 
+	def test() {
+		println Term.findSolr("name:高*")
+	}
+
 }

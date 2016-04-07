@@ -1,5 +1,10 @@
 package lvchanglong
 
+import org.apache.solr.common.SolrDocument
+import org.apache.solr.common.SolrDocumentList
+import org.apache.solr.common.SolrInputDocument
+import org.apache.solr.common.params.ModifiableSolrParams
+
 /**
  * 术语
  * @author lvchanglong
@@ -52,5 +57,78 @@ class Term {
 		}
 		return dc.list([max: 10])
 	}
-	
+
+	/**
+	 * solr检索
+	 * @param q
+	 * @return
+     */
+	static SolrDocumentList searchSolr(String q) {
+		def solr = SolrHelper.getSolrClient()
+		ModifiableSolrParams params = new ModifiableSolrParams()
+		params.add("q", "name:${q}*")
+		return solr.query(params)
+	}
+
+	/**
+	 * 术语唯一检索
+	 * @param q
+	 * @return
+     */
+	static def find(String q) {
+		def dc = Term.where {
+			name ==~ q.trim() + "%"
+		}
+		return dc.find()
+	}
+
+	/**
+	 * solr唯一检索
+	 * @param q
+	 * @return
+     */
+	static SolrDocument findSolr(String q) {
+		def solr = SolrHelper.getSolrClient()
+		ModifiableSolrParams params = new ModifiableSolrParams()
+		params.add("rows", "10")
+		params.add("q", "name:${q}*")
+		return solr.query(params)
+	}
+
+	def afterInsert() {
+		def solr = SolrHelper.getSolrClient()
+		SolrInputDocument document = new SolrInputDocument()
+		document.addField("termId", this.id)
+		document.addField("name", this.name)
+		document.addField("termInfo", this.termInfo)
+		document.addField("lan", this.lan)
+		document.addField("discipline", this.discipline)
+		document.addField("yongHu", this.yongHu)
+		document.addField("entry", this.entry)
+		SolrHelper.add(solr, document)
+		solr.close()
+	}
+
+	def afterDelete() {
+		def solr = SolrHelper.getSolrClient()
+		SolrHelper.deleteByQuery(solr, "termId:${this.id}")
+		solr.close()
+	}
+
+	def afterUpdate() {
+		def solr = SolrHelper.getSolrClient()
+		SolrHelper.deleteByQuery(solr, "termId:${this.id}") //删除
+
+		SolrInputDocument document = new SolrInputDocument()
+		document.addField("termId", this.id)
+		document.addField("name", this.name)
+		document.addField("termInfo", this.termInfo)
+		document.addField("lan", this.lan)
+		document.addField("discipline", this.discipline)
+		document.addField("yongHu", this.yongHu)
+		document.addField("entry", this.entry)
+		SolrHelper.add(solr, document) //添加
+		solr.close()
+	}
+
 }

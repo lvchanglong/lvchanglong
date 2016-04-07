@@ -60,6 +60,7 @@ dependencies {
     compile "org.apache.poi:poi:3.14"
     compile "org.apache.poi:poi-ooxml:3.14"
     runtime "mysql:mysql-connector-java:5.1.29"
+    compile "org.apache.solr:solr-solrj:5.5.0"
 
     testCompile "org.grails:grails-plugin-testing"
     testCompile "org.grails.plugins:geb"
