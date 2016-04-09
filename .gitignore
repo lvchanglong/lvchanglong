@@ -12,5 +12,7 @@ build/
 .asscache
 *.log
 *.pid
-tools/solr-5.5.0/server/solr/lvchanglong/data/
-tools/solr-5.5.0/server/logs/
+
+data/
+logs/
+hsperfdata_admin/
