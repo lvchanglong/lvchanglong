@@ -34,8 +34,8 @@ class DisciplineP {
 	 * 学科初始化
 	 */
 	static def init() {
-		def n = DisciplineP.count()
-		if(0 == n) {
+		def instance = DisciplineP.first()
+		if(!instance) {
 			DisciplineData.quanBu.each {pName, nmList->
 				def parent = new DisciplineP(['name':pName.trim()])
 				nmList.each {cName->

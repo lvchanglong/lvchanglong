@@ -1,6 +1,7 @@
 package lvchanglong
 
 import grails.converters.JSON
+import org.apache.solr.common.SolrDocumentList
 
 import static org.springframework.http.HttpStatus.*
 
@@ -21,12 +22,12 @@ class TermController {
      */
 	def searchTerm(String term) {
 		if(term) {
-			def termList = Term.search(term)
-			if(termList) {
+			SolrDocumentList docs = Term.searchSolr(term)
+			if(docs) {
 				ArrayList array = new ArrayList()
-				termList.each {tm->
-					def strId = tm.id
-					def strName = tm.name
+				docs.each {doc->
+					def strId = doc.id
+					def strName = doc.name
 					array.add(new HashMap(['label':strName+"#"+strId, 'value':strName]))
 				}
 				render array as JSON
@@ -106,7 +107,7 @@ class TermController {
 	}
 
 	def test() {
-		println Term.findSolr("name:高*")
+		render true
 	}
 
 }

@@ -55,7 +55,7 @@ class YongHu {
 	}
 	
 	def beforeUpdate() {
-		
+
 	}
 	
 	/**
@@ -97,25 +97,20 @@ class YongHu {
 	 * 用户初始化
 	 */
 	static boolean init() {
-		def strXingMing = "吕常龙"
-		def strMiMa = "54Mt"
-		
-		def yonghu = YongHu.findInstance(strXingMing, strMiMa)
-		if (yonghu) {
-			return true
-		}
-		
-		Map map = [
-			xingMing: strXingMing,
-			miMa: strMiMa,
-			quanXian: "管理员"
-		]
-		yonghu = new YongHu(map)
-		if (yonghu.hasErrors()) {
-			return false
-		} else {
-			yonghu.save flush:true
-			return true
+		def instance = YongHu.first()
+		if(!instance) {
+			Map map = [
+					xingMing: "吕常龙",
+					miMa: "54Mt",
+					quanXian: "管理员"
+			]
+			def yonghu = new YongHu(map)
+			if (yonghu.hasErrors()) {
+				return false
+			} else {
+				yonghu.save flush:true
+				return true
+			}
 		}
 	}
 

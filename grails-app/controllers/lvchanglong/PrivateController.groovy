@@ -72,4 +72,13 @@ class PrivateController {
 		render status: NO_CONTENT
 	}
 
+	/**
+	 * solr索引重置
+     */
+	def resetSolr() {
+		def solr = SolrHelper.getSolrClient()
+		SolrHelper.deleteByQuery(solr, "*:*")
+		render status: OK, text: "重置索引"
+	}
+
 }

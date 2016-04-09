@@ -2,6 +2,7 @@ package lvchanglong
 
 import grails.converters.JSON
 import org.apache.poi.ss.usermodel.Cell
+import org.apache.solr.common.SolrDocument
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional;
@@ -102,32 +103,38 @@ class ProtectedController {
 								if(cellFrom.getCellType() != Cell.CELL_TYPE_STRING) {
 									cellFrom.setCellType(Cell.CELL_TYPE_STRING)
 								}
-								def termFrom = cellFrom.getStringCellValue()
+								String strTermFrom = cellFrom.getStringCellValue()
 
 								def cellTo = row.getCell(1)
 								if(cellTo.getCellType() != Cell.CELL_TYPE_STRING) {
 									cellTo.setCellType(Cell.CELL_TYPE_STRING)
 								}
-								def termTo = cellTo.getStringCellValue()
+								String strTermTo = cellTo.getStringCellValue()
 
-								if(termFrom && termTo){
-									def trimFrom = termFrom.trim()
-									def trimTo = termTo.trim()
+								if(strTermFrom && strTermTo){
+									String strTrimFrom = strTermFrom.trim()
+									String strTrimTo = strTermTo.trim()
 
-									def sTerm = Term.findSolr(trimFrom)
-									if(!sTerm) {
-										sTerm = new Term(["name":trimFrom, "yongHu":yongHu, "discipline":discipline, "lan":sourceLan, "termInfo":new TermInfo(["ly":ly])])
-										sTerm.save(flush: true)
+									def termFrom = null
+									SolrDocument solrDocumentFrom = Term.findSolr(strTrimFrom)
+									if(solrDocumentFrom) {
+										termFrom = Term.get(solrDocumentFrom.id)
+									} else {
+										termFrom = new Term(["name":strTrimFrom, "yongHu":yongHu, "discipline":discipline, "lan":sourceLan, "termInfo":new TermInfo(["ly":ly])])
+										termFrom.save(flush: true)
 									}
 
-									def tTerm = Term.findSolr(trimTo)
-									if(!tTerm) {
-										tTerm = new Term(["name":trimTo, "yongHu":yongHu, "discipline":discipline, "lan":targetLan, "termInfo":new TermInfo(["ly":ly])])
-										tTerm.save(flush: true)
+									def termTo = null
+									SolrDocument solrDocumentTo = Term.findSolr(strTrimTo)
+									if(solrDocumentTo) {
+										termTo = Term.get(solrDocumentTo.id)
+									} else {
+										termTo = new Term(["name":strTrimTo, "yongHu":yongHu, "discipline":discipline, "lan":targetLan, "termInfo":new TermInfo(["ly":ly])])
+										termTo.save(flush: true)
 									}
-									
-									if(sTerm && tTerm) {
-										Entry.link(sTerm, tTerm) //建立关联
+
+									if(termFrom && termTo) {
+										Entry.link(termFrom, termTo) //建立关联
 									}
 								}
 							}

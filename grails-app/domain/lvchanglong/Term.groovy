@@ -1,5 +1,6 @@
 package lvchanglong
 
+import org.apache.solr.client.solrj.response.QueryResponse
 import org.apache.solr.common.SolrDocument
 import org.apache.solr.common.SolrDocumentList
 import org.apache.solr.common.SolrInputDocument
@@ -47,7 +48,7 @@ class Term {
 	}
 	
 	/**
-	 * 术语检索(注：使用LIKE操作时，如果条件以通配符开始（ '%abc...'），MySQL无法使用索引)
+	 * 术语模糊检索(注：使用LIKE操作时，如果条件以通配符开始（ '%abc...'），MySQL无法使用索引)
 	 * @param q 询问
 	 * @return
 	 */
@@ -59,75 +60,72 @@ class Term {
 	}
 
 	/**
-	 * solr检索
+	 * 术语精确检索
+	 * @param q
+	 * @return
+	 */
+	static def find(String q) {
+		def dc = Term.where {
+			name == q.trim()
+		}
+		return dc.find()
+	}
+
+	/**
+	 * solr模糊检索
 	 * @param q
 	 * @return
      */
 	static SolrDocumentList searchSolr(String q) {
 		def solr = SolrHelper.getSolrClient()
 		ModifiableSolrParams params = new ModifiableSolrParams()
-		params.add("q", "name:${q}*")
-		return solr.query(params)
+		params.add("rows", "10")
+		params.add("q", "name:${q.trim()}*")
+		QueryResponse response = solr.query(params)
+		return response.getResults()
 	}
 
 	/**
-	 * 术语唯一检索
-	 * @param q
-	 * @return
-     */
-	static def find(String q) {
-		def dc = Term.where {
-			name ==~ q.trim() + "%"
-		}
-		return dc.find()
-	}
-
-	/**
-	 * solr唯一检索
+	 * solr精确检索
 	 * @param q
 	 * @return
      */
 	static SolrDocument findSolr(String q) {
 		def solr = SolrHelper.getSolrClient()
 		ModifiableSolrParams params = new ModifiableSolrParams()
-		params.add("rows", "10")
-		params.add("q", "name:${q}*")
-		return solr.query(params)
+		params.add("rows", "1")
+		params.add("q", "name:${q.trim()}")
+		QueryResponse response = solr.query(params)
+		SolrDocumentList docs = response.getResults()
+		if(docs.getNumFound() > 0) {
+			return docs.get(0)
+		}
+		return null
 	}
 
 	def afterInsert() {
 		def solr = SolrHelper.getSolrClient()
 		SolrInputDocument document = new SolrInputDocument()
-		document.addField("termId", this.id)
+		document.addField("id", this.id)
 		document.addField("name", this.name)
-		document.addField("termInfo", this.termInfo)
-		document.addField("lan", this.lan)
-		document.addField("discipline", this.discipline)
-		document.addField("yongHu", this.yongHu)
-		document.addField("entry", this.entry)
 		SolrHelper.add(solr, document)
 		solr.close()
 	}
 
-	def afterDelete() {
-		def solr = SolrHelper.getSolrClient()
-		SolrHelper.deleteByQuery(solr, "termId:${this.id}")
-		solr.close()
+	def beforeUpdate() {
+		if(this.isDirty('name')) {
+			def solr = SolrHelper.getSolrClient()
+			SolrInputDocument document = new SolrInputDocument()
+			document.setField("id", this.id)
+			document.setField("name", this.name)
+			SolrHelper.add(solr, document)
+			solr.close()
+		}
 	}
 
-	def afterUpdate() {
+	def beforeDelete() {
 		def solr = SolrHelper.getSolrClient()
-		SolrHelper.deleteByQuery(solr, "termId:${this.id}") //删除
-
-		SolrInputDocument document = new SolrInputDocument()
-		document.addField("termId", this.id)
-		document.addField("name", this.name)
-		document.addField("termInfo", this.termInfo)
-		document.addField("lan", this.lan)
-		document.addField("discipline", this.discipline)
-		document.addField("yongHu", this.yongHu)
-		document.addField("entry", this.entry)
-		SolrHelper.add(solr, document) //添加
+		SolrHelper.delete(solr, this.id)
 		solr.close()
 	}
 

@@ -33,8 +33,8 @@ class Lan {
 	 * 语种初始化
 	 */
 	static def init() {
-		def n = Lan.count()
-		if(0 == n) {
+		def instance = Lan.first()
+		if(!instance) {
 			LanData.quanBu.each {nm->
 				def lan = new Lan(['name':nm.trim()])
 				lan.save(flush: true)
