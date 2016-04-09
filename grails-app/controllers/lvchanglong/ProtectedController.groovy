@@ -133,9 +133,7 @@ class ProtectedController {
 										termTo.save(flush: true)
 									}
 
-									if(termFrom && termTo) {
-										Entry.link(termFrom, termTo) //建立关联
-									}
+									Entry.link(termFrom, termTo) //建立关联
 								}
 							}
 					}

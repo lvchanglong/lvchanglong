@@ -30,38 +30,44 @@ class Entry {
 
 	/**
 	 * 建立关联
-	 * @param a 术语A
-	 * @param z 术语Z
+	 * @param termFrom 术语From
+	 * @param termTo 术语To
 	 * @return
 	 */
-	static def link(Term a, Term z) {
-		if(a.entry || z.entry) { //更新
-			def entry = null
-			def aEntry = a.entry
-			def zEntry = z.entry
-			if(!(aEntry && zEntry)) { //忽略已经存在关联
-				if(aEntry) { //A关联存在
-					entry = aEntry
-					entry.addToTerms(z)
-				} else { //Z关联存在
-					entry = zEntry
-					entry.addToTerms(a)
-				}
-				HashSet setIds = JsonHelper.decode(entry.ids)
-				setIds.add(a.id.toString())
-				setIds.add(z.id.toString())
+	static def link(Term termFrom, Term termTo) {
+		if(termFrom.id && termTo.id) {
+			def entryFrom = termFrom.entry
+			def entryTo = termTo.entry
+			if(entryFrom && entryTo) {
+				//已存在
+			} else if(entryFrom) {//entryFrom存在, entryTo不在
+				HashSet setIds = JsonHelper.decode(entryFrom.ids)
+				setIds.add(termTo.id.toString())
 				String strIds = setIds.encodeAsJSON()
-				entry.ids = strIds
+				entryFrom.ids = strIds
+
+				entryFrom.addToTerms(termTo)
+				entryFrom.save(flush: true) //更新ids
+				return entryFrom
+			} else if(entryTo) {//entryTo存在, entryFrom不在
+				HashSet setIds = JsonHelper.decode(entryTo.ids)
+				setIds.add(termFrom.id.toString())
+				String strIds = setIds.encodeAsJSON()
+				entryTo.ids = strIds
+
+				entryTo.addToTerms(termFrom)
+				entryTo.save(flush: true) //更新ids
+				return entryTo
+			} else { //新建
+				String strIds = [termFrom.id.toString(), termTo.id.toString()].encodeAsJSON()
+				def entry = new Entry([ids:strIds])
+
+				entry.addToTerms(termFrom)
+				entry.addToTerms(termTo)
+
 				entry.save(flush: true)
 				return entry
 			}
-		} else { //新建
-			String strIds = [a.id.toString(), z.id.toString()].encodeAsJSON()
-			def entry = new Entry([ids:strIds])
-			entry.addToTerms(a)
-			entry.addToTerms(z)
-			entry.save(flush: true)
-			return entry
 		}
 	}
 

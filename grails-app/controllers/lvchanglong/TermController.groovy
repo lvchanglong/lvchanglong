@@ -1,7 +1,9 @@
 package lvchanglong
 
 import grails.converters.JSON
+import org.apache.solr.client.solrj.response.QueryResponse
 import org.apache.solr.common.SolrDocumentList
+import org.apache.solr.common.params.ModifiableSolrParams
 
 import static org.springframework.http.HttpStatus.*
 

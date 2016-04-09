@@ -111,8 +111,7 @@ class SolrHelper {
 
         ModifiableSolrParams params = new ModifiableSolrParams()
         params.add("rows", "2")
-        params.add("q", "name:common bond") //params.add("q", 'name:"common bond"')
-        solr.q
+        params.add("q", "name:common bond") //params.add("q", "name:\"common bond\"")
         SolrDocumentList docs = this.search(solr, params)
         docs.each { doc->
             println doc.name

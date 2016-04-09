@@ -23,6 +23,8 @@ class Term {
 	static constraints = {
 		name(nullable: false, blank: false, unique: true)
 
+		termInfo(nullable: true, blank: true)
+
 		lan(nullable: false, blank: false)
 		discipline(nullable: true, blank: true)
 		yongHu(nullable: false, blank: false)
@@ -93,7 +95,7 @@ class Term {
 		def solr = SolrHelper.getSolrClient()
 		ModifiableSolrParams params = new ModifiableSolrParams()
 		params.add("rows", "1")
-		params.add("q", 'name:"${q.trim()}"')
+		params.add("q", "name:\"${q.trim()}\"")
 		QueryResponse response = solr.query(params)
 		SolrDocumentList docs = response.getResults()
 		if(docs.getNumFound() > 0) {
