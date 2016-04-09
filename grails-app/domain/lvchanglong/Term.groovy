@@ -48,7 +48,7 @@ class Term {
 	}
 	
 	/**
-	 * 术语模糊检索(注：使用LIKE操作时，如果条件以通配符开始（ '%abc...'），MySQL无法使用索引)
+	 * 模糊检索(注：使用LIKE操作时，如果条件以通配符开始（ '%abc...'），MySQL无法使用索引)
 	 * @param q 询问
 	 * @return
 	 */
@@ -60,7 +60,7 @@ class Term {
 	}
 
 	/**
-	 * 术语精确检索
+	 * 精确检索
 	 * @param q
 	 * @return
 	 */
@@ -72,7 +72,7 @@ class Term {
 	}
 
 	/**
-	 * solr模糊检索
+	 * 模糊检索solr
 	 * @param q
 	 * @return
      */
@@ -81,12 +81,11 @@ class Term {
 		ModifiableSolrParams params = new ModifiableSolrParams()
 		params.add("rows", "10")
 		params.add("q", "name:${q.trim()}*")
-		QueryResponse response = solr.query(params)
-		return response.getResults()
+		return SolrHelper.search(solr, params)
 	}
 
 	/**
-	 * solr精确检索
+	 * 精确检索solr
 	 * @param q
 	 * @return
      */
@@ -94,7 +93,7 @@ class Term {
 		def solr = SolrHelper.getSolrClient()
 		ModifiableSolrParams params = new ModifiableSolrParams()
 		params.add("rows", "1")
-		params.add("q", "name:${q.trim()}")
+		params.add("q", 'name:"${q.trim()}"')
 		QueryResponse response = solr.query(params)
 		SolrDocumentList docs = response.getResults()
 		if(docs.getNumFound() > 0) {

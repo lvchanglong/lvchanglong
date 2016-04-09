@@ -9,7 +9,8 @@ build/
 .project
 .settings
 .classpath
-bin/
 .asscache
 *.log
 *.pid
+tools/solr-5.5.0/server/solr/lvchanglong/data/
+tools/solr-5.5.0/server/logs/

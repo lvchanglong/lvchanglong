@@ -108,6 +108,15 @@ class SolrHelper {
         document.setField("name", "吕常龙")
         solr.add(document)
         solr.commit()*/
+
+        ModifiableSolrParams params = new ModifiableSolrParams()
+        params.add("rows", "2")
+        params.add("q", "name:common bond") //params.add("q", 'name:"common bond"')
+        solr.q
+        SolrDocumentList docs = this.search(solr, params)
+        docs.each { doc->
+            println doc.name
+        }
     }
 
 }
