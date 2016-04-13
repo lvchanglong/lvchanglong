@@ -19,7 +19,7 @@ class FanKui {
 	}
 	
 	static mapping = {
-		table 'FAN_KUI'
+		table 'fan_kui'
 		
 		xingMing column: 'XING_MING'
 		neiRong column: 'NEI_RONG', sqlType:"text"

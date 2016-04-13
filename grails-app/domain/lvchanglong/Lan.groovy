@@ -16,7 +16,7 @@ class Lan {
 	}
 	
 	static mapping = {
-		table 'LAN'
+		table 'lan'
 		
 		name column: 'NAME', sqlType: 'varchar(15)'
 		

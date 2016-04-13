@@ -16,7 +16,7 @@ class DisciplineP {
 	}
 	
 	static mapping = {
-		table 'DISCIPLINE_P'
+		table 'discipline_p'
 		
 		name column: 'NAME', sqlType: 'varchar(30)'
 		

@@ -1,5 +1,6 @@
 package lvchanglong
 
+import groovy.sql.Sql
 import org.apache.solr.client.solrj.response.QueryResponse
 import org.apache.solr.common.SolrDocument
 import org.apache.solr.common.SolrDocumentList
@@ -26,15 +27,15 @@ class Term {
 		termInfo(nullable: true, blank: true)
 
 		lan(nullable: false, blank: false)
-		discipline(nullable: true, blank: true)
+		discipline(nullable: false, blank: false)
 		yongHu(nullable: false, blank: false)
 		entry(nullable: true, blank: true)
 	}
 	
 	static mapping = {
-		table 'TERM'
+		table 'term'
 
-		name column: 'NAME', sqlType: 'varchar(130)'
+		name column: 'NAME', sqlType: 'varchar(255)'
 
 		lan column: 'LAN_ID'
 		discipline column: 'DISCIPLINE_ID'
@@ -48,7 +49,45 @@ class Term {
 	String toString() {
 		return this.name
 	}
-	
+
+    /**
+     * sql插入
+     * @param sql def dataSource|def sql = new Sql(dataSource)
+     * @param termName
+     * @param lanId
+     * @param disciplineId
+     * @param yongHuId
+     * @param entryId
+     * @return
+     */
+    static String sqlInsert(Sql sql, def termName, def lanId, def disciplineId, def yongHuId, def entryId = null) {
+        if (sql && termName && lanId && disciplineId && yongHuId) {
+            String termId = sql.executeInsert("insert into term(NAME, LAN_ID, DISCIPLINE_ID, YONG_HU_ID, ENTRY_ID) values(?, ?, ?, ?, ?)", [termName, lanId, disciplineId, yongHuId, entryId])[0][0]
+
+            def solr = SolrHelper.getSolrClient()
+            SolrInputDocument document = new SolrInputDocument()
+            document.addField("id", termId)
+            document.addField("name", termName)
+            SolrHelper.add(solr, document)
+            solr.close()
+
+            return termId
+        }
+    }
+
+    /**
+     * sql更新
+     * @param sql
+     * @param termId
+     * @param entryId
+     * @return
+     */
+    static String sqlUpdateEntry(Sql sql, def termId, def entryId) {
+        if (sql && termId && entryId) {
+            return sql.executeUpdate("update term set ENTRY_ID = ? where ID = ?", [termId, entryId])
+        }
+    }
+
 	/**
 	 * 模糊检索(注：使用LIKE操作时，如果条件以通配符开始（ '%abc...'），MySQL无法使用索引)
 	 * @param q 询问

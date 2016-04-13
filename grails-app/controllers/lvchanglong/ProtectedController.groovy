@@ -1,6 +1,7 @@
 package lvchanglong
 
 import grails.converters.JSON
+import groovy.sql.Sql
 import org.apache.poi.ss.usermodel.Cell
 import org.apache.solr.common.SolrDocument
 
@@ -11,7 +12,9 @@ import grails.transaction.Transactional;
  * 受保护方法，需登录
  */
 class ProtectedController {
-	
+
+	def dataSource
+
 	static defaultAction = "index"
 
 	/**
@@ -97,6 +100,7 @@ class ProtectedController {
 							def firstRowNum = sheet.getFirstRowNum()
 							def lastRowNum = sheet.getLastRowNum()
 
+							Sql sql = new Sql(dataSource)
 							for(int i=firstRowNum; i<=lastRowNum; i++) {
 								def row = sheet.getRow(i)
 								def cellFrom = row.getCell(0)
@@ -122,6 +126,9 @@ class ProtectedController {
 									} else {
 										termFrom = new Term(["name":strTrimFrom, "yongHu":yongHu, "discipline":discipline, "lan":sourceLan, "termInfo":new TermInfo(["ly":ly])])
 										termFrom.save(flush: true)
+										/*String termFromId = Term.sqlInsert(sql, strTrimFrom, sourceLan.id, discipline.id, yongHu.id)
+										TermInfo.sqlInsert(sql, termFromId, ly)
+										termFrom = Term.get(termFromId)*/
 									}
 
 									def termTo = null
@@ -131,11 +138,15 @@ class ProtectedController {
 									} else {
 										termTo = new Term(["name":strTrimTo, "yongHu":yongHu, "discipline":discipline, "lan":targetLan, "termInfo":new TermInfo(["ly":ly])])
 										termTo.save(flush: true)
+										/*String termToId = Term.sqlInsert(sql, strTrimTo, targetLan.id, discipline.id, yongHu.id)
+										TermInfo.sqlInsert(sql, termToId, ly)
+										termTo = Term.get(termToId)*/
 									}
 
 									Entry.link(termFrom, termTo) //建立关联
 								}
-							}
+							} //for
+							sql.close()
 					}
 
 					file.delete()

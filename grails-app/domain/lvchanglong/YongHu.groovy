@@ -29,7 +29,7 @@ class YongHu {
 	}
 	
 	static mapping = {
-		table 'YONG_HU'
+		table 'yong_hu'
 		
 		miMa column: 'MI_MA'
 		xingMing column: 'XING_MING'

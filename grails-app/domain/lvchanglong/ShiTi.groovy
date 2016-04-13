@@ -24,7 +24,7 @@ class ShiTi {
 	}
 	
 	static mapping = {
-		table 'SHI_TI'
+		table 'shi_ti'
 		
 		yongHu column: 'YONG_HU_ID'
 		

@@ -16,7 +16,7 @@ class Entry {
 	}
 	
 	static mapping = {
-		table 'ENTRY'
+		table 'entry'
 
 		ids column: 'IDS'
 		
@@ -59,14 +59,16 @@ class Entry {
 				entryTo.save(flush: true) //更新ids
 				return entryTo
 			} else { //新建
-				String strIds = [termFrom.id.toString(), termTo.id.toString()].encodeAsJSON()
-				def entry = new Entry([ids:strIds])
+				Entry.withTransaction { status ->
+					String strIds = [termFrom.id.toString(), termTo.id.toString()].encodeAsJSON()
+					def entry = new Entry([ids:strIds])
 
-				entry.addToTerms(termFrom)
-				entry.addToTerms(termTo)
+					entry.addToTerms(termFrom)
+					entry.addToTerms(termTo)
 
-				entry.save(flush: true)
-				return entry
+					entry.save(flush: true)
+					return entry
+				}
 			}
 		}
 	}
