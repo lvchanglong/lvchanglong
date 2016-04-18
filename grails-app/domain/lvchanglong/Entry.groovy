@@ -47,7 +47,7 @@ class Entry {
 				entryFrom.ids = strIds
 
 				entryFrom.addToTerms(termTo)
-				entryFrom.save(flush: true) //更新ids
+				entryFrom.save(deepValidate: false) //更新ids
 				return entryFrom
 			} else if(entryTo) {//entryTo存在, entryFrom不在
 				HashSet setIds = JsonHelper.decode(entryTo.ids)
@@ -56,7 +56,7 @@ class Entry {
 				entryTo.ids = strIds
 
 				entryTo.addToTerms(termFrom)
-				entryTo.save(flush: true) //更新ids
+				entryTo.save(deepValidate: false) //更新ids
 				return entryTo
 			} else { //新建
 				Entry.withTransaction { status ->
@@ -66,7 +66,7 @@ class Entry {
 					entry.addToTerms(termFrom)
 					entry.addToTerms(termTo)
 
-					entry.save(flush: true)
+					entry.save(deepValidate: false)
 					return entry
 				}
 			}

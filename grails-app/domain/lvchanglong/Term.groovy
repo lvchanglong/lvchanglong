@@ -14,8 +14,8 @@ import org.apache.solr.common.params.ModifiableSolrParams
  */
 class Term {
 
-	static hasOne = [termInfo: TermInfo] //术语详情(地域area，定义dy，来源ly)
 	static belongsTo = [lan: Lan, discipline: DisciplineP, yongHu: YongHu, entry: Entry] //语种，学科，用户，条目
+	TermInfo termInfo //术语详情(地域area，定义dy，来源ly)
 	
 	String name //名称->导入
 
@@ -23,13 +23,12 @@ class Term {
 	//特有：地域(ly)
 	static constraints = {
 		name(nullable: false, blank: false, unique: true)
-
-		termInfo(nullable: true, blank: true)
-
 		lan(nullable: false, blank: false)
 		discipline(nullable: false, blank: false)
 		yongHu(nullable: false, blank: false)
 		entry(nullable: true, blank: true)
+
+		termInfo(nullable: true, blank: true, unique: true)
 	}
 	
 	static mapping = {
@@ -41,6 +40,8 @@ class Term {
 		discipline column: 'DISCIPLINE_ID'
 		yongHu column: 'YONG_HU_ID'
 		entry column: 'ENTRY_ID'
+
+		termInfo column: 'TERM_INFO_ID'
 
 		id column:'ID'
 		version false
@@ -57,12 +58,13 @@ class Term {
      * @param lanId
      * @param disciplineId
      * @param yongHuId
-     * @param entryId
+	 * @param termInfoId
+     * @param entryId null
      * @return
      */
-    static String sqlInsert(Sql sql, def termName, def lanId, def disciplineId, def yongHuId, def entryId = null) {
-        if (sql && termName && lanId && disciplineId && yongHuId) {
-            String termId = sql.executeInsert("insert into term(NAME, LAN_ID, DISCIPLINE_ID, YONG_HU_ID, ENTRY_ID) values(?, ?, ?, ?, ?)", [termName, lanId, disciplineId, yongHuId, entryId])[0][0]
+    static String sqlInsert(Sql sql, def termName, def lanId, def disciplineId, def yongHuId, def termInfoId, def entryId = null) {
+        if (sql && termName && lanId && disciplineId && yongHuId && termInfoId) {
+            String termId = sql.executeInsert("insert into term(NAME, LAN_ID, DISCIPLINE_ID, YONG_HU_ID, TERM_INFO_ID, ENTRY_ID) values(?, ?, ?, ?, ?, ?)", [termName, lanId, disciplineId, yongHuId, termInfoId, entryId])[0][0]
 
             def solr = SolrHelper.getSolrClient()
             SolrInputDocument document = new SolrInputDocument()

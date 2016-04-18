@@ -18,7 +18,6 @@ class TermInfo {
         area(nullable: true, blank: true)
         dy(nullable: true, blank: true)
         ly(nullable: true, blank: true)
-        term(nullable: false, blank: false, unique: true)
     }
 
     static mapping = {
@@ -27,7 +26,6 @@ class TermInfo {
         area column: 'AREA', sqlType: 'varchar(100)'
         dy column: 'DY', sqlType: 'varchar(255)'
         ly column: 'LY', sqlType: 'varchar(100)'
-        term column: 'TERM_ID'
 
         id column:'ID'
         version false
@@ -40,15 +38,14 @@ class TermInfo {
     /**
      * sql插入
      * @param sql def dataSource|def sql = new Sql(dataSource)
-     * @param termId
      * @param infoLy
      * @param infoDy
      * @param infoArea
      * @return
      */
-    static String sqlInsert(Sql sql, def termId, String infoLy = "无", String infoDy = "无", String infoArea = "无关") {
-        if (sql && termId && infoLy && infoDy && infoArea) {
-            return sql.executeInsert("insert into term_info(TERM_ID, LY, DY, AREA) values(?, ?, ?, ?)", [termId, infoLy, infoDy, infoArea])[0][0]
+    static String sqlInsert(Sql sql, String infoLy = "无", String infoDy = "无", String infoArea = "无关") {
+        if (sql && infoLy && infoDy && infoArea) {
+            return sql.executeInsert("insert into term_info(LY, DY, AREA) values(?, ?, ?)", [infoLy, infoDy, infoArea])[0][0]
         }
     }
 
