@@ -103,12 +103,6 @@ class SolrHelper {
         /*solr.deleteById('0') //删
         solr.commit()*/
 
-        /*SolrInputDocument document = new SolrInputDocument()
-        document.setField("id", "0") //改
-        document.setField("name", "吕常龙")
-        solr.add(document)
-        solr.commit()*/
-
         ModifiableSolrParams params = new ModifiableSolrParams()
         params.add("rows", "2")
         params.add("q", "name:common bond") //params.add("q", "name:\"common bond\"")

@@ -18,140 +18,10 @@ class ProtectedController {
 	static defaultAction = "index"
 
 	/**
-	 * 术语添加（页面）
-	 */
-	def termCreate(String discipline, String source, String target, String ly) {
-
-	}
-
-	/**
-	 * 开始添加术语
-	 * @param did discipline.id
-	 * @param sid source.id
-	 * @param tid target.id
-	 */
-	def termCreating(String did, String sid, String tid, String ly) {
-		if(did && sid && tid) {
-
-		}
-	}
-
-	/**
 	 * 酱油
 	 */
     def index() {
 		render "受保护的"
-	}
-
-	//---------------------------------------------------------------------------------------------------
-
-	/**
-	 * 基础信息（页面）
-	 */
-	def termCommon() {
-
-	}
-
-	/**
-	 * 术语导入（页面）
-	 * @param discipline 经济学#48
-	 * @param source 中文#103
-	 * @param target 英语#100
-	 */
-	def termImport(String discipline, String source, String target, String ly) {
-		if(discipline && source && target) {
-			def did = discipline.split("#")[1]
-			def sid = source.split("#")[1]
-			def tid = target.split("#")[1]
-
-			def disciplineInstance = DisciplineP.get(did.trim())
-			def sourceInstance = Lan.get(sid.trim())
-			def targetInstance = Lan.get(tid.trim())
-			return [disciplineInstance:disciplineInstance, sourceInstance:sourceInstance, targetInstance:targetInstance, ly:ly]
-		}
-		render status: BAD_REQUEST
-	}
-
-	/**
-	 * 开始导入术语
-	 * @param did discipline.id
-	 * @param sid source.id
-	 * @param tid target.id
-	 */
-	def termImporting(String did, String sid, String tid, String ly) {
-		withForm {
-			if(did && sid && tid) {
-				def discipline = DisciplineP.get(did.trim()) //学科
-				def sourceLan = Lan.get(sid.trim()) //源语言
-				def targetLan = Lan.get(tid.trim()) //目标语言
-				def yongHu = YongHu.get(session.uid) //当前用户
-
-				String realPath = servletContext.getRealPath("/")
-				def dirPath = realPath + "userData/${yongHu.id}"
-				def dir = Helper.getFolder(dirPath)
-				dir.listFiles().each {file->
-					String fileType = Helper.getFileType(file.getName())
-
-					switch(fileType.toLowerCase()){
-						case "xls":
-						case "xlsx":
-							def wb = ExcelHelper.open(file)
-							def sheet = wb.getSheetAt(0)
-							def firstRowNum = sheet.getFirstRowNum()
-							def lastRowNum = sheet.getLastRowNum()
-
-							for(int i=firstRowNum; i<=lastRowNum; i++) {
-								def row = sheet.getRow(i)
-								def cellFrom = row.getCell(0)
-								if(cellFrom.getCellType() != Cell.CELL_TYPE_STRING) {
-									cellFrom.setCellType(Cell.CELL_TYPE_STRING)
-								}
-								String strTermFrom = cellFrom.getStringCellValue()
-
-								def cellTo = row.getCell(1)
-								if(cellTo.getCellType() != Cell.CELL_TYPE_STRING) {
-									cellTo.setCellType(Cell.CELL_TYPE_STRING)
-								}
-								String strTermTo = cellTo.getStringCellValue()
-
-								if(strTermFrom && strTermTo){
-									String strTrimFrom = strTermFrom.trim()
-									String strTrimTo = strTermTo.trim()
-
-									def termFrom = null
-									SolrDocument solrDocumentFrom = Term.findSolr(strTrimFrom)
-									if(solrDocumentFrom) {
-										termFrom = Term.get(solrDocumentFrom.id)
-									} else {
-										termFrom = new Term(["name":strTrimFrom, "yongHu":yongHu, "discipline":discipline, "lan":sourceLan, "termInfo":new TermInfo(["ly":ly])])
-										termFrom.save(deepValidate: false)
-									}
-
-									def termTo = null
-									SolrDocument solrDocumentTo = Term.findSolr(strTrimTo)
-									if(solrDocumentTo) {
-										termTo = Term.get(solrDocumentTo.id)
-									} else {
-										termTo = new Term(["name":strTrimTo, "yongHu":yongHu, "discipline":discipline, "lan":targetLan, "termInfo":new TermInfo(["ly":ly])])
-										termTo.save(deepValidate: false)
-									}
-
-									Entry.link(termFrom, termTo) //建立关联
-								}
-							} //for
-					}
-
-					file.delete()
-				}
-				render status: OK, text:"导入成功"
-				return
-			}
-			render status: BAD_REQUEST, text:"无效请求"
-			return
-		}.invalidToken {
-			render status: BAD_REQUEST, text:"导入进行中，请不要多次提交"
-			return
-		}
 	}
 
 	/**
@@ -193,38 +63,6 @@ class ProtectedController {
 		file.delete()
 		def dir = file.getParentFile()
 		render(template:"/protected/fileList", model:[files: dir.list()])
-	}
-
-	/**
-	 * 文件预览
-	 * @param fileName 文件名
-	 */
-	def previewFile(String fileName) {
-		String realPath = servletContext.getRealPath("/")
-		String filePath = realPath + "userData/${session.uid}/${fileName.trim()}"
-		File file = Helper.getFile(filePath)
-		String fileType = Helper.getFileType(fileName)
-
-		switch(fileType.toLowerCase()){
-			case "xls":
-			case "xlsx":
-				def wb = ExcelHelper.open(file)
-				def sheet = wb.getSheetAt(0)
-				def firstRowNum = sheet.getFirstRowNum()
-				def lastRowNum = Math.min(sheet.getLastRowNum(), 3)
-
-				ArrayList arrayHM = new ArrayList()
-				for(int i=firstRowNum; i<=lastRowNum; i++) {
-					def row = sheet.getRow(i)
-					def termFrom = row.getCell(0).getStringCellValue()
-					def termTo = row.getCell(1).getStringCellValue()
-					arrayHM.add(new HashMap(["from":termFrom.trim(), "to":termTo.trim()]))
-				}
-				render(template:"/protected/previewFile", model:['arrayHM': arrayHM])
-				return
-			default:
-				render status: BAD_REQUEST
-		}
 	}
 
 	/**

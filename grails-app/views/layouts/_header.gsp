@@ -14,9 +14,6 @@
 		<div class="col-md-4">
 			<ul class="hNav text-left">
 				<li>
-					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;<g:link controller="term" action="index" class="link" style="font-size:20px;line-height:30px;" >术语检索</g:link>
-				</li>
-				<li>
 					<span class="glyphicon glyphicon-download" aria-hidden="true"></span>&nbsp;<g:link controller="public" action="xiaZai" params="[filePath:'grails-app/assets/androids/lvchanglong.apk']" class="link" style="font-size:20px;line-height:30px;" >下安卓版</g:link>
 				</li>
 			</ul>
@@ -190,9 +187,6 @@
 				<ul class="hNav text-right clearBoth">
 					<li style="padding-right:0;">
 						<g:link controller="protected" action="listShiTi" class="btn btn-default">实体</g:link>
-					</li>
-					<li style="padding-right:0;">
-						<g:link controller="protected" action="termCommon" class="btn btn-default">术语</g:link>
 					</li>
 					<g:if test="${ dangQianYongHu.isAdmin() }">
 						<li style="padding-right:0;">

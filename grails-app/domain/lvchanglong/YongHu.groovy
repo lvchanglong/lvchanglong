@@ -7,7 +7,7 @@ package lvchanglong
  */
 class YongHu {
 
-	static hasMany = [shiTis: ShiTi, terms: Term]
+	static hasMany = [shiTis: ShiTi]
 	
 	String xingMing //姓名
 	String miMa //密码

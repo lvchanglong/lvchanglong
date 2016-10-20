@@ -13,19 +13,6 @@
 				</div>
 
 				<div class="clearBoth"></div>
-
-				<div id="file${i}">
-					%{--_previewFile--}%
-				</div>
-				<g:javascript>
-					$.ajax({
-						url: "${createLink(controller:'protected', action:'previewFile')}",
-						data: {'fileName':"${file}"},
-						success: function(data,textStatus){
-							$("#file${i}").html(data);
-						}
-					});
-				</g:javascript>
 			</td>
 		</tr>
 	</g:each>
