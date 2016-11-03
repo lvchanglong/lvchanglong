@@ -1,52 +1,4 @@
 ---
-hibernate:
-    cache:
-        queries: false
-        use_second_level_cache: true
-        use_query_cache: false
-        region.factory_class: 'org.hibernate.cache.ehcache.EhCacheRegionFactory'
-
-dataSource:
-    pooled: true
-    jmxExport: true
-    driverClassName: com.mysql.jdbc.Driver
-    username: root
-    password: 123456
-
-environments:
-    development:
-        dataSource:
-            dbCreate: update
-            url: jdbc:mysql://localhost/database?useUnicode=true&characterEncoding=utf8&autoReconnect=true
-    test:
-        dataSource:
-            dbCreate: update
-            url: jdbc:mysql://localhost/database?useUnicode=true&characterEncoding=utf8&autoReconnect=true
-    production:
-        dataSource:
-            dbCreate: update
-            url: jdbc:mysql://localhost/database?useUnicode=true&characterEncoding=utf8&autoReconnect=true
-            properties:
-                jmxEnabled: true
-                initialSize: 5
-                maxActive: 50
-                minIdle: 5
-                maxIdle: 25
-                maxWait: 10000
-                maxAge: 600000
-                timeBetweenEvictionRunsMillis: 5000
-                minEvictableIdleTimeMillis: 60000
-                validationQuery: SELECT 1
-                validationQueryTimeout: 3
-                validationInterval: 15000
-                testOnBorrow: true
-                testWhileIdle: true
-                testOnReturn: false
-                jdbcInterceptors: ConnectionState
-                defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
-
----
----
 grails:
     profile: web
     codegen:
@@ -60,10 +12,14 @@ info:
         version: '@info.app.version@'
         grailsVersion: '@info.app.grailsVersion@'
 spring:
-
     groovy:
         template:
             check-template-location: false
+# Spring Actuator Endpoints are Disabled by Default
+endpoints:
+    enabled: false
+    jmx:
+        enabled: true
 
 ---
 grails:
@@ -120,3 +76,50 @@ grails:
 endpoints:
     jmx:
         unique-names: true
+
+---
+hibernate:
+    cache:
+        queries: false
+        use_second_level_cache: true
+        use_query_cache: false
+        region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+
+dataSource:
+    pooled: true
+    jmxExport: true
+    driverClassName: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+
+environments:
+    development:
+        dataSource:
+            dbCreate: update
+            url: jdbc:mysql://localhost/lvchanglong?useUnicode=true&characterEncoding=utf8&autoReconnect=true
+    test:
+        dataSource:
+            dbCreate: update
+            url: jdbc:mysql://localhost/lvchanglong?useUnicode=true&characterEncoding=utf8&autoReconnect=true
+    production:
+        dataSource:
+            dbCreate: none
+            url: jdbc:mysql://localhost/lvchanglong?useUnicode=true&characterEncoding=utf8&autoReconnect=true
+            properties:
+                jmxEnabled: true
+                initialSize: 5
+                maxActive: 50
+                minIdle: 5
+                maxIdle: 25
+                maxWait: 10000
+                maxAge: 600000
+                timeBetweenEvictionRunsMillis: 5000
+                minEvictableIdleTimeMillis: 60000
+                validationQuery: SELECT 1
+                validationQueryTimeout: 3
+                validationInterval: 15000
+                testOnBorrow: true
+                testWhileIdle: true
+                testOnReturn: false
+                jdbcInterceptors: ConnectionState
+                defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
