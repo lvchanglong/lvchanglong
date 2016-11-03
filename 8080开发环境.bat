@@ -1,1 +1,0 @@
-grails dev run-app
