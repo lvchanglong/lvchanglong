@@ -20,12 +20,9 @@ class PublicController {
 	def index(String text) {
 		params.max = 9
 
-		if(text) {
-			def trimText = text.trim()
-			def criteria = ShiTi.where {
-				(biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%")
-			}
-			return [shiTiList:criteria.list(params), shiTiCount:criteria.count()]
+		def trimText = text?text.trim():""
+		def criteria = ShiTi.where {
+			(biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%")
 		}
 
 		[shiTiList:ShiTi.list(params), shiTiCount:ShiTi.count()]

@@ -30,6 +30,9 @@
 				</g:link>
 			</li>
 			<li>
+				<g:link controller="public" action="xiaZai" params="[filePath:'grails-app/assets/androids/lvchanglong.apk']">下安卓版</g:link>
+			</li>
+			<li>
 				<a href="http://www.miitbeian.gov.cn" target="_blank" rel="nofollow">
 					辽ICP备14005125号
 				</a>

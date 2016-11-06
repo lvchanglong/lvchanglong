@@ -79,6 +79,12 @@ class ProtectedController {
 					}
 				}
 			}
+
+			def leiBie = params.leiBie?:"默认"
+			criteria = criteria.build {
+				eq("leiBie", leiBie)
+			}
+
 			params.max = 1
 			params.sort = 'id'
 			params.order = 'desc'

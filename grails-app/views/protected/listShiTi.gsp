@@ -7,8 +7,10 @@
 	<body>
 		<g:if test="${ session.uid }">
 			<g:form name="shiTi-save-form" url="[controller:'protected', action:'saveShiTi']" class="clearfix">
+				<g:hiddenField name="leiBie" value="${params.leiBie}"/>
+
 				<g:textField name="biaoTi" value="" placeholder="标题" required="" autofocus="" class="form-control mb15w"/>
-				<br/>
+
 				<g:textArea id="shiTiNeiRongSave" name="neiRong" value="100%，500px" placeholder="内容" class="ckeditor"/>
 				
 				<g:hiddenField name="yongHu.id" value="${ session.uid }"/>
@@ -45,7 +47,7 @@
 						</g:each>
 					</ul>
 					<div class="pagination">
-						<g:paginate total="${shiTiCount}"/>
+						<g:paginate total="${shiTiCount}" params="[leiBie:params.leiBie]"/>
 					</div>
 				</div>
 			</div>

@@ -11,7 +11,7 @@
 				<g:hiddenField name="version" value="${shiTi?.version}" />
 
 				<g:textField name="biaoTi" required="" value="${shiTi?.biaoTi}" autofocus="" class="form-control mb15w"/>
-				<br/>
+
 				<g:textArea id="shiTiNeiRongUpdate" name="neiRong" required="" value="${shiTi?.neiRong}" class="ckeditor"/>
 
 				<g:submitButton name="submit" class="btn btn-primary pull-right" value="${message(code: 'default.button.update.label', default: 'Update')}" style="margin:8px 15px 0 15px;"/>

@@ -14,7 +14,13 @@
 		<div class="col-md-4">
 			<ul class="hNav text-left">
 				<li>
-					<span class="glyphicon glyphicon-download" aria-hidden="true"></span>&nbsp;<g:link controller="public" action="xiaZai" params="[filePath:'grails-app/assets/androids/lvchanglong.apk']" class="link" style="font-size:20px;line-height:30px;" >下安卓版</g:link>
+					<span class="glyphicon glyphicon-tree-conifer" aria-hidden="true"></span>&nbsp;<g:link controller="public" action="index" params="[leiBie:'默认']" class="link" style="font-size:20px;line-height:30px;" >默认</g:link>
+				</li>
+				<li>
+					<span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;<g:link controller="public" action="index" params="[leiBie:'书籍']" class="link" style="font-size:20px;line-height:30px;" >书籍</g:link>
+				</li>
+				<li>
+					<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>&nbsp;<g:link controller="public" action="index" params="[leiBie:'情报']" class="link" style="font-size:20px;line-height:30px;" >情报</g:link>
 				</li>
 			</ul>
 		</div>
@@ -186,7 +192,13 @@
 			<g:if test="${ dangQianYongHu }">
 				<ul class="hNav text-right clearBoth">
 					<li style="padding-right:0;">
-						<g:link controller="protected" action="listShiTi" class="btn btn-default">实体</g:link>
+						<g:link controller="protected" action="listShiTi" params="[leiBie: '默认']" class="btn btn-default">默认</g:link>
+					</li>
+					<li style="padding-right:0;">
+						<g:link controller="protected" action="listShiTi" params="[leiBie: '书籍']" class="btn btn-default">书籍</g:link>
+					</li>
+					<li style="padding-right:0;">
+						<g:link controller="protected" action="listShiTi" params="[leiBie: '情报']" class="btn btn-default">情报</g:link>
 					</li>
 					<g:if test="${ dangQianYongHu.isAdmin() }">
 						<li style="padding-right:0;">
