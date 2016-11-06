@@ -81,6 +81,10 @@ class PrivateController {
 		render status: OK, text: "重置索引"
 	}
 
+	/**
+	 * bug修复
+	 * @return
+     */
 	def fix() {
 		ShiTi.findAll().each {st->
 			st.leiBie = "默认"
