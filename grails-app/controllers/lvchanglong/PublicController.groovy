@@ -25,7 +25,12 @@ class PublicController {
 			(biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%")
 		}
 
-		[shiTiList:ShiTi.list(params), shiTiCount:ShiTi.count()]
+		def leiBie = params.leiBie?:"默认"
+		criteria = criteria.build {
+			eq("leiBie", leiBie)
+		}
+
+		[shiTiList:criteria.list(params), shiTiCount:criteria.count()]
 	}
 
 	/**
