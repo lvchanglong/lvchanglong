@@ -177,6 +177,7 @@
 					<div class="row">
 						<div class="col-md-10 col-md-offset-2">
 							<g:form name="gongGongJianSuo" url="[controller:'public', action:'index']" method="GET">
+								<g:hiddenField name="leiBie" value="${params.leiBie}"/>
 						    	<div class="input-group">
 						      		<input type="text" name="text" class="form-control" placeholder="请输入关键词（标题 | 内容）" value="${ params.text  }">
 						      		<span class="input-group-btn">
