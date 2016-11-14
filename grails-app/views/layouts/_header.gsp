@@ -196,10 +196,10 @@
 						<g:link controller="protected" action="listShiTi" params="[leiBie: '默认']" class="btn btn-default">默认</g:link>
 					</li>
 					<li style="padding-right:0;">
-						<g:link controller="protected" action="listShiTi" params="[leiBie: '书籍']" class="btn btn-default">书籍</g:link>
+						<g:link controller="protected" action="listShiTi" params="[leiBie: '观察']" class="btn btn-default">观察</g:link>
 					</li>
 					<li style="padding-right:0;">
-						<g:link controller="protected" action="listShiTi" params="[leiBie: '情报']" class="btn btn-default">情报</g:link>
+						<g:link controller="protected" action="listShiTi" params="[leiBie: '思考']" class="btn btn-default">思考</g:link>
 					</li>
 					<g:if test="${ dangQianYongHu.isAdmin() }">
 						<li style="padding-right:0;">

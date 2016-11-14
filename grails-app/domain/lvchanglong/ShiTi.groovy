@@ -22,7 +22,7 @@ class ShiTi {
 		yongHu(nullable: true, blank: true)
 		biaoTi(nullable: false, blank: false)
 		neiRong(nullable: false, blank: false)
-		leiBie(nullable: false, blank: false, inList: ["默认", "书籍", "情报"])
+		leiBie(nullable: false, blank: false, inList: ["默认", "观察", "思考"])
 	}
 	
 	static mapping = {
