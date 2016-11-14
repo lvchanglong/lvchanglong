@@ -17,10 +17,10 @@
 					<span class="glyphicon glyphicon-tree-conifer" aria-hidden="true"></span>&nbsp;<g:link controller="public" action="index" params="[leiBie:'默认']" class="link" style="font-size:20px;line-height:30px;" >默认</g:link>
 				</li>
 				<li>
-					<span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;<g:link controller="public" action="index" params="[leiBie:'书籍']" class="link" style="font-size:20px;line-height:30px;" >书籍</g:link>
+					<span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;<g:link controller="public" action="index" params="[leiBie:'观察']" class="link" style="font-size:20px;line-height:30px;" >观察</g:link>
 				</li>
 				<li>
-					<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>&nbsp;<g:link controller="public" action="index" params="[leiBie:'情报']" class="link" style="font-size:20px;line-height:30px;" >情报</g:link>
+					<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>&nbsp;<g:link controller="public" action="index" params="[leiBie:'思考']" class="link" style="font-size:20px;line-height:30px;" >思考</g:link>
 				</li>
 			</ul>
 		</div>
