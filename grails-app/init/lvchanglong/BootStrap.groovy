@@ -1,11 +1,11 @@
 package lvchanglong
 
-import lvchanglong.YongHu
+import lvchanglong.User
 
 class BootStrap {
 
     def init = { servletContext ->
-		YongHu.init() //用户初始化
+		User.init()
     }
     def destroy = {
     }

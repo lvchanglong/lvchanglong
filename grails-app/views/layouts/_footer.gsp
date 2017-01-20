@@ -2,7 +2,6 @@
 
 <footer class="footer">
 	<div class="container">
-		
 		<div class="row" style="border-top: 3px solid #000000;">
 			<div class="col-md-5">
 				
@@ -19,18 +18,10 @@
 		
 		<ul class="clearfix inlineBlock">
 			<li>
-				<i class="fa fa-copyright"></i>2014-${ Helper.getNian() }，吕常龙，版权所有
+				<i class="fa fa-copyright"></i>2014-${ Helper.getNian() },吕常龙,版权所有
 			</li>
 			<li>
-				<g:link controller="public" action="yongQianBiDu">用前必读</g:link>
-			</li>
-			<li>
-				<g:link controller="public" action="fanKui">
-					反馈
-				</g:link>
-			</li>
-			<li>
-				<g:link controller="public" action="xiaZai" params="[filePath:'grails-app/assets/androids/lvchanglong.apk']">下安卓版</g:link>
+				<g:link controller="public" action="info">用前必读</g:link>
 			</li>
 			<li>
 				<a href="http://www.miitbeian.gov.cn" target="_blank" rel="nofollow">

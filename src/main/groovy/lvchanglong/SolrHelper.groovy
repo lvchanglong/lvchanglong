@@ -103,13 +103,15 @@ class SolrHelper {
         /*solr.deleteById('0') //删
         solr.commit()*/
 
-        ModifiableSolrParams params = new ModifiableSolrParams()
+/*        ModifiableSolrParams params = new ModifiableSolrParams()
         params.add("rows", "2")
         params.add("q", "name:common bond") //params.add("q", "name:\"common bond\"")
         SolrDocumentList docs = this.search(solr, params)
         docs.each { doc->
             println doc.name
-        }
+        }*/
+
+        SolrHelper.deleteByQuery(solr, "*:*")
     }
 
 }

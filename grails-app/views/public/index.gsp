@@ -1,69 +1,58 @@
-<%@ page import="lvchanglong.YongHu" %>
-<%@ page import="lvchanglong.ShiTi" %>
+<%@ page import="lvchanglong.User" %>
+<%@ page import="lvchanglong.Element" %>
 <%@ page import="lvchanglong.BkColor" %>
 
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<g:set var="dangQianYongHu" value="${ YongHu.get(session.uid) }" />
 	</head>
 	<body>
-			<div class="row">
+		<div class="row">
+			<div class="col-md-12">
+				<g:render template="/layouts/plugins/createFeedback"/>
+			</div>
+			<g:if test="${instanceList}">
+				<g:each in="${instanceList}" status="i" var="instance">
+					<g:if test="${ instance }">
+						<div class="col-md-4">
 
-				<g:if test="${shiTiList}">
-					<g:each in="${shiTiList}" status="j" var="shiTi">
-						<g:if test="${ shiTi }">
-							<div class="col-md-4">
-								<div class="listBox" style="background-color:${BkColor.getInst()};">
-									<g:if test="${ dangQianYongHu?.isMyShiTi(shiTi.id) }">
-										<g:link controller="protected" action="editShiTi" id="${ shiTi.id }" target="_blank" onclick="reloadConfirm();" class="link">
-											<span class="glyphicon glyphicon-edit"></span>
-										</g:link>
-									</g:if>
-									
-									<g:link controller="public" action="showShiTi" id="${ shiTi.id }" target="_blank" class="link listHeader">
-										${ shiTi.biaoTi }
-									</g:link>
-									
-									<span style="margin-left:5px;font-size:18px;color:lightgray;">
-										${ shiTi.id }
+							<div class="listBox" style="background-color:${BkColor.getInst()};">
+								<h1 style="margin-top:0;text-align: center;">
+									${ instance.biaoTi }
+								</h1>
+								<div class="content relative clearfix">
+									${ instance.neiRong }
+								</div>
+								<div class="text-text lineHeight30 block">
+									<span class="dateCreated">
+										<g:formatDate date="${instance.dateCreated}" format="yyyy.MM.dd" />
 									</span>
-								
-									<div class="content relative clearfix">
-										<div class="row">
-											<div class="col-md-12 col-xs-12">
-												${ shiTi.neiRong }
-											</div>
-										</div>
-									</div>
-									
-									<div class="text-text lineHeight30 block">
-										<g:render template="/layouts/plugins/zhuanZai"/>
-										<span class="separator">|</span>
-										<span class="dateCreated">
-											<g:formatDate date="${shiTi.dateCreated}" format="yyyy.MM.dd" />
-										</span>
-										<span class="separator">|</span>
-										<span class="yongHu">
-											${shiTi.getYongHuAsString()}
-										</span>
-									</div>
+									<span class="separator">|</span>
+									<span class="yongHu">
+										${instance.user.xingMing}
+									</span>
+									<span class="separator">|</span>
+									<span>
+										CODE-${instance.id}
+									</span>
 								</div>
 							</div>
-						</g:if>
-					</g:each>
-					
-					<div class="col-md-12">
-						<div class="pagination" style="clear:both;margin-top:30px;">
-							<g:paginate total="${shiTiCount}" params="[text:params.text]"/>
+
 						</div>
+					</g:if>
+				</g:each>
+				<div class="col-md-12">
+					<div class="pagination" style="clear:both;margin-top:30px;">
+						<g:paginate total="${instanceCount}" params="[text:params.text]"/>
 					</div>
-				</g:if>
-				<g:else>
+				</div>
+			</g:if>
+			<g:else>
+				<div class="col-md-12">
 					<g:render template="/layouts/plugins/errorInfo" model="[message:'没有数据呀（O _ O）']"/>
-				</g:else>
-				
-			</div>
+				</div>
+			</g:else>
+		</div>
 	</body>
 </html>

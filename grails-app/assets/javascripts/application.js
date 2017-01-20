@@ -6,6 +6,8 @@
 // to create separate JavaScript files as needed.
 //
 //= encoding UTF-8
+//= require HubSpot-messenger/build/js/messenger.min.js
+//= require HubSpot-messenger/build/js/messenger-theme-future.js
 //= require_tree .
 //= require_self
 
@@ -17,58 +19,6 @@ if (typeof jQuery !== 'undefined') {
             $('#spinner').fadeOut();
         });
     })(jQuery);
-}
-
-/**
- * 成功处理
- * @param data
- * @param textStatus
- * @param selector 用于更新成功信息
- */
-function success(data,textStatus,selector) {
-	switch(textStatus) {
-		case "nocontent":
-			textStatus = "删除成功";
-			break;
-		case "success":
-			textStatus = "操作成功";
-			break;
-	}
-	jQuery(selector).attr('class', 'alert alert-success').html(textStatus);
-}
-
-/**
- * 失败处理
- * @param XMLHttpRequest
- * @param textStatus
- * @param errorThrown
- * @param selector 用于更新失败信息
- */
-function error(XMLHttpRequest,textStatus,errorThrown,selector) {
-	var responseText = XMLHttpRequest.responseText;
-	if(!responseText) {
-		switch(errorThrown) {
-			case "Not Found":
-				responseText = "资源未找到";
-				break;
-			case "Not Acceptable":
-				responseText = "验证未通过";
-				break;
-			case "Conflict":
-				responseText = "已存在";
-				break;
-			case "Unauthorized":
-				responseText = "未授权";
-				break;
-			case "Bad Request":
-				responseText = "请求不合法";
-				break;
-			case "Unprocessable Entity":
-				responseText = "请求未接受";
-				break;
-		}
-	}
-	jQuery(selector).attr('class', 'alert alert-warning').html(responseText);
 }
 
 /**
@@ -177,213 +127,141 @@ function wenJianShangChuan(files, url, shangChuanSelector, params) {
 }
 
 /**
- * 连续动画
- * id:canvas id（更新画布）
- * imageSrc:image的src
- * w:单个图片宽度
- * h:单个图片高度
- * maxColumn:整个图片所占列数
- * formRow:起始行
- * toRow:终止行
- * ms:延迟执行时间
- * bkColor:背景色
+ * 成功处理
+ * @param data
+ * @param textStatus
+ * @param selector 用于更新成功信息
  */
-function Motion(id, imageSrc, w, h, maxColumn, fromRow, toRow, ms, callFun, callIdx, bkColor) {
+function success(data,textStatus,selector) {
+	switch(textStatus) {
+		case "nocontent":
+			textStatus = "删除成功";
+			break;
+		case "success":
+			textStatus = "操作成功";
+			break;
+	}
+	jQuery(selector).attr('class', 'alert alert-success').html(textStatus);
+}
 
-	//载入图像
-	this.loadImage = function() {
-		var inst = this;
-		inst.image.onload = function() {
-			inst.go();
+/**
+ * 失败处理
+ * @param XMLHttpRequest
+ * @param textStatus
+ * @param errorThrown
+ * @param selector 用于更新失败信息
+ */
+function error(XMLHttpRequest,textStatus,errorThrown,selector) {
+	var responseText = XMLHttpRequest.responseText;
+	if(!responseText) {
+		switch(errorThrown) {
+			case "Not Found":
+				responseText = "资源未找到";
+				break;
+			case "Not Acceptable":
+				responseText = "验证未通过";
+				break;
+			case "Conflict":
+				responseText = "已存在";
+				break;
+			case "Unauthorized":
+				responseText = "未授权";
+				break;
+			case "Bad Request":
+				responseText = "请求不合法";
+				break;
+			case "Unprocessable Entity":
+				responseText = "请求未接受";
+				break;
 		}
 	}
-
-	//动作执行
-	this.go = function() {
-		var inst = this; //实例别名
-		setTimeout(function(){
-			
-			var x = inst.x;
-			var y = inst.y;
-			var w = inst.w;
-			var h = inst.h;
-			
-			var maxSize = inst.maxSize;
-			var index = inst.index;
-			var maxColumn = inst.maxColumn;
-			
-			var ctx = inst.ctx;
-			var image = inst.image;
-			
-			if (inst.bkColor) {
-				ctx.fillStyle=inst.bkColor;
-			} else {
-				ctx.fillStyle='transparent';
-			}
-			
-			ctx.fillRect(0, 0, w, h);
-			ctx.drawImage(image, x, y, w, h, 0, 0, w, h);
-
-			//数据更新
-			inst.nIndex++;
-			
-			if (callIdx == inst.nIndex % maxColumn) {
-				if (callFun) {
-					callFun();
-				}
-				//console.log(inst.nIndex);
-			}
-			
-			if (inst.nIndex >= maxSize) {
-				inst.nIndex = index;
-			}
-
-			inst.x = (inst.nIndex % maxColumn) * w;
-			inst.y = Math.floor(inst.nIndex / maxColumn) * h;
-			
-			inst.go();//再次执行
-			
-		}, inst.ms);
-	}
-	
-	var canvas = jQuery("#" + id)[0];//画布
-	canvas.width = w;
-    canvas.height = h;
-    
-    this.ctx = canvas.getContext("2d");//上下文
-	
-	this.image = new Image();//图片
-	this.image.src = imageSrc;
-	
-	this.w = w;//图像宽度
-	this.h = h;//图像高度
-	this.maxColumn = maxColumn;//最大列数
-	
-	this.index = (fromRow - 1) * maxColumn;//初始索引
-	this.nIndex = this.index;//自增索引(下限[index]->上限[maxSize])
-
-	this.maxSize = this.index + maxColumn * (toRow - fromRow + 1);//最大容量
-	
-	this.x = (this.nIndex % maxColumn) * w;//当前起始x坐标
-	this.y = Math.floor(this.nIndex / maxColumn) * h;//当前起始y坐标
-
-	this.ms = ms;
-	this.callIdx = callIdx;
-	this.bkColor = bkColor;
-	this.loadImage();
+	jQuery(selector).attr('class', 'alert alert-warning').html(responseText);
 }
 
-/**
- * 说点什么
- * dialogID:话框
- * array:话列表
- */
-function Talk(dialogID, array) {
-	this.dialogID = dialogID;
-	this.array = array;
-	this.arrayLength = this.array.length;
-	
-	this.go = function() {
-		var wt = this.array[Math.floor(Math.random() * this.arrayLength)];
-		$dialog = jQuery("#" + this.dialogID);
-		if ($dialog.is(":hidden")) {
-			$dialog.html(wt).show();
-		} else {
-			$dialog.hide();
-		}
-	}
+function doSuccess(text) {
+	Messenger().post(text);
+	window.location.reload();
 }
 
-/**
- * 点击显示
- * @param wrapperClass
- * @param showID
- */
-function clickToHover(wrapperClass, showID) {
-	var $showElement = jQuery(showID);
-	if($showElement.is(":visible")) {//已显示
-		$showElement.hide();
-	} else {//已隐藏
-		jQuery(wrapperClass).hide();
-		$showElement.show();
-	}
-}
-
-/**
- * 隐藏所有
- * @param wrapperClass
- */
-function hideAll(wrapperClass) {
-	jQuery(wrapperClass).hide();
-}
-
-/**
- * 浮动响应
- * wrapperClass:包装类（触发器）
- * hideElement:需要隐藏的元素(处理元素)
- */
-function responseToHover(wrapperClass, hideID) {
-	var timer = null;//延时器
-	jQuery(wrapperClass).hover(
-		function () {
-			jQuery(hideID).show();
-			clearTimeout(timer);
-		},
-		function () {
-			timer = setTimeout(function() {//延时执行
-				jQuery(hideID).hide();
-			}, 50);
-		}
-	);
-}
-
-/**
- * 远程分页
- */
-function paginate(wrapperSelector, loadSelector) {
-	jQuery(document).on("click", ".pagination a", function() {
-		jQuery(wrapperSelector).load(this.href + " " + loadSelector);
-		window.history.pushState({}, "", this.href);
-		return false;
+function doError(text) {
+	Messenger().post({
+		message: text,
+		hideAfter: 3,
+		showCloseButton: true
 	});
 }
 
 /**
- * 刷新确认框
- * @param htmlTitle 温馨提示
- * @param htmlContent 操作已结束？！！！
- * @param callFunction
- */
-function reloadConfirm(htmlTitle, htmlContent, callFunction) {
-	if(!htmlTitle) {
-		htmlTitle = '温馨提示';
-	}
-	if(!htmlContent) {
-		htmlContent = '操作已结束？！！！';
-	}
-	if(!callFunction) {
-		callFunction = function() {
-			window.location.reload();
-		}
-	}
-	
-	jQuery('<div class="reloadWrapper">' + htmlContent + '</div>').dialog({
-		title:htmlTitle,
-		modal:true,
-		buttons: {
-	    	"确定": function() {
-	    		jQuery(this).dialog('close');
-	    		callFunction();
-	      	}
-	    }
-	});
-}
-
-/**
- * 删除表单（约定）
+ * 删除表单
  */
 jQuery(".deleteForm").ajaxForm({
-	success:function(){
-		window.location.reload();
+	success:function(data,textStatus){
+		doSuccess("删除成功");
+	},
+	error:function(XMLHttpRequest,textStatus,errorThrown){
+		doError("删除失败");
 	}
+});
+
+/**
+ * 保存表单
+ */
+jQuery(".saveForm").ajaxForm({
+	success:function(data,textStatus){
+		doSuccess("保存成功");
+	},
+	error:function(XMLHttpRequest,textStatus,errorThrown){
+		doError("保存失败");
+	}
+});
+
+/**
+ * 修改表单
+ */
+jQuery(".updateForm").ajaxForm({
+	success:function(data,textStatus){
+		doSuccess("修改成功");
+	},
+	error:function(XMLHttpRequest,textStatus,errorThrown){
+		doError("修改失败");
+	}
+});
+
+/**
+ * 提交表单
+ */
+jQuery(".submitForm").ajaxForm({
+	success:function(data,textStatus){
+		doSuccess("操作成功");
+	},
+	error:function(XMLHttpRequest,textStatus,errorThrown){
+		doError(XMLHttpRequest.responseText);
+	}
+});
+
+jQuery(document).ready(function(){
+	$('.input-group').on('focus', '.form-control', function () {
+		$(this).closest('.input-group, .form-group').addClass('focus');
+	}).on('blur', '.form-control', function () {
+		$(this).closest('.input-group, .form-group').removeClass('focus');
+	});
+
+	$(document).on('click', 'a[href="#fakelink"]', function (e) {
+		e.preventDefault();
+	});
+
+	jQuery(document).tooltip({
+		content: function () {
+			return jQuery(this).attr('title');
+		}
+	});
+	
+	NProgress.configure({
+		showSpinner: false
+	});
+	NProgress.start();
+});
+
+jQuery(window).load(function(){
+	NProgress.done();
 });

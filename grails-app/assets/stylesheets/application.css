@@ -8,6 +8,8 @@
 * compiled file, but it's generally better to create a new file per style scope.
 *
 *= encoding UTF-8
+*= require HubSpot-messenger/build/css/messenger.css
+*= require HubSpot-messenger/build/css/messenger-theme-future.css
 *= require mobile
 *= require_self
 */
@@ -28,8 +30,9 @@ html {
 body {
 	position:relative;
 	min-height:100%;
-	font-family:"Hiragino Sans GB",Helvetica,"Microsoft Yahei",Arial !important;
+	font-family:"仿宋",Helvetica,"Microsoft Yahei",Arial;
 	line-height:1.5em;
+	color:#000;
 }
 .h1,h1{font-size:30px}
 .h2,h2{font-size:26px}
@@ -166,6 +169,7 @@ a {
 	padding: 0.3em 0.2em;
 	text-align: center;
 	width:100%;
+	background-color: inherit;
 }
 .pagination a,
 .pagination .currentStep {
@@ -196,6 +200,15 @@ a {
 	color: #444444;
 	text-decoration: underline;
 }
+footer {
+	background-color: #fff;
+	color:#000;
+	font-weight:bold;
+	margin-top: 15px;
+}
+footer a {
+	color: inherit;
+}
 .footer {
 	width: 100%;
 	text-align: center;
@@ -215,27 +228,6 @@ a {
 	color:#e11d03;
 }
 /*-----------------------------------------------------------------------------------------------*/
-.midTitle {
-	width: auto;
-	height: 34px;
-	background: url("/assets/SuCai/dian.gif") 0 18px repeat-x;
-}
-.midTitle .cont {
-	float: left;
-	padding: 0 10px 0 23px;
-	width: auto;
-	height: 34px;
-	line-height: 34px;
-	font-size: 24px;
-	font-weight: bold;
-	background-color:#fff;
-}
-.midTitle .leftBorder {
-	border-left: 5px solid #dd3603;
-}
-.midTitle .leftPointer {
-	background: #fff url("/assets/SuCai/pointerDown.gif") no-repeat;
-}
 .mb30, .mb20, .mb10, .mb5 {
 	display:inline-block;
 } 
@@ -363,7 +355,7 @@ img {
 	color: #e11d03;
 }
 .content {
-	padding-top:20px;
+	padding-top:5px;
 	padding-bottom:5px;
 }
 .neiRong {
@@ -422,6 +414,7 @@ img {
 }
 .header {
 	font-weight:bold;
+	margin-bottom: 15px;
 }
 .header .logo {
 	background-color:#E8041B;
@@ -432,10 +425,7 @@ img {
 }
 .hNav li {
 	display:inline-block;
-	padding:0 10px;
-}
-.uname {
-	font-size:22px;
+	padding:0 8px;
 }
 .colorWhite {
 	color:white;
@@ -492,15 +482,8 @@ img {
 	padding:30px;
 	margin-top:30px;
 	color:#fff;
-	min-height:277px;
-}
-.listHeader {
-	font-size:22px;
-	font-weight:bold;
-}
-.listBox h3 {
-	font-size:16px;
-	margin-top:5px;
+	min-height:287px;
+	position:relative;
 }
 .mb15w {
 	margin-bottom:15px;
@@ -519,6 +502,7 @@ img {
 	margin-top: 0;
 	margin-right: 11px;
 	text-align: right;
+	background-color: inherit;
 }
 .share a {
 	width: 23px;

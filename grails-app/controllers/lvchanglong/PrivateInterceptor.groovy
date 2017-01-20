@@ -8,7 +8,7 @@ class PrivateInterceptor {
 			redirect(url:"/")
 			return
 		}
-		if(!YongHu.get(session.uid).isAdmin()) {
+		if(!User.get(session.uid).isAdmin()) {
 			render status: UNAUTHORIZED, text:"未授权，非管理员"
 			return
 		}

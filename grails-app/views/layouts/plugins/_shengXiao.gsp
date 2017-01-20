@@ -3,7 +3,7 @@
 		<asset:image src="SuCai/谜.png" style="widtH:100%;height:100%;padding:5px;"/>
 	</div>
 	
-	<g:form name="shengXiaoChaXun-form" controller="public" action="shengXiaoChaXun">
+	<g:form name="shengXiaoChaXun-form" controller="share" action="shengXiaoChaXun">
 		<g:field type="number" name="nian" required="" placeholder="年份"/>
 		<g:submitButton name="tiJiao" value="提交"/>
 	</g:form>

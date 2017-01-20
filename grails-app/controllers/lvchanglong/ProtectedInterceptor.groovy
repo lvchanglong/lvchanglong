@@ -2,7 +2,6 @@ package lvchanglong
 
 
 class ProtectedInterceptor {
-
     boolean before() { 
 		if(!session.uid) {
 			redirect(url:"/")

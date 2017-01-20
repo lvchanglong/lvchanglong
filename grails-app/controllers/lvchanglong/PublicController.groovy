@@ -11,86 +11,78 @@ import grails.gorm.DetachedCriteria
 class PublicController {
 
 	static defaultAction = "index"
-	
-	//---------------------------------------------------------------------------------------------------
 
 	/**
-	 * 网站首页(页面)
+	 * 用户列表
 	 */
-	def index(String text) {
+	def users(String q) {
 		params.max = 9
-
-		def trimText = text?text.trim():""
-		def criteria = ShiTi.where {
-			(biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%")
+		if(null == q) {
+			q = ""
 		}
-
-		def leiBie = params.leiBie?:"默认"
-		criteria = criteria.build {
-			eq("leiBie", leiBie)
+		def criteria = User.where {
+			(zhangHao ==~ "%" + q.trim() + "%") || (xingMing ==~ "%" + q.trim() + "%")
 		}
-
-		[shiTiList:criteria.list(params), shiTiCount:criteria.count()]
+		[instanceList:criteria.list(params), instanceCount:criteria.count()]
 	}
 
 	/**
-	 * 反馈列表(页面)
-	 */
-	def fanKui(Integer max) {
+	 * 反馈列表
+	 * @param max
+	 * @return
+     */
+	def feedbacks(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
-		[fanKuiList: FanKui.list(params), fanKuiCount: FanKui.count()]
+		[instanceList: Feedback.list(params), instanceCount: Feedback.count()]
 	}
 
 	/**
 	 * 发布反馈
 	 */
 	@Transactional
-	def saveFanKui(FanKui fanKui) {
-		if (fanKui == null) {
-			render status: NOT_FOUND
-			return
-		}
-
-		fanKui.validate()
-		if (fanKui.hasErrors()) {
+	def saveFeedback(Feedback instance, String xxx) {
+		if(!xxx) {
 			render status: NOT_ACCEPTABLE
 			return
 		}
-
-		fanKui.save flush:true
-		respond fanKui, [status: CREATED, formats:['json', 'xml']]
-	}
-
-	/**
-	 * 用前必读(页面)
-	 */
-	def yongQianBiDu() {
-
-	}
-
-	/**
-	 * 实体详情(页面)
-	 * @param shiTi
-	 */
-	def showShiTi(ShiTi shiTi) {
-		if (shiTi == null) {
+		if(!xxx.equals(Feedback.count().encodeAsMD5())) {
+			render status: NOT_ACCEPTABLE
+			return
+		}
+		if (instance == null) {
 			render status: NOT_FOUND
 			return
 		}
-		[shiTi: shiTi]
+		instance.validate()
+		if (instance.hasErrors()) {
+			render status: NOT_ACCEPTABLE
+			return
+		}
+		instance.save flush:true
+		respond instance, [status: CREATED, formats:['json', 'xml']]
 	}
 
 	/**
-	 * 用户登录(服务)
-	 * @param xingMing 姓名
-	 * @param miMa 密码
+	 * 删除反馈
 	 */
-	def yongHuDengLu(String xingMing, String miMa) {
-		if (xingMing) {
-			def yonghu = YongHu.findInstance(xingMing, miMa)
-			if (yonghu) {
-				session.uid = yonghu.id
-				
+	@Transactional
+	def deleteFeedback(Feedback instance) {
+		if (instance == null) {
+			render status: NOT_FOUND
+			return
+		}
+		instance.delete flush:true
+		render status: NO_CONTENT
+	}
+
+	/**
+	 * 登录系统
+	 */
+	def login(String zhangHao) {
+		if (zhangHao) {
+			def instance = User.findByZhangHao(zhangHao)
+			if (instance) {
+				session.uid = instance.id
 				session.setMaxInactiveInterval(43200) //失效时间12小时
 				render status: OK, text: '操作成功，初始化...'
 				return
@@ -101,127 +93,74 @@ class PublicController {
 		}
 		render status: BAD_REQUEST, text: '参数异常'
 	}
-	
+
 	/**
-	 * 用户注销(服务)
+	 * 退出系统
 	 */
-	def yongHuZhuXiao() {
+	def logout() {
 		session.invalidate()
 		render status: OK, text: '操作成功'
 	}
-	
+
 	/**
-	 * 用户注册(服务)
+	 * 用户注册
 	 */
 	@Transactional
-	def yongHuZhuCe(String xingMing, String miMa, String queRenMiMa) {
-		if (xingMing && miMa) {
-			if (miMa == queRenMiMa) {//确认密码一致性
-				def yongHu = YongHu.findInstance(xingMing, miMa)
-				if (yongHu) {//冲突
-					render status: CONFLICT, text: '已存在'
-					return
-				}
-				def yonghu = new YongHu([xingMing: xingMing, miMa: miMa])//注册用户
-				if (!yonghu.hasErrors()) {
-					yonghu.save flush: true
-					render status: OK, text: '注册成功'
-					return
-				}
+	def register(String zhangHao) {
+		if (zhangHao) {
+			def instance = User.findByZhangHao(zhangHao)
+			if (instance) {//冲突Z
+				render status: CONFLICT, text: '用户已存在'
+				return
 			}
-			render status: NOT_ACCEPTABLE, text: '密码不一致'
-			return
+			instance = new User(params)//注册用户
+			if (!instance.hasErrors()) {
+				instance.save flush: true
+				render status: OK, text: '注册成功'
+				return
+			}
 		}
 		render status: BAD_REQUEST, text: '参数异常'
 	}
-	
-	/**
-	 * 生肖查询(服务)
-	 * @param nian 年份
-	 */
-	def shengXiaoChaXun(Integer nian) {
-		if (nian && nian >= 0) {
-			render Helper.getShengXiao(nian) as JSON
-			return
-		}
-		render status: NOT_ACCEPTABLE, text: '数据不合法'
-	}
-	
-	/**
-	 * ip详情(服务)
-	 * @param ip地址
-	 */
-	def ipXiangQing(String ip) {
-		try {
-			def url = new URL("http://wap.ip138.com/ip138.asp?ip=" + ip.trim())
-			def text = url.getText()
-			render text.find(/(?<=<b>).*?(?=<\/b>)/)
-		} catch(Exception e) {
-			
-		}
-	}
-	
-	/**
-	 * 下载(服务)
-	 * @param filePath 文件路径  grails-app/assets/androids/lvchanglong.apk
-	 */
-	def xiaZai(String filePath) {
-		try {
-			File file = new File(filePath.trim())
-			def fileName = file.getName()
-			def fileType = Helper.getFileType(fileName)
-			response.contentType = grailsApplication.config.grails.mime.types[fileType]
-			response.setHeader("Content-Disposition", "attachment; filename=" + URLEncoder.encode(fileName, "UTF-8"))
-			def out = response.getOutputStream()
-			out << file.getBytes()
-			out.flush()
-			out.close()
-		} catch(Exception e) {
-			
-		}
-	}
-	
-	/**
-	 * 近期公告，HTML5 EventSource，服务器实时推送(服务)
-	 */
-	def jinQiGongGao() {
-		def array = ["I want to play a game with you", "我就是吕常龙", "我是这的站长", "我要不断的成长"]
-		
-		Integer i = Math.floor(Math.random() * array.size())
-		
-		String wt = array[i];
-		
-		response.setHeader("Content-Type", "text/event-stream")
-		response.setHeader("Cache-Control", "no-cache")
-		response.setCharacterEncoding ("UTF-8")
-		
-		def printWriter = response.getWriter()
 
-		printWriter.println("data:" + wt)
-		
-		printWriter.println()
-		printWriter.flush()
-	}
-	
 	/**
 	 * 头像加载(服务)
 	 */
-	def loadTouXiang(YongHu yongHu) {
+	def loadTouXiang(User user) {
 		try {
 			def url = new URL(createLink(uri:'/', absolute:true) + assetPath(src:'SuCai/%E8%AE%B0%E8%80%85.png').replaceFirst("/", ""))
-			byte[] byteList = url.getBytes()
-			if (yongHu) {
-				if (yongHu.touXiang) {
-					byteList = yongHu.touXiang
+			byte[] bytes = url.getBytes()
+			if (user) {
+				if (user.touXiang) {
+					bytes = user.touXiang
 				}
 			}
 			def out = response.getOutputStream()
-			out << byteList
+			out << bytes
 			out.flush()
 			out.close()
 		} catch(Exception e) {
-		
+
 		}
 	}
-	
+
+	/**
+	 * 用前必读
+	 */
+	def info() {
+
+	}
+
+	/**
+	 * 网站首页
+	 */
+	def index(String text) {
+		params.max = 9
+		def trimText = text?text.trim():""
+		def criteria = Element.where {
+			(biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%")
+		}
+		[instanceList:criteria.list(params), instanceCount:criteria.count()]
+	}
+
 }
