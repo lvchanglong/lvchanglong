@@ -6,7 +6,7 @@
 					${file}
 				</div>
 				<div class="pull-right">
-					<g:form name="file-delete-form" url="[controller:'protected', action:'deleteFile']" method="DELETE" class="fileListDeleteForm">
+					<g:form name="file-delete-form" url="[controller:'share', action:'deleteFile']" method="DELETE" class="fileListDeleteForm">
 						<g:hiddenField name="fileName" value="${file}" />
 						<g:submitButton name="submit" value="删除" class="btn btn-danger"/>
 					</g:form>

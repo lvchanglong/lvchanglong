@@ -69,9 +69,6 @@ a {
 .separator {
 	padding:0 3px;
 }
-.none {
-	display:none;
-}
 .clearfix:after {
 	content:"";
 	display:block; 

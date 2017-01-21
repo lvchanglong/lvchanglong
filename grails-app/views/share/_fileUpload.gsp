@@ -22,7 +22,7 @@
 	$(function () {
 		'use strict';
 		$('#fileupload').fileupload({
-			url: "${createLink(controller:"protected", action:"uploadFile")}",
+			url: "${createLink(controller:"share", action:"uploadFile")}",
 			dataType: 'json',
 			limitMultiFileUploadSize: 1000000,
 			done: function (e, data) {
@@ -43,7 +43,7 @@
 	 * 更新文件列表
 	 */
 	function listFiles() {
-		jQuery("#files").load("${createLink(controller:'protected', action:'listFiles')}");
+		jQuery("#files").load("${createLink(controller:'share', action:'listFiles')}");
 	}
 
 	listFiles();
