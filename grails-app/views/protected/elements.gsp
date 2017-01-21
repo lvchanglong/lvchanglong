@@ -8,10 +8,21 @@
 	<body>
 		<g:if test="${ session.uid }">
 			<g:form name="instance-save-form" url="[controller:'protected', action:'saveElement']" class="clearfix saveForm">
-				<g:textField name="biaoTi" value="" placeholder="标题" required="" autofocus="" class="form-control"/>
-				<g:textArea name="neiRong" value="" placeholder="内容" class="ckeditor-stop" style="width:100%;height:300px;font-size:16px;"/>
-				<g:hiddenField name="user.id" value="${ session.uid }"/>
-				<g:submitButton name="faBu" value="发布" class="btn btn-primary" style="margin-top:8px;margin-right:10px;"/>
+				<div class="row">
+					<div class="col-md-9">
+						<g:textField name="biaoTi" value="" placeholder="标题" required="" autofocus="" class="form-control"/>
+					</div>
+					<div class="col-md-3">
+						<g:select name="leiBie" from="['视频', '链接', '文本']" value="" class="form-control"/>
+					</div>
+					<div class="col-md-12">
+						<g:textArea name="neiRong" value="" placeholder="内容" class="ckeditor-stop" style="width:100%;height:300px;font-size:16px;"/>
+					</div>
+					<div class="col-md-12">
+						<g:hiddenField name="user.id" value="${ session.uid }"/>
+						<g:submitButton name="faBu" value="发布" class="btn btn-primary btn-lg"/>
+					</div>
+				</div>
 			</g:form>
 		</g:if>
 
@@ -55,11 +66,21 @@
 												</div>
 												<div class="modal-body">
 													<g:form name="update-form" url="[controller:'protected', action:'updateElement']" method="POST" class="updateForm">
-														<g:hiddenField name="id" value="${instance.id}" />
-														<g:textField name="biaoTi" value="${instance.biaoTi}" placeholder="标题" required="" autofocus="" class="form-control"/>
-														<g:textArea name="neiRong" value="${instance.neiRong}" placeholder="内容" class="ckeditor-stop" style="width:100%;height:300px;font-size:16px;color:#000;"/>
-
-														<g:submitButton name="submit" value="修改" class="btn btn-bg btn-primary"/>
+														<div class="row">
+															<div class="col-md-9">
+																<g:textField name="biaoTi" value="${instance.biaoTi}" placeholder="标题" required="" autofocus="" class="form-control"/>
+															</div>
+															<div class="col-md-3">
+																<g:select name="leiBie" from="['视频', '链接', '文本']" value="${instance.leiBie}" class="form-control"/>
+															</div>
+															<div class="col-md-12">
+																<g:textArea name="neiRong" value="${instance.neiRong}" placeholder="内容" class="ckeditor-stop" style="width:100%;height:300px;font-size:16px;color:#000;"/>
+															</div>
+															<div class="col-md-12">
+																<g:hiddenField name="id" value="${instance.id}" />
+																<g:submitButton name="submit" value="修改" class="btn btn-bg btn-primary"/>
+															</div>
+														</div>
 													</g:form>
 												</div>
 											</div>

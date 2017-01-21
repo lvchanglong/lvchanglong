@@ -103,7 +103,7 @@ environments:
             url: jdbc:mysql://localhost/lvchanglong?useUnicode=true&characterEncoding=utf8&autoReconnect=true
     production:
         dataSource:
-            dbCreate: none
+            dbCreate: update
             url: jdbc:mysql://localhost/lvchanglong?useUnicode=true&characterEncoding=utf8&autoReconnect=true
             properties:
                 jmxEnabled: true

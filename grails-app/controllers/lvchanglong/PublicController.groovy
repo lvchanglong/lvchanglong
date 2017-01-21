@@ -147,7 +147,7 @@ class PublicController {
 	/**
 	 * 用前必读
 	 */
-	def info() {
+	def information() {
 
 	}
 
@@ -155,10 +155,46 @@ class PublicController {
 	 * 网站首页
 	 */
 	def index(String text) {
-		params.max = 9
+		params.max = 9 //群体展示
 		def trimText = text?text.trim():""
 		def criteria = Element.where {
 			(biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%")
+		}
+		[instanceList:criteria.list(params), instanceCount:criteria.count()]
+	}
+
+	/**
+	 *视频
+	 */
+	def videos(String text) {
+		params.max = 1 //单独展示
+		def trimText = text?text.trim():""
+		def criteria = Element.where {
+			leiBie == "视频" && ((biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%"))
+		}
+		[instanceList:criteria.list(params), instanceCount:criteria.count()]
+	}
+
+	/**
+	 *链接
+	 */
+	def links(String text) {
+		params.max = 1 //单独展示
+		def trimText = text?text.trim():""
+		def criteria = Element.where {
+			leiBie == "链接" && ((biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%"))
+		}
+		[instanceList:criteria.list(params), instanceCount:criteria.count()]
+	}
+
+	/**
+	 *文本
+	 */
+	def texts(String text) {
+		params.max = 1 //单独展示
+		def trimText = text?text.trim():""
+		def criteria = Element.where {
+			leiBie == "文本" && ((biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%"))
 		}
 		[instanceList:criteria.list(params), instanceCount:criteria.count()]
 	}

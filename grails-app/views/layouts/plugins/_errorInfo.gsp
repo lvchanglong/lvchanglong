@@ -1,7 +1,4 @@
-<%@ page import="lvchanglong.BkColor" %>
-<%@ page import="lvchanglong.GuShi" %>
-<%@ page import="lvchanglong.JianJie" %>
-<%@ page import="lvchanglong.ChineseName" %>
+<%@ page import="lvchanglong.BkColor; lvchanglong.GuShi; lvchanglong.JianJie; lvchanglong.ChineseName" %>
 
 <div class="row">
 	<div class="col-md-4">

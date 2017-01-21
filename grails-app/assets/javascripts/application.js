@@ -245,7 +245,6 @@ jQuery(document).ready(function(){
 	}).on('blur', '.form-control', function () {
 		$(this).closest('.input-group, .form-group').removeClass('focus');
 	});
-
 	$(document).on('click', 'a[href="#fakelink"]', function (e) {
 		e.preventDefault();
 	});
@@ -255,7 +254,7 @@ jQuery(document).ready(function(){
 			return jQuery(this).attr('title');
 		}
 	});
-	
+
 	NProgress.configure({
 		showSpinner: false
 	});

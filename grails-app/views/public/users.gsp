@@ -29,7 +29,7 @@
 				<div class="col-md-4">
 					<div class="listBox" style="background-color:${BkColor.getInst()};">
 						<span style="margin-left:5px;font-size:25px;">
-							${instance}&nbsp;/&nbsp;<span style="font-size:14px;">${ instance.quanXian }</span>
+							${instance.xingMing}（${instance.zhangHao}）&nbsp;/&nbsp;<span style="font-size:14px;">${ instance.quanXian }</span>
 						</span>
 						<div class="content relative clearfix">
 							<div class="row">

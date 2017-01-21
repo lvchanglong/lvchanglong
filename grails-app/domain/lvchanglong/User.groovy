@@ -38,7 +38,7 @@ class User {
     }
 
     String toString() {
-        return this.xingMing+"（${this.zhangHao}）"
+        return this.xingMing
     }
 
     def beforeInsert() {

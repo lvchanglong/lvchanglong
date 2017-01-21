@@ -128,6 +128,7 @@ a {
 	text-align: center;
 	width:100%;
 	background-color: inherit;
+	color:#000;
 }
 .pagination a,
 .pagination .currentStep {
@@ -157,21 +158,19 @@ a {
 	color: #444444;
 	text-decoration: underline;
 }
-footer {
+.footer {
 	background-color: #fff;
 	color:#000;
 	font-weight:bold;
 	margin-top: 15px;
-}
-footer a {
-	color: inherit;
-}
-.footer {
-	width: 100%;
 	text-align: center;
 }
+.footer a {
+	color: inherit;
+}
 .footer .logo {
-	background-color:#E8041B;
+	/*background-color:#E8041B;*/
+	background-color:#42505F;
 	margin:20px 0 10px 0;
 }
 .footer li {
@@ -292,12 +291,23 @@ img {
 	width:100%;
 	background:#d73d31;
 }
+.topLines .line3{
+	height:6px;
+	width:100%;
+	background:#2f4154;
+}
+.topLines .line4{
+	height:6px;
+	width:100%;
+	background:#42505F;
+}
 .header {
 	font-weight:bold;
 	margin-bottom: 15px;
 }
 .header .logo {
-	background-color:#E8041B;
+	/*background-color:#E8041B;*/
+	background-color:#42505F;
 	margin-bottom:15px;
 }
 .header .hNav {

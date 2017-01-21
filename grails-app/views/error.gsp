@@ -1,5 +1,4 @@
-<%@ page import="lvchanglong.BkColor" %>
-<%@ page import="lvchanglong.GuShi" %>
+<%@ page import="lvchanglong.BkColor; lvchanglong.GuShi" %>
 <!doctype html>
 <html>
     <head>

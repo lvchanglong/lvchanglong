@@ -1,25 +1,35 @@
-<%@ page import="lvchanglong.User" %>
-<%@ page import="lvchanglong.ChineseName" %>
+<%@ page import="lvchanglong.User; lvchanglong.ChineseName" %>
 
 <g:set var="cUser" value="${ User.get(session.uid) }" />
-<g:set var="autoName" value="${ ChineseName.getInst() }" />
 
 <div class="topLines">
-	<div class="line1"></div>
-	<div class="line2"></div>
+	<div class="line3"></div>
+	<div class="line4"></div>
 </div>
 
 <div class="container header">
 	<div class="row" style="border-bottom: 3px solid #000000;">
 		<div class="col-md-4">
 			<ul class="hNav text-left">
+				<li>
+					<g:link controller="public" action="videos" target="_black">
+						<span class="glyphicon glyphicon-film"></span>
+						视频
+					</g:link>
+				</li>
+				<li>
+					<g:link controller="public" action="links" target="_black">
+						<span class="glyphicon glyphicon-tag"></span>
+						链接
+					</g:link>
+				</li>
+				<li>
+					<g:link controller="public" action="texts" target="_black">
+						<span class="glyphicon glyphicon-file"></span>
+						文本
+					</g:link>
+				</li>
 				<g:if test="${ cUser }">
-					<li>
-						<g:link controller="public" action="users" class="link"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span>&nbsp;用户</g:link>
-					</li>
-					<li>
-						<g:link controller="public" action="feedbacks" class="link"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>&nbsp;反馈</g:link>
-					</li>
 					<li>
 						<a href="#" data-toggle="modal" data-target="#hoverZhuCe" class="link"><span class="glyphicon glyphicon-flash" aria-hidden="true"></span>&nbsp;注册</a>
 						<div class="modal fade" id="hoverZhuCe" tabindex="-1" role="dialog" aria-labelledby="hoverZhuCeTitle" aria-hidden="true">
@@ -45,9 +55,17 @@
 						<g:link controller="protected" action="elements"><span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span>&nbsp;元素</g:link>
 					</li>
 				</g:if>
+				<g:if test="${ cUser && cUser.isAdmin() }">
+					<li>
+						<g:link controller="public" action="users" class="link"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span>&nbsp;用户</g:link>
+					</li>
+					<li>
+						<g:link controller="public" action="feedbacks" class="link"><span class="glyphicon glyphicon-send" aria-hidden="true"></span>&nbsp;反馈</g:link>
+					</li>
+				</g:if>
 			</ul>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-4" style="text-align: center;">
 			<g:link uri="/">
 				<asset:image src="WenZi/吕常龙.png" class="toCenter logo" style="height:130px;"/>
 			</g:link>
@@ -95,12 +113,12 @@
 						</div>
 					</li>
 					<li>
-						<a href="#" onclick="jQuery.post('${ createLink(controller:'public', action:"logout") }', function(){window.location.reload();});" class="link">退出</a>
+						<a href="#" onclick="jQuery.post('${ createLink(controller:'public', action:"logout") }', function(){window.location.reload();});">退出</a>
 					</li>
 				</g:if>
 				<g:else>
 					<li>
-						<a href="#" data-toggle="modal" data-target="#hoverDengLu" class="link"><strong class="uname"><i class="fa fa-user"></i>${ autoName }</strong></a>
+						<a href="#" data-toggle="modal" data-target="#hoverDengLu" class="link"><strong class="uname"><i class="fa fa-user"></i>${ ChineseName.getInst() }</strong></a>
 						<div class="modal fade" id="hoverDengLu" tabindex="-1" role="dialog" aria-labelledby="hoverDengLuTitle" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
