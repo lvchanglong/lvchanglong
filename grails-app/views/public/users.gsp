@@ -17,7 +17,7 @@
 					<div style="font-size:30px;margin-bottom:50px;text-align:center;">用户检索</div>
 					<g:form name="yongHuJianSuo" url="[controller:'public', action:'users']" method="GET">
 						<div class="input-group">
-							<input type="text" name="q" class="form-control" placeholder="请输入关键词（账号 | 姓名）" value="${ params.q  }">
+							<input type="text" name="q" class="form-control" placeholder="请输入关键词（账号 | 姓名）" value="${ params.q }">
 							<span class="input-group-btn">
 								<button class="btn btn-primary" type="submit">检索</button>
 							</span>

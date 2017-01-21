@@ -133,9 +133,20 @@ class ProtectedController {
 	/**
 	 * 元素列表
 	 */
-	def elements() {
-		params.max = 9
-		[instanceList:Element.list(params), instanceCount:Element.count()]
+	def elements(String q) {
+		params.max = 9 //群体展示
+		def trimText = q?q.trim():""
+		def criteria = null
+		if(trimText.matches(/\d.*/)) {
+			criteria = Element.where {
+				id == trimText
+			}
+		} else {
+			criteria = Element.where {
+				biaoTi ==~ "%" + trimText + "%"
+			}
+		}
+		[instanceList:criteria.list(params), instanceCount:criteria.count()]
 	}
 
 }

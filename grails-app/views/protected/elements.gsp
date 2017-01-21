@@ -9,10 +9,10 @@
 		<g:if test="${ session.uid }">
 			<g:form name="instance-save-form" url="[controller:'protected', action:'saveElement']" class="clearfix saveForm">
 				<div class="row">
-					<div class="col-md-9">
+					<div class="col-md-9 col-xs-9">
 						<g:textField name="biaoTi" value="" placeholder="标题" required="" autofocus="" class="form-control"/>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-3 col-xs-3">
 						<g:select name="leiBie" from="['视频', '链接', '文本']" value="" class="form-control"/>
 					</div>
 					<div class="col-md-12">
@@ -27,6 +27,16 @@
 		</g:if>
 
 		<div class="row">
+			<div class="col-md-offset-8 col-md-4">
+				<g:form name="searchElement" url="[controller:'protected', action:'elements']" method="GET" style="margin-top: 5px;">
+					<div class="input-group">
+						<input type="text" name="q" class="form-control" placeholder="请输入关键词（ID | 标题）" value="${ params.q }">
+						<span class="input-group-btn">
+							<button class="btn btn-primary" type="submit">检索</button>
+						</span>
+					</div>
+				</g:form>
+			</div>
 			<g:if test="${instanceList}">
 				<g:each in="${instanceList}" status="i" var="instance">
 					<g:if test="${ instance }">
@@ -67,10 +77,10 @@
 												<div class="modal-body">
 													<g:form name="update-form" url="[controller:'protected', action:'updateElement']" method="POST" class="updateForm">
 														<div class="row">
-															<div class="col-md-9">
+															<div class="col-md-9 col-xs-9">
 																<g:textField name="biaoTi" value="${instance.biaoTi}" placeholder="标题" required="" autofocus="" class="form-control"/>
 															</div>
-															<div class="col-md-3">
+															<div class="col-md-3 col-xs-3">
 																<g:select name="leiBie" from="['视频', '链接', '文本']" value="${instance.leiBie}" class="form-control"/>
 															</div>
 															<div class="col-md-12">
