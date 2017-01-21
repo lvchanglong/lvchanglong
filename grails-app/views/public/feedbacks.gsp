@@ -1,3 +1,4 @@
+<%@ page import="lvchanglong.BkColor" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,31 +12,22 @@
 	</head>
 	<body>
 		<div class="row">
+			<g:each in="${instanceList}" status="i" var="instance">
+				<div class="col-md-4">
+					<div class="listBox" style="background-color:${BkColor.getInst()};">
+						<span style="margin-left:5px;font-size:25px;">
+							<g:formatDate date="${instance.dateCreated}" format="yyyy-MM-dd"/>&nbsp;/&nbsp;<span style="font-size:14px;">${instance.neiRong}</span>
+						</span>
+						<g:if test="${session.uid}">
+							<g:form name="delete-form" url="[controller:'public', action:'deleteFeedback']" method="DELETE" class="deleteForm">
+								<g:hiddenField name="id" value="${instance.id}" />
+								<g:submitButton name="submit" value="删除" class="btn btn-sm btn-link" style="position:absolute;top:0;right:0;"/>
+							</g:form>
+						</g:if>
+					</div>
+				</div>
+			</g:each>
 			<div class="col-md-12">
-				<table class="table table-bordered table-hover" style="margin-top:30px;">
-					<tr>
-						<th>内容</th>
-						<th style="width:110px">时间</th>
-						<th style="width:100px">操作</th>
-					</tr>
-					<g:each in="${instanceList}" status="i" var="instance">
-						<tr>
-							<td>${instance.neiRong}</td>
-							<td><g:formatDate date="${instance.dateCreated}" format="yyyy-MM-dd"/></td>
-							<td>
-								<g:if test="${session.uid}">
-									<g:form name="delete-form" url="[controller:'public', action:'deleteFeedback']" method="DELETE" class="deleteForm">
-										<g:hiddenField name="id" value="${instance.id}" />
-										<g:submitButton name="submit" value="删除" class="btn btn-danger btn-sm"/>
-									</g:form>
-								</g:if>
-								<g:else>
-									无
-								</g:else>
-							</td>
-						</tr>
-					</g:each>
-				</table>
 				<div class="pagination">
 					<g:paginate total="${instanceCount}" />
 				</div>

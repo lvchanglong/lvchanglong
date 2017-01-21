@@ -1,5 +1,5 @@
 <g:form name="shiTi-save-form" url="[controller:'protected', action:'saveShiTi']" class="clearfix">
-	<g:textField name="biaoTi" value="" placeholder="标题" required="" autofocus="" class="form-control mb15w"/>
+	<g:textField name="biaoTi" value="" placeholder="标题" required="" autofocus="" class="form-control"/>
 
 	<g:textArea id="shiTiNeiRongSave" name="neiRong" value="100%，500px" placeholder="内容" class="ckeditor"/>
 

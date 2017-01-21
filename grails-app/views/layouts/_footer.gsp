@@ -16,7 +16,7 @@
 			</div>
 		</div>
 		
-		<ul class="clearfix inlineBlock">
+		<ul style="display:inline-block;">
 			<li>
 				<i class="fa fa-copyright"></i>2014-${ Helper.getNian() },吕常龙,版权所有
 			</li>

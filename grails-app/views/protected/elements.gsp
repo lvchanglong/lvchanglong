@@ -8,7 +8,7 @@
 	<body>
 		<g:if test="${ session.uid }">
 			<g:form name="instance-save-form" url="[controller:'protected', action:'saveElement']" class="clearfix saveForm">
-				<g:textField name="biaoTi" value="" placeholder="标题" required="" autofocus="" class="form-control mb15w"/>
+				<g:textField name="biaoTi" value="" placeholder="标题" required="" autofocus="" class="form-control"/>
 				<g:textArea name="neiRong" value="" placeholder="内容" class="ckeditor-stop" style="width:100%;height:300px;font-size:16px;"/>
 				<g:hiddenField name="user.id" value="${ session.uid }"/>
 				<g:submitButton name="faBu" value="发布" class="btn btn-primary" style="margin-top:8px;margin-right:10px;"/>
@@ -28,7 +28,7 @@
 								<div class="content relative clearfix">
 									${ instance.neiRong }
 								</div>
-								<div class="text-text lineHeight30 block">
+								<div class="text-text">
 									<span class="dateCreated">
 										<g:formatDate date="${instance.dateCreated}" format="yyyy.MM.dd" />
 									</span>
@@ -56,7 +56,7 @@
 												<div class="modal-body">
 													<g:form name="update-form" url="[controller:'protected', action:'updateElement']" method="POST" class="updateForm">
 														<g:hiddenField name="id" value="${instance.id}" />
-														<g:textField name="biaoTi" value="${instance.biaoTi}" placeholder="标题" required="" autofocus="" class="form-control mb15w"/>
+														<g:textField name="biaoTi" value="${instance.biaoTi}" placeholder="标题" required="" autofocus="" class="form-control"/>
 														<g:textArea name="neiRong" value="${instance.neiRong}" placeholder="内容" class="ckeditor-stop" style="width:100%;height:300px;font-size:16px;color:#000;"/>
 
 														<g:submitButton name="submit" value="修改" class="btn btn-bg btn-primary"/>

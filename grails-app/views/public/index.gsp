@@ -24,7 +24,7 @@
 								<div class="content relative clearfix">
 									${ instance.neiRong }
 								</div>
-								<div class="text-text lineHeight30 block">
+								<div class="relative">
 									<span class="dateCreated">
 										<g:formatDate date="${instance.dateCreated}" format="yyyy.MM.dd" />
 									</span>

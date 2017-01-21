@@ -20,7 +20,7 @@
 			</li>
 		</ul>
 	</div>
-	<div class="col-md-12 autoHide mt15">
+	<div class="col-md-12 autoHide" style="margin-top: 15px;">
 		<g:render template="/layouts/plugins/3D" />
 	</div>
 </div>
