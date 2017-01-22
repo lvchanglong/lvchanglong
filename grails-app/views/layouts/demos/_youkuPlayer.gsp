@@ -1,4 +1,4 @@
-<div id="IDXMjQ4MDcyNjQ3NgIDXMjQ4MDcyNjQ3Ng" style="width:100%;min-width:480px;height:400px"></div>
+<div id="IDXMjQ4MDcyNjQ3NgIDXMjQ4MDcyNjQ3Ng" style="width:100%;height:400px"></div>
 <script type="text/javascript">
 	player = new YKU.Player("IDXMjQ4MDcyNjQ3NgIDXMjQ4MDcyNjQ3Ng",{
 		styleid: "0",
