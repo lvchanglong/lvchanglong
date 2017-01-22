@@ -32,7 +32,7 @@
 									</span>
 									<span class="separator">|</span>
 									<span>
-										CODE-${instance.id}
+										${instance.leiBie}&nbsp;${instance.id}
 									</span>
 								</div>
 							</div>

@@ -143,7 +143,7 @@ class ProtectedController {
 			}
 		} else {
 			criteria = Element.where {
-				biaoTi ==~ "%" + trimText + "%"
+				(biaoTi ==~ "%" + trimText + "%") || (leiBie ==~ "%" + trimText + "%")
 			}
 		}
 		[instanceList:criteria.list(params), instanceCount:criteria.count()]

@@ -33,7 +33,7 @@
 			<div class="col-md-offset-8 col-md-4">
 				<g:form name="searchElement" url="[controller:'protected', action:'elements']" method="GET" style="margin-top: 5px;">
 					<div class="input-group">
-						<input type="text" name="q" class="form-control" placeholder="请输入关键词（ID | 标题）" value="${ params.q }">
+						<input type="text" name="q" class="form-control" placeholder="请输入关键词（ID | 标题 | 类别）" value="${ params.q }">
 						<span class="input-group-btn">
 							<button class="btn btn-primary" type="submit">检索</button>
 						</span>
@@ -62,7 +62,7 @@
 									</span>
 									<span class="separator">|</span>
 									<span>
-										CODE-${instance.id}
+										${instance.leiBie}&nbsp;${instance.id}
 									</span>
 								</div>
 
