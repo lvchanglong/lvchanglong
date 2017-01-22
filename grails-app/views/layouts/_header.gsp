@@ -84,7 +84,15 @@
 									</div>
 									<div class="modal-body">
 										<div class="row">
-											<div class="col-md-6 col-xs-6" style="border-right: 1px solid lightgray;">
+											<div class="col-md-6 col-sm-6">
+												<g:form name="xinXiXiuGai" url="[controller:'protected', action:'updateUser']" method="PUT" class="submitForm" style="width:180px;margin:0 auto;">
+													<g:textField name="zhangHao" value="${cUser.zhangHao}" required="" autofocus="" class="form-control" placeholder="账号"/>
+													<g:textField name="xingMing" value="${cUser.xingMing}" class="form-control" placeholder="姓名"/>
+
+													<g:submitButton name="submit" value="修改" class="btn btn-lg btn-primary btn-block"/>
+												</g:form>
+											</div>
+											<div class="col-md-6 col-sm-6">
 												<g:uploadForm useToken="true" controller="protected" action="uploadTouXiang" onsubmit="wenJianShangChuan(jQuery(this).find([type=file])[0].files, '${ createLink(controller:"protected", action:"uploadTouXiang") }', '#kaiShiShangChuan', jQuery(this).serialize());return false" style="width:180px;margin:0 auto;">
 													<div id="touXiangWrapper" style="text-align:center;margin-bottom:15px;margin-top:5px;">
 														<g:img uri="${ createLink(controller:'public', action:'loadTouXiang', id:cUser.id) }" width="180px" height="180px" alt="头像" class="img-thumbnail"/>
@@ -97,14 +105,6 @@
 													</div>
 													<g:submitButton id="kaiShiShangChuan" name="shangChuan" value="开始上传" class="btn btn-default btn-block form-control" style="margin-top:10px;"/>
 												</g:uploadForm>
-											</div>
-											<div class="col-md-6 col-xs-6">
-												<g:form name="xinXiXiuGai" url="[controller:'protected', action:'updateUser']" method="PUT" class="submitForm" style="width:180px;margin:0 auto;">
-													<g:textField name="zhangHao" value="${cUser.zhangHao}" required="" autofocus="" class="form-control" placeholder="账号"/>
-													<g:textField name="xingMing" value="${cUser.xingMing}" class="form-control" placeholder="姓名"/>
-
-													<g:submitButton name="submit" value="修改" class="btn btn-lg btn-primary btn-block"/>
-												</g:form>
 											</div>
 										</div>
 							      	</div>
