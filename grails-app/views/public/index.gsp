@@ -13,7 +13,7 @@
 			<g:if test="${instanceList}">
 				<g:each in="${instanceList}" status="i" var="instance">
 					<g:if test="${ instance }">
-						<div class="col-md-4">
+						<div class="col-md-${instance.getColspan()}">
 
 							<div class="listBox" style="background-color:${BkColor.getInst()};">
 								<h1 style="margin-top:0;text-align: center;">

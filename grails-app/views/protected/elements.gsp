@@ -9,14 +9,17 @@
 		<g:if test="${ session.uid }">
 			<g:form name="instance-save-form" url="[controller:'protected', action:'saveElement']" class="clearfix saveForm">
 				<div class="row">
-					<div class="col-md-9 col-xs-9">
+					<div class="col-md-6 col-xs-6">
 						<g:textField name="biaoTi" value="" placeholder="标题" required="" autofocus="" class="form-control"/>
 					</div>
 					<div class="col-md-3 col-xs-3">
-						<g:select name="leiBie" from="['视频', '链接', '文本']" value="" class="form-control"/>
+						<g:select name="leiBie" from="['视频', '链接', '文本']" value="视频" class="form-control"/>
+					</div>
+					<div class="col-md-3 col-xs-3">
+						<g:select name="lieShu" from="[4, 8, 12]" value="8" class="form-control"/>
 					</div>
 					<div class="col-md-12">
-						<g:textArea name="neiRong" value="" placeholder="内容" class="ckeditor-stop" style="width:100%;height:300px;font-size:16px;"/>
+						<g:textArea name="neiRong" value="${g.render(template:"/layouts/demos/youkuPlayer")}" placeholder="内容" class="ckeditor-stop" style="width:100%;height:300px;font-size:16px;"/>
 					</div>
 					<div class="col-md-12">
 						<g:hiddenField name="user.id" value="${ session.uid }"/>
@@ -40,7 +43,7 @@
 			<g:if test="${instanceList}">
 				<g:each in="${instanceList}" status="i" var="instance">
 					<g:if test="${ instance }">
-						<div class="col-md-4">
+						<div class="col-md-${instance.getColspan()}">
 
 							<div class="listBox" style="background-color:${lvchanglong.BkColor.getInst()};">
 								<h1 style="margin-top:0;text-align: center;">
@@ -77,11 +80,14 @@
 												<div class="modal-body">
 													<g:form name="update-form" url="[controller:'protected', action:'updateElement']" method="POST" class="updateForm">
 														<div class="row">
-															<div class="col-md-9 col-xs-9">
+															<div class="col-md-6 col-xs-6">
 																<g:textField name="biaoTi" value="${instance.biaoTi}" placeholder="标题" required="" autofocus="" class="form-control"/>
 															</div>
 															<div class="col-md-3 col-xs-3">
 																<g:select name="leiBie" from="['视频', '链接', '文本']" value="${instance.leiBie}" class="form-control"/>
+															</div>
+															<div class="col-md-3 col-xs-3">
+																<g:select name="lieShu" from="[4, 8, 12]" value="${instance.lieShu}" class="form-control"/>
 															</div>
 															<div class="col-md-12">
 																<g:textArea name="neiRong" value="${instance.neiRong}" placeholder="内容" class="ckeditor-stop" style="width:100%;height:300px;font-size:16px;color:#000;"/>

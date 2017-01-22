@@ -60,6 +60,9 @@
 
 		<script src="//cdn.bootcss.com/modernizr/2.8.3/modernizr.min.js"></script>
 		<script src="//cdn.bootcss.com/livingston-css3-mediaqueries-js/1.0.0/css3-mediaqueries.min.js"></script>
+
+		<script src="//player.youku.com/jsapi"></script>
+
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 			<script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
