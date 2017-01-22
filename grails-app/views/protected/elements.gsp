@@ -115,7 +115,7 @@
 				</g:each>
 				<div class="col-md-12">
 					<div class="pagination" style="clear:both;margin-top:30px;">
-						<g:paginate total="${instanceCount}"/>
+						<g:paginate total="${instanceCount}" params="[q:params.q]"/>
 					</div>
 				</div>
 			</g:if>
