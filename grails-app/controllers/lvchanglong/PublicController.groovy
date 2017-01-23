@@ -155,7 +155,7 @@ class PublicController {
 	 * 网站首页
 	 */
 	def index(String text, Integer max) {
-		params.max = Math.min(max ?: 9, 100)
+		params.max = Math.min(max ?: 9, 30)
 		def trimText = text?text.trim():""
 		def criteria = Element.where {
 			(biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%")

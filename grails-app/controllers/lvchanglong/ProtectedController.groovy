@@ -134,7 +134,7 @@ class ProtectedController {
 	 * 元素列表
 	 */
 	def elements(String q, Integer max) {
-		params.max = Math.min(max ?: 9, 100)
+		params.max = Math.min(max ?: 9, 30)
 		def trimText = q?q.trim():""
 		def criteria = null
 		if(trimText.matches(/\d.*/)) {

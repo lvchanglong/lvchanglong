@@ -18,10 +18,10 @@
 					<div class="col-md-3 col-xs-3">
 						<g:select name="lieShu" from="[4, 8, 12]" value="8" class="form-control"/>
 					</div>
-					<div class="col-md-12">
+					<div class="col-md-12 col-xs-12">
 						<g:textArea name="neiRong" value="${g.render(template:"/layouts/demos/youkuPlayer")}" placeholder="内容" class="ckeditor-stop" style="width:100%;height:300px;font-size:16px;"/>
 					</div>
-					<div class="col-md-12">
+					<div class="col-md-12 col-xs-12">
 						<g:hiddenField name="user.id" value="${ session.uid }"/>
 						<g:submitButton name="faBu" value="发布" class="btn btn-primary btn-lg"/>
 					</div>
@@ -89,10 +89,10 @@
 															<div class="col-md-3 col-xs-3">
 																<g:select name="lieShu" from="[4, 8, 12]" value="${instance.lieShu}" class="form-control"/>
 															</div>
-															<div class="col-md-12">
+															<div class="col-md-12 col-xs-12">
 																<g:textArea name="neiRong" value="${instance.neiRong}" placeholder="内容" class="ckeditor-stop" style="width:100%;height:300px;font-size:16px;color:#000;"/>
 															</div>
-															<div class="col-md-12">
+															<div class="col-md-12 col-xs-12">
 																<g:hiddenField name="id" value="${instance.id}" />
 																<g:submitButton name="submit" value="修改" class="btn btn-bg btn-primary"/>
 															</div>
