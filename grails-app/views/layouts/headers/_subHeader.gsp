@@ -31,10 +31,10 @@
 							</g:link>
 						</li>
 						<li>
-							<g:form controller="public" action="videos" role="search" class="navbar-form" method="GET">
+							<g:form controller="public" action="${params.action}" role="search" class="navbar-form" method="GET">
 								<div class="form-group">
 									<div class="input-group">
-										<input class="form-control" id="navbarInput" type="search" placeholder="Search" name="content" value="${params.content}">
+										<input class="form-control" id="navbarInput" type="search" placeholder="Search" name="q" value="${params.q}">
 										<span class="input-group-btn">
 											<button type="submit" class="btn"><span class="fui-search"></span></button>
 										</span>

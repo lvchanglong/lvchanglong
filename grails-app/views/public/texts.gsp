@@ -39,7 +39,7 @@
 				</g:each>
 				<div class="col-md-12">
 					<div class="pagination" style="clear:both;margin-top:30px;">
-						<g:paginate total="${instanceCount}" params="[text:params.text]"/>
+						<g:paginate total="${instanceCount}" params="[q:params.q]"/>
 					</div>
 				</div>
 			</g:if>
@@ -51,10 +51,7 @@
 		</div>
 
 		<content tag="header">
-			<g:render template="/layouts/headers/header0"/>
-		</content>
-		<content tag="footer">
-			<g:render template="/layouts/footers/footer0"/>
+			<g:render template="/layouts/headers/subHeader"/>
 		</content>
 	</body>
 </html>

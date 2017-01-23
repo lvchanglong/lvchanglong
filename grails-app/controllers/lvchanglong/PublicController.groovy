@@ -17,11 +17,9 @@ class PublicController {
 	 */
 	def users(String q, Integer max) {
 		params.max = Math.min(max ?: 9, 100)
-		if(null == q) {
-			q = ""
-		}
+		def trimText = q?q.trim():""
 		def criteria = User.where {
-			(zhangHao ==~ "%" + q.trim() + "%") || (xingMing ==~ "%" + q.trim() + "%")
+			(zhangHao ==~ "%" + trimText + "%") || (xingMing ==~ "%" + trimText + "%")
 		}
 		[instanceList:criteria.list(params), instanceCount:criteria.count()]
 	}
@@ -203,9 +201,9 @@ class PublicController {
 	/**
 	 *视频
 	 */
-	def videos(String text, Integer max) {
+	def videos(String q, Integer max) {
 		params.max = Math.min(max ?: 1, 9)
-		def trimText = text?text.trim():""
+		def trimText = q?q.trim():""
 		def criteria = Element.where {
 			(leiBie == "视频") && ((biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%"))
 		}
@@ -215,9 +213,9 @@ class PublicController {
 	/**
 	 *链接
 	 */
-	def links(String text, Integer max) {
+	def links(String q, Integer max) {
 		params.max = Math.min(max ?: 1, 9)
-		def trimText = text?text.trim():""
+		def trimText = q?q.trim():""
 		def criteria = Element.where {
 			(leiBie == "链接") && ((biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%"))
 		}
@@ -227,9 +225,9 @@ class PublicController {
 	/**
 	 *文本
 	 */
-	def texts(String text, Integer max) {
+	def texts(String q, Integer max) {
 		params.max = Math.min(max ?: 1, 9)
-		def trimText = text?text.trim():""
+		def trimText = q?q.trim():""
 		def criteria = Element.where {
 			(leiBie == "文本") && ((biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%"))
 		}
