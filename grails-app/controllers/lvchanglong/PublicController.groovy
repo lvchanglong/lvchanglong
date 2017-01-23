@@ -155,12 +155,15 @@ class PublicController {
 	 * 网站首页
 	 */
 	def index(String text, Integer max) {
+		def videos = Element.findAllByLeiBie("视频")
+		def video = Helper.random(videos)
+
 		params.max = Math.min(max ?: 9, 30)
 		def trimText = text?text.trim():""
 		def criteria = Element.where {
-			(biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%")
+			(leiBie != "视频") && (biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%")
 		}
-		[instanceList:criteria.list(params), instanceCount:criteria.count()]
+		[video:video, instanceList:criteria.list(params), instanceCount:criteria.count()]
 	}
 
 	/**

@@ -9,7 +9,31 @@
 			<div class="col-md-12">
 				<g:render template="/layouts/plugins/createFeedback"/>
 			</div>
-
+			<g:if test="${video}">
+				<div class="col-md-12">
+					<div class="listBox" style="background-color:${BkColor.getInst()};">
+						<h1 style="margin-top:0;text-align: center;">
+							${ video.biaoTi }
+						</h1>
+						<div class="content relative clearfix">
+							${ video.neiRong }
+						</div>
+						<div class="relative">
+							<span class="dateCreated">
+								<g:formatDate date="${video.dateCreated}" format="yyyy.MM.dd" />
+							</span>
+							<span class="separator">|</span>
+							<span class="yongHu">
+								${video.user.xingMing}
+							</span>
+							<span class="separator">|</span>
+							<span>
+								${video.leiBie}&nbsp;${video.id}
+							</span>
+						</div>
+					</div>
+				</div>
+			</g:if>
 			<g:if test="${instanceList}">
 				<g:each in="${instanceList}" status="i" var="instance">
 					<g:if test="${ instance }">

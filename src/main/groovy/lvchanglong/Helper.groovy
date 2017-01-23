@@ -177,9 +177,25 @@ class Helper {
 	static def yaSuo(File file, Integer widthTar, Integer heightTar) {
 		this.yaSuo(file, file, widthTar, heightTar)
 	}
+
+	/**
+	 * 随机获取
+	 * @param array
+	 * @return
+     */
+	static def random(def array) {
+		if(array) {
+			Random random = new Random(System.currentTimeMillis())
+			int bound = array.size()-1//设定范围
+			int idx = random.nextInt(bound)
+			return array[idx]
+		}
+		return null
+	}
 	
 	static main(args) {
-		
+
+		println "随机获取：" + this.random(["H", "E", "L", "L", "O"])
 //		println "生肖属相：" + this.getShengXiao(1988)
 //		println "文件类型：" + this.getFileType("fileName.txt")
 //		println "宽度800，高度自适：" + this.yaSuo(new File("C:\\Users\\lvchanglong\\Desktop\\素材\\左手.jpg"), 800, 0)
