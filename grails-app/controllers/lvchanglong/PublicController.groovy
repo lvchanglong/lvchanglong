@@ -161,7 +161,7 @@ class PublicController {
 		params.max = Math.min(max ?: 9, 30)
 		def trimText = text?text.trim():""
 		def criteria = Element.where {
-			(leiBie != "视频") && (biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%")
+			(leiBie != "视频") && ((biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%"))
 		}
 		[video:video, instanceList:criteria.list(params), instanceCount:criteria.count()]
 	}
@@ -173,7 +173,7 @@ class PublicController {
 		params.max = Math.min(max ?: 1, 9)
 		def trimText = text?text.trim():""
 		def criteria = Element.where {
-			leiBie == "视频" && ((biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%"))
+			(leiBie == "视频") && ((biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%"))
 		}
 		[instanceList:criteria.list(params), instanceCount:criteria.count()]
 	}
@@ -185,7 +185,7 @@ class PublicController {
 		params.max = Math.min(max ?: 1, 9)
 		def trimText = text?text.trim():""
 		def criteria = Element.where {
-			leiBie == "链接" && ((biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%"))
+			(leiBie == "链接") && ((biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%"))
 		}
 		[instanceList:criteria.list(params), instanceCount:criteria.count()]
 	}
@@ -197,7 +197,7 @@ class PublicController {
 		params.max = Math.min(max ?: 1, 9)
 		def trimText = text?text.trim():""
 		def criteria = Element.where {
-			leiBie == "文本" && ((biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%"))
+			(leiBie == "文本") && ((biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%"))
 		}
 		[instanceList:criteria.list(params), instanceCount:criteria.count()]
 	}
