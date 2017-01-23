@@ -47,7 +47,7 @@
 
 							<div class="listBox" style="background-color:${lvchanglong.BkColor.getInst()};">
 								<h1 style="margin-top:0;text-align: center;">
-									${ instance.biaoTi }
+									<g:link controller="public" action="element" id="${instance.id}" target="_blank">${ instance.biaoTi }</g:link>
 								</h1>
 								<div class="content relative clearfix">
 									${ instance.neiRong }

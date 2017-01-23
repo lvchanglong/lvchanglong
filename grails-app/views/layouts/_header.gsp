@@ -12,19 +12,19 @@
 		<div class="col-md-4">
 			<ul class="hNav text-left">
 				<li>
-					<g:link controller="public" action="videos" target="_black">
+					<g:link controller="public" action="videos" target="_self">
 						<span class="glyphicon glyphicon-film"></span>
 						视频
 					</g:link>
 				</li>
 				<li>
-					<g:link controller="public" action="links" target="_black">
+					<g:link controller="public" action="links" target="_self">
 						<span class="glyphicon glyphicon-tag"></span>
 						链接
 					</g:link>
 				</li>
 				<li>
-					<g:link controller="public" action="texts" target="_black">
+					<g:link controller="public" action="texts" target="_self">
 						<span class="glyphicon glyphicon-file"></span>
 						文本
 					</g:link>
@@ -150,7 +150,7 @@
 						<div class="col-md-11 col-md-offset-1">
 							<g:form name="gongGongJianSuo" url="[controller:'public', action:'index']" method="GET">
 						    	<div class="input-group">
-						      		<input type="text" name="text" class="form-control" placeholder="请输入关键词（标题 | 内容）" value="${ params.text }">
+						      		<input type="text" name="content" class="form-control" placeholder="请输入关键词（标题 | 内容）" value="${ params.content }">
 						      		<span class="input-group-btn">
 						        		<button class="btn btn-primary" type="submit">检索</button>
 						      		</span>

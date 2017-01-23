@@ -10,24 +10,26 @@
 				<g:each in="${instanceList}" status="i" var="instance">
 					<g:if test="${ instance }">
 						<div class="col-md-12">
-							<div class="content relative clearfix">
-								${ instance.neiRong }
-							</div>
-							<div class="relative">
-								<span style="font-size:30px;">${ instance.biaoTi }</span>
-								<span style="float:right;">
-									<span class="dateCreated">
-										<g:formatDate date="${instance.dateCreated}" format="yyyy.MM.dd" />
+							<div class="listBox" style="background-color:${BkColor.getInst()};">
+								<div class="content relative clearfix">
+									${ instance.neiRong }
+								</div>
+								<div class="relative">
+									<g:link controller="public" action="element" id="${instance.id}" target="_blank">${ instance.biaoTi }</g:link>
+									<span style="float:right;">
+										<span class="dateCreated">
+											<g:formatDate date="${instance.dateCreated}" format="yyyy.MM.dd" />
+										</span>
+										<span class="separator">|</span>
+										<span class="yongHu">
+											${instance.user.xingMing}
+										</span>
+										<span class="separator">|</span>
+										<span>
+											CODE-${instance.id}
+										</span>
 									</span>
-									<span class="separator">|</span>
-									<span class="yongHu">
-										${instance.user.xingMing}
-									</span>
-									<span class="separator">|</span>
-									<span>
-										CODE-${instance.id}
-									</span>
-								</span>
+								</div>
 							</div>
 						</div>
 					</g:if>

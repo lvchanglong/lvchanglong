@@ -13,19 +13,19 @@
 				<div class="collapse navbar-collapse" id="navbar-collapse-header">
 					<ul class="nav navbar-nav navbar-left">
 						<li>
-							<g:link controller="public" action="videos" target="_black">
+							<g:link controller="public" action="videos" target="_self">
 								<span class="glyphicon glyphicon-film"></span>
 								视频
 							</g:link>
 						</li>
 						<li>
-							<g:link controller="public" action="links" target="_black">
+							<g:link controller="public" action="links" target="_self">
 								<span class="glyphicon glyphicon-tag"></span>
 								链接
 							</g:link>
 						</li>
 						<li>
-							<g:link controller="public" action="texts" target="_black">
+							<g:link controller="public" action="texts" target="_self">
 								<span class="glyphicon glyphicon-file"></span>
 								文本
 							</g:link>
@@ -34,7 +34,7 @@
 							<g:form controller="public" action="videos" role="search" class="navbar-form" method="GET">
 								<div class="form-group">
 									<div class="input-group">
-										<input class="form-control" id="navbarInput" type="search" placeholder="Search" name="text" value="${params.text}">
+										<input class="form-control" id="navbarInput" type="search" placeholder="Search" name="content" value="${params.content}">
 										<span class="input-group-btn">
 											<button type="submit" class="btn"><span class="fui-search"></span></button>
 										</span>

@@ -154,16 +154,50 @@ class PublicController {
 	/**
 	 * 网站首页
 	 */
-	def index(String text, Integer max) {
-		def videos = Element.findAllByLeiBie("视频")
-		def video = Helper.random(videos)
+	def index(String content, Integer max) {
+		if(content) {
+			params.max = Math.min(max ?: 20, 40)
+			def trimContent = content.trim()
+			def criteria = Element.where {
+				(biaoTi ==~ "%" + trimContent + "%") || (neiRong ==~ "%" + trimContent + "%")
+			}
+			return [instanceList:criteria.list(params), instanceCount:criteria.count()]
+		} else {
+			def elements = Element.list()
+			HashMap<String, ArrayList> hm = elements.groupBy {element->
+				element.leiBie
+			}
+			def videoList = hm.get("视频")
+			def linkList = hm.get("链接")
+			def textList = hm.get("文本")
 
-		params.max = Math.min(max ?: 9, 30)
-		def trimText = text?text.trim():""
-		def criteria = Element.where {
-			(leiBie != "视频") && ((biaoTi ==~ "%" + trimText + "%") || (neiRong ==~ "%" + trimText + "%"))
+			def video = Helper.random(videoList)
+			def link = Helper.random(linkList)
+			def texts = new ArrayList()
+
+			def minimum = Math.min(textList.size(), 9)
+			if(minimum >= 1) {
+				for(i in 1..minimum) {
+					def text = Helper.random(textList)
+					texts.add(text)
+					textList.remove(text)
+				}
+			}
+			return [video:video, link:link, texts:texts, instanceList:elements]
 		}
-		[video:video, instanceList:criteria.list(params), instanceCount:criteria.count()]
+	}
+
+	/**
+	 * 元素详情
+	 * @param id
+     */
+	def element(String id) {
+		if(id) {
+			def instance = Element.get(id)
+			if(instance) {
+				return ["instance":instance]
+			}
+		}
 	}
 
 	/**

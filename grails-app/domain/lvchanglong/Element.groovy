@@ -39,10 +39,22 @@ class Element {
     }
 
     String toString() {
-        return this.neiRong
+        return this.biaoTi
     }
 
     def getColspan() {
         return this.lieShu?:4
+    }
+
+    boolean isVideo() {
+        return this.leiBie.equals("视频")
+    }
+
+    boolean isLink() {
+        return this.leiBie.equals("链接")
+    }
+
+    boolean isText() {
+        return this.leiBie.equals("文本")
     }
 }

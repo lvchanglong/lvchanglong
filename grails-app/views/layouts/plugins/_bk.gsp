@@ -25,7 +25,7 @@
 
 <div class="col-md-4">
 	<div class="listBox" style="background-color:#C0392B;text-align: center;">
-		<g:link controller="public" action="videos" target="_black" style="font-size:70px;">
+		<g:link controller="public" action="videos" target="_self" style="font-size:70px;">
 			<span class="glyphicon glyphicon-film"></span>
 			视频
 		</g:link>
@@ -33,7 +33,7 @@
 </div>
 <div class="col-md-4">
 	<div class="listBox" style="background-color:#F39C12;text-align: center;">
-		<g:link controller="public" action="links" target="_black" style="font-size:70px;">
+		<g:link controller="public" action="links" target="_self" style="font-size:70px;">
 			<span class="glyphicon glyphicon-tag"></span>
 			链接
 		</g:link>
@@ -41,7 +41,7 @@
 </div>
 <div class="col-md-4">
 	<div class="listBox" style="background-color:#2980B9;text-align: center;">
-		<g:link controller="public" action="texts" target="_black" style="font-size:70px;">
+		<g:link controller="public" action="texts" target="_self" style="font-size:70px;">
 			<span class="glyphicon glyphicon-file"></span>
 			文本
 		</g:link>
