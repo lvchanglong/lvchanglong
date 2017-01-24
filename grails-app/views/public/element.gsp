@@ -12,15 +12,14 @@
 					<div class="listBox" style="background-color:${BkColor.getInst()};">
 						<div class="content relative clearfix">
 
-							<g:if test="${instance.isVideo() || instance.isText()}">
-								${ instance.neiRong }
-							</g:if>
-
 							<g:if test="${instance.isLink()}">
 								<iframe width="100%" height="700" frameborder="0" scrolling="auto" src="${ instance.neiRong }">
 									<a href="${ instance.neiRong }" target="_blank">${ instance.biaoTi }</a>
 								</iframe>
 							</g:if>
+							<g:else>
+								${ instance.neiRong }
+							</g:else>
 
 						</div>
 						<div class="relative">
@@ -37,6 +36,10 @@
 								<span>
 									CODE-${instance.id}
 								</span>
+								<g:if test="${instance.isLink()}">
+									<span class="separator">|</span>
+									<a href="${ instance.neiRong }" target="_blank">来源</a>
+								</g:if>
 							</span>
 						</div>
 					</div>

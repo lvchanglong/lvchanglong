@@ -85,6 +85,8 @@
 									<span>
 										${link.leiBie}&nbsp;${link.id}
 									</span>
+									<span class="separator">|</span>
+									<a href="${ link.neiRong }" target="_blank">来源</a>
 								</span>
 							</div>
 						</div>

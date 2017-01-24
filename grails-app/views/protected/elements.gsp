@@ -50,7 +50,14 @@
 									<g:link controller="public" action="element" id="${instance.id}" target="_blank">${ instance.biaoTi }</g:link>
 								</h1>
 								<div class="content relative clearfix">
-									${ instance.neiRong }
+									<g:if test="${instance.isLink()}">
+										<iframe width="100%" height="700" frameborder="0" scrolling="auto" src="${ instance.neiRong }">
+											<a href="${ instance.neiRong }" target="_blank">${ instance.biaoTi }</a>
+										</iframe>
+									</g:if>
+									<g:else>
+										${ instance.neiRong }
+									</g:else>
 								</div>
 								<div class="text-text">
 									<span class="dateCreated">
@@ -64,6 +71,10 @@
 									<span>
 										${instance.leiBie}&nbsp;${instance.id}
 									</span>
+									<g:if test="${instance.isLink()}">
+										<span class="separator">|</span>
+										<a href="${ instance.neiRong }" target="_blank">来源</a>
+									</g:if>
 								</div>
 
 								<g:if test="${session.uid}">

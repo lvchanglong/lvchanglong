@@ -30,6 +30,8 @@
 										<span>
 											CODE-${instance.id}
 										</span>
+										<span class="separator">|</span>
+										<a href="${ instance.neiRong }" target="_blank">来源</a>
 									</span>
 								</div>
 							</div>
