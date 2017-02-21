@@ -1,23 +1,46 @@
 package lvchanglong
 
-import org.apache.poi.ss.usermodel.Cell
-
 class Test {
 
+	static def convert() {
+		File inputFile = new File("F:\\2pdf", "中期检查.doc")
+
+		def openOffice = new OpenOffice()
+		def pdf = openOffice.convert2pdf(inputFile)
+		if(pdf) {
+			def pdf2swf = new SWFTools()
+			def swf = pdf2swf.convert2swf(pdf)
+			if(swf) {
+				println "转换成功"
+				println swf.getAbsolutePath()
+			} else {
+				println "swf转换失败"
+			}
+		} else {
+			println "pdf转换失败"
+		}
+
+	}
+
 	static main(args) {
-		def sb = new StringBuilder()
-		sb.append('<div id="替换成优酷视频ID" style="width:480px;height:400px"></div>')
-		sb.append('<script type="text/javascript">')
-		sb.append('player = new YKU.Player("替换成优酷视频ID",{')
-		sb.append('styleid: "0",')
-		sb.append('client_id: "b2a05d6e715a8025",')
-		sb.append('vid: "替换成优酷视频ID",')
-		sb.append('newPlayer: true,')
-		sb.append('show_related: false,')
-		sb.append('autoplay: false')
-		sb.append('});')
-		sb.append('</script>')
-		println sb.toString()
+
+//		OpenOffice.start()
+
+		Test.convert()
+
+//		def sb = new StringBuilder()
+//		sb.append('<div id="替换成优酷视频ID" style="width:480px;height:400px"></div>')
+//		sb.append('<script type="text/javascript">')
+//		sb.append('player = new YKU.Player("替换成优酷视频ID",{')
+//		sb.append('styleid: "0",')
+//		sb.append('client_id: "b2a05d6e715a8025",')
+//		sb.append('vid: "替换成优酷视频ID",')
+//		sb.append('newPlayer: true,')
+//		sb.append('show_related: false,')
+//		sb.append('autoplay: false')
+//		sb.append('});')
+//		sb.append('</script>')
+//		println sb.toString()
 
 //        def xls = new File("E:/", "123456.xls")
 //        def xlsx = new File("E:/", "123456.xlsx")

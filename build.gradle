@@ -58,8 +58,9 @@ dependencies {
     compile "org.apache.poi:poi-ooxml:3.14"
     runtime "mysql:mysql-connector-java:5.1.29"
     compile "org.apache.solr:solr-solrj:5.5.0"
-}
 
+    compile "com.artofsolving:jodconverter:2.2.1"
+}
 
 assets {
     minifyJs = true
