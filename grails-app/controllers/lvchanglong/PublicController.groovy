@@ -39,6 +39,10 @@ class PublicController {
 	 */
 	@Transactional
 	def saveFeedback(Feedback instance, String xxx) {
+		if(!request.isRequestedSessionIdFromCookie()) {
+			render status: NOT_ACCEPTABLE
+			return
+		}
 		if(!xxx) {
 			render status: NOT_ACCEPTABLE
 			return
