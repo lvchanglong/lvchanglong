@@ -38,7 +38,15 @@ class PublicController {
 	 * 发布反馈
 	 */
 	@Transactional
-	def saveFeedback(Feedback instance, String xxx) {
+	def saveFeedback(Feedback instance, String xxx, String neiRong) {
+		if(!neiRong) {
+			render status: NOT_ACCEPTABLE
+			return
+		}
+		if(neiRong.toLowerCase().contains("http") || neiRong.toLowerCase().contains("href")) {
+			render status: NOT_ACCEPTABLE
+			return
+		}
 		if(!request.isRequestedSessionIdFromCookie()) {
 			render status: NOT_ACCEPTABLE
 			return
